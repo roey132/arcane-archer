@@ -15,3 +15,5 @@ public class playerBaseData : MonoBehaviour
     public float _magicalDamageMultiplier;
     public int _numOfArrows;
 }
+
+
