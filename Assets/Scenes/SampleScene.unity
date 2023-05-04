@@ -413,37 +413,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152624194}
   m_CullTransparentMesh: 1
---- !u!1 &187403691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 187403692}
-  m_Layer: 0
-  m_Name: Ammo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &187403692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187403691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.5730815, y: 1.593852, z: 0.95473224}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &204239834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,7 +1916,7 @@ MonoBehaviour:
   _health: 100
   _mana: 5
   _movementSpeed: 3
-  _attackSpeed: 2
+  _attackSpeed: 1000
   _castSpeed: 1
   _criticalRate: 0.1
   _criticalDamage: 1.5
@@ -2336,3 +2305,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104567100}
   m_CullTransparentMesh: 1
+--- !u!1001 &5439112176924104300
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.95473224
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407104, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439112176742407105, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: _ammo
+      value: 
+      objectReference: {fileID: 11400000, guid: bf0b8af26c763df4196ea8b58c88e887, type: 2}
+    - target: {fileID: 5439112176742407111, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
+      propertyPath: m_Name
+      value: Ammo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
