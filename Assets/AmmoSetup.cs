@@ -11,10 +11,4 @@ public class AmmoSetup : MonoBehaviour
     {
         _spriteRenderer.sprite = _ammo.sprite;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
