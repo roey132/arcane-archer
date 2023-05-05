@@ -8,20 +8,22 @@ public class Projectile : MonoBehaviour
     private int damage = 1;
     void Start()
     {
-        Collider2D playerCollider = transform.parent.gameObject.GetComponent<Collider2D>();
-        Collider2D thisCollider = GetComponent<Collider2D>();
+        print($"player transform is {transform.parent.parent.parent}");
+        Collider2D playerCollider = transform.parent.parent.parent.gameObject.GetComponent<Collider2D>();
+        Collider2D thisCollider = transform.GetComponent<Collider2D>();
         Physics2D.IgnoreCollision(thisCollider, playerCollider);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(collision.tag);
         if (!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
         {
             if (collision.CompareTag("Enemy")){
                 collision.GetComponent<Enemy>().hit(damage);
             }
             Debug.Log(collision.tag);
-            Destroy(gameObject, 0f);
+            transform.parent.gameObject.SetActive(false);
         }
     }
 }

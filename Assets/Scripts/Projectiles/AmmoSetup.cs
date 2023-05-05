@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class AmmoSetup : MonoBehaviour
 {
-    [SerializeField] private AmmoData _ammo;
+    public AmmoData _ammo;
     public SpriteRenderer _spriteRenderer;
     void Start()
     {
+    }
+    public void Init(AmmoData Ammo)
+    {
+        _ammo = Ammo;
         _spriteRenderer.sprite = _ammo.sprite;
     }
 }
