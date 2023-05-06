@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5439112176742407104}
   - component: {fileID: 5439112176742407105}
-  - component: {fileID: 5439112176742407106}
   m_Layer: 0
   m_Name: Ammo
   m_TagString: Untagged
@@ -48,27 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ammo: {fileID: 11400000, guid: bf0b8af26c763df4196ea8b58c88e887, type: 2}
   _spriteRenderer: {fileID: 5439112176958478914}
---- !u!50 &5439112176742407106
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5439112176742407111}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.11919564
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  _projectile: {fileID: 1644993843}
 --- !u!1 &5439112176958478912
 GameObject:
   m_ObjectHideFlags: 0
