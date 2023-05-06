@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int damage = 1;
+    private int damage;
     void Start()
     {
         print($"player transform is {transform.parent.parent.parent}");
@@ -25,5 +25,9 @@ public class Projectile : MonoBehaviour
             Debug.Log(collision.tag);
             transform.parent.gameObject.SetActive(false);
         }
+    }
+    public void setDamage(int damage)
+    {
+        this.damage = damage;
     }
 }

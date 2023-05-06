@@ -8,7 +8,7 @@ public class ProjectileShooter : MonoBehaviour
     public float MaxSpreadAngle;
     public float MinSpreadAngle;
 
-    private string _equippedArrowName;
+    private string _equippedArrowName = "NormalArrow";
     private string _defaultArrowName = "NormalArrow";
     private AmmoData _currArrowData;
     private AmmoData _equippedArrowData;
@@ -32,7 +32,21 @@ public class ProjectileShooter : MonoBehaviour
         {
             if (canShoot)
             {
-                if (Input.GetKey(KeyCode.Mouse0)) _currArrowData = _equippedArrowData;
+                if (Input.GetKey(KeyCode.Mouse0) )
+                {
+                    print(_equippedArrowName);
+                    // use current ammo
+                    if (AmmoInventory.Instance.useAmmo(_equippedArrowName))
+                    {
+                        _currArrowData = _equippedArrowData;
+                    }
+                    // set curr arrow to default if there is no more ammo in the inventory
+                    else
+                    {
+                        _currArrowData = _defaultArrowData;
+                    }
+                }
+                // set curr arrow to default if user doesnt press the mouse
                 else _currArrowData = _defaultArrowData;
 
                 nextFireTime = Time.time + 1f / _attackSpeed;
@@ -100,6 +114,7 @@ public class ProjectileShooter : MonoBehaviour
 
     public void setEquippedAmmo(string ammoName)
     {
+        _equippedArrowName = ammoName;
         _equippedArrowData = AssetDatabase.LoadAssetAtPath<AmmoData>($"Assets/ScriptableObjects/Ammo/{ammoName}.asset");
     }
 }
