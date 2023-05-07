@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,10 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int damage;
+    private int _damage;
+    private string _effectType;
+    private string _effectName;
+    private AmmoEffects _effects;
     void Start()
     {
         print($"player transform is {transform.parent.parent.parent}");
@@ -20,14 +24,34 @@ public class Projectile : MonoBehaviour
         if (!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
         {
             if (collision.CompareTag("Enemy")){
-                collision.GetComponent<Enemy>().hit(damage);
+                collision.GetComponent<Enemy>().hit(_damage);
             }
             Debug.Log(collision.tag);
-            transform.parent.gameObject.SetActive(false);
+            if (_effectType == "")
+            {
+                transform.parent.gameObject.SetActive(false);
+            }
+            else
+            {
+                _effects = transform.parent.Find("AmmoBehaviour").GetComponent<AmmoEffects>();
+                _effects.SetEffectPosition(transform.position);
+                _effects.SetEffectName(_effectName);
+                _effects.SetEffectType(_effectType);
+                _effects.SetParent(transform.parent.gameObject);
+                gameObject.SetActive(false);
+            }
         }
     }
     public void setDamage(int damage)
     {
-        this.damage = damage;
+        this._damage = damage;
+    }
+    public void SetEffectType(string effectType)
+    {
+        this._effectType = effectType;
+    }
+    public void SetEffectName(string effectName)
+    {
+        this._effectName = effectName;
     }
 }
