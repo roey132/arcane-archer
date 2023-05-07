@@ -10,13 +10,6 @@ public class Projectile : MonoBehaviour
     private string _effectType;
     private string _effectName;
     private AmmoEffects _effects;
-    void Start()
-    {
-        print($"player transform is {transform.parent.parent.parent}");
-        Collider2D playerCollider = transform.parent.parent.parent.gameObject.GetComponent<Collider2D>();
-        Collider2D thisCollider = transform.GetComponent<Collider2D>();
-        Physics2D.IgnoreCollision(thisCollider, playerCollider);
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
