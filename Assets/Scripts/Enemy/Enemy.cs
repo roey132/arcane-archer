@@ -9,9 +9,11 @@ public class Enemy : MonoBehaviour
 
     private Transform playerTransform; // Reference to the player's transform
     public GameManager manager;
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         manager = FindAnyObjectByType<GameManager>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Find the player's transform
     }
@@ -42,5 +44,6 @@ public class Enemy : MonoBehaviour
     public void hit(int damage)
     {
         hp -= damage;
+        animator.Play("EnemyHit");
     }
 }
