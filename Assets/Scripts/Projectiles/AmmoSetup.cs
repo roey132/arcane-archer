@@ -8,13 +8,14 @@ public class AmmoSetup : MonoBehaviour
     public AmmoData _ammo;
     public SpriteRenderer _spriteRenderer;
     public Projectile _projectile;
-    void Start()
-    {
-    }
+
     public void Init(AmmoData Ammo)
     {
         _ammo = Ammo;
+        _projectile.gameObject.SetActive(true);
         _projectile.setDamage(_ammo.damage);
+        _projectile.SetEffectName(_ammo.effectName);
+        _projectile.SetEffectType(_ammo.effectType);
         _spriteRenderer.sprite = _ammo.sprite;
     }
 }

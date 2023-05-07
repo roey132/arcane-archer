@@ -16,3 +16,5 @@ MonoBehaviour:
   speed: 25
   damage: 10
   sprite: {fileID: 21300000, guid: 73d52ed1cb9bde54bb49ebe4a3050c20, type: 3}
+  effectType: Explosion
+  effectName: FireExplosion
