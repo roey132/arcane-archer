@@ -40,6 +40,6 @@ public class EnemySpawner : MonoBehaviour
     {
         int hp = Random.Range(minHp, maxHp + 1); // Randomize the hp
         GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity); // Spawn the enemy
-        enemy.GetComponent<Enemy>().hp = hp; // Set the enemy's hp
+        enemy.GetComponent<Enemy>().SetHealth(hp); // Set the enemy's hp
     }
 }

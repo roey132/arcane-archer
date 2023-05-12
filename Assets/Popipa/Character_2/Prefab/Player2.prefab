@@ -183,16 +183,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55318cbb88d22246b619eeff235506a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
-  _mana: 5
-  _movementSpeed: 3
-  _attackSpeed: 2
-  _castSpeed: 1
-  _criticalRate: 0.1
-  _criticalDamage: 1.5
-  _physicalDamageMultiplier: 1
-  _magicalDamageMultiplier: 1
-  _numOfArrows: 1
+  Health: 10
+  Mana: 5
+  MovementSpeed: 5
+  AttackSpeed: 2
+  CastSpeed: 0
+  CriticalRate: 0
+  CriticalDamage: 0
+  BaseDamage: 1
+  BaseMagicDamage: 1
+  PhysicalDamageMultiplier: 1
+  MagicalDamageMultiplier: 1
+  NumOfArrows: 1
 --- !u!1 &1563080783
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ProjectilePrefab: {fileID: 5439112176742407111, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
-  Stats: {fileID: 0}
   MaxSpreadAngle: 0
   MinSpreadAngle: 1
   canShoot: 1

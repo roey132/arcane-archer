@@ -6,20 +6,18 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int _damage;
+    private float _damage;
     private string _effectType;
     private string _effectName;
     private AmmoEffects _effects;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.tag);
         if (!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
         {
             if (collision.CompareTag("Enemy")){
-                collision.GetComponent<Enemy>().hit(_damage);
+                collision.GetComponent<Enemy>().Hit(_damage,"arrow");
             }
-            Debug.Log(collision.tag);
             if (_effectType == "")
             {
                 transform.parent.gameObject.SetActive(false);
@@ -31,11 +29,12 @@ public class Projectile : MonoBehaviour
                 _effects.SetEffectName(_effectName);
                 _effects.SetEffectType(_effectType);
                 _effects.SetParent(transform.parent.gameObject);
+                _effects.SetEffectsDamage(_damage);
                 gameObject.SetActive(false);
             }
         }
     }
-    public void setDamage(int damage)
+    public void SetDamage(float damage)
     {
         this._damage = damage;
     }

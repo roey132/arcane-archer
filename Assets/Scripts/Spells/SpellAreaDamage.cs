@@ -5,7 +5,7 @@ public class SpellAreaDamage : SpellData
 {
     public Vector2 _center;
     public float _areaRadius;
-    public int _damage;
+    public float _damage;
     public GameObject _effect;
 
     public override GameObject Activate(Vector2 center, Transform playerTransform)
@@ -15,7 +15,7 @@ public class SpellAreaDamage : SpellData
         foreach (Collider2D collider in colliders){
             if (collider.CompareTag("Enemy"))
             {
-                collider.gameObject.GetComponent<Enemy>().hit(_damage);
+                collider.gameObject.GetComponent<Enemy>().Hit(_damage, "spell");
             }
         }
 

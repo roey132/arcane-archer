@@ -4,7 +4,6 @@ using UnityEngine;
 public class ProjectileShooter : MonoBehaviour
 {
     public GameObject ProjectilePrefab;
-    public ingameStats Stats;
     public float MaxSpreadAngle;
     public float MinSpreadAngle;
 
@@ -14,27 +13,29 @@ public class ProjectileShooter : MonoBehaviour
     private AmmoData _equippedArrowData;
     private AmmoData _defaultArrowData;
     private float _attackSpeed;
+    private float _numOfArrows;
+    private IngameStats _stats;
 
 
     private float nextFireTime;
     [SerializeField] private bool canShoot = true;
     private void Start()
     {
-        Stats = transform.parent.Find("ingameStatManager").GetComponent<ingameStats>();
+        _stats = IngameStats.Instance;
         _equippedArrowData = AssetDatabase.LoadAssetAtPath<AmmoData>($"Assets/ScriptableObjects/Ammo/{_defaultArrowName}.asset");
         _defaultArrowData = AssetDatabase.LoadAssetAtPath<AmmoData>($"Assets/ScriptableObjects/Ammo/{_defaultArrowName}.asset");
-        print(_currArrowData);
     }
     void Update()
     {
-        _attackSpeed = Stats._attackSpeed;
+        _attackSpeed = _stats.AttackSpeed;
+        _numOfArrows = _stats.NumOfArrows;
+
         if (Time.time >= nextFireTime)
         {
             if (canShoot)
             {
                 if (Input.GetKey(KeyCode.Mouse0) )
                 {
-                    print(_equippedArrowName);
                     // use current ammo
                     if (AmmoInventory.Instance.useAmmo(_equippedArrowName))
                     {
@@ -54,7 +55,7 @@ public class ProjectileShooter : MonoBehaviour
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 shootDirection = (mousePosition - (Vector2)transform.parent.position).normalized;
 
-                if (Stats._numOfArrows == 1) // Only one projectile, no spread angle
+                if (_numOfArrows == 1) // Only one projectile, no spread angle
                 {
                     //get Ammo prefab from pool
                     GameObject Ammo = AmmoPool.Instance.GetAmmoPrefab();
@@ -77,11 +78,11 @@ public class ProjectileShooter : MonoBehaviour
                 else // more than 1 arrow, calculate angle for each arrow
                 {
                     // calculate the starting angle
-                    float spreadAngle = Mathf.Lerp(MaxSpreadAngle, MinSpreadAngle, (Stats._numOfArrows - 1) / 9f);
-                    float angleStep = spreadAngle / (Stats._numOfArrows - 1);
+                    float spreadAngle = Mathf.Lerp(MaxSpreadAngle, MinSpreadAngle, (_numOfArrows - 1) / 9f);
+                    float angleStep = spreadAngle / (_numOfArrows - 1);
                     float startAngle = -spreadAngle / 2f;
 
-                    for (int i = 0; i < Stats._numOfArrows; i++)
+                    for (int i = 0; i < _numOfArrows; i++)
                     {
                         // calculate angle and direction for curr arow
                         float angle = startAngle + angleStep * i;

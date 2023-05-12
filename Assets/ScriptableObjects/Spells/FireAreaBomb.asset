@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireAreaBomb
   m_EditorClassIdentifier: 
   Cooldown: 1
-  SpellDamage: 0
+  SpellDamage: 5
   SpellType: AreaBomb
   SpellName: FireBomb
   SpellElement: Fire

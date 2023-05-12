@@ -32,7 +32,6 @@ public class PlayerAnimations : MonoBehaviour
         }
 
         var state = isWalking ? Animator.StringToHash("NoctisWalk") : Animator.StringToHash("IdleNoctis");
-        //print(horizontalAxis != 0 || verticalAxis != 0);
 
         //_animator.SetBool("isWalking", horizontalAxis != 0 || verticalAxis != 0);
         _animator.CrossFade(state, 0);
