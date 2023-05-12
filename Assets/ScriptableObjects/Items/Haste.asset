@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c5d25f4af21ef4b866b41cb82dc070, type: 3}
   m_Name: Haste
   m_EditorClassIdentifier: 
-  ItemName: 
+  ItemName: Haste
   ItemIcon: {fileID: 0}
-  ItemType: 
-  ItemDescription: 
+  ItemType: Player
+  ItemDescription: Adds movement speed
   ItemElement: 
-  IsBuff: 0
-  ItemValue: 0
+  IsBuff: 1
+  Stats: 00000000
+  Values:
+  - 1
