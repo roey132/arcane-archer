@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-
     private Rigidbody2D rb;
 
     [SerializeField] private Vector2 movement;
@@ -21,6 +19,6 @@ public class PlayerMovement : MonoBehaviour
 
         movement = new Vector2(moveHorizontal, moveVertical);
 
-        rb.velocity = movement * moveSpeed;
+        rb.velocity = movement * IngameStats.Instance.MovementSpeed;
     }
 }

@@ -1,28 +1,30 @@
+using Mono.Cecil.Cil;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float movementSpeed = 3f; // Movement speed of the enemy
-    public int hp = 10; // Health points of the enemy
+    private float _movementSpeed = 0f; // Movement speed of the enemy
+    private float _hp = 10; // Health points of the enemy
 
-    private Transform playerTransform; // Reference to the player's transform
-    public GameManager manager;
-    private Animator animator;
+    private Transform _playerTransform; // Reference to the player's transform
+    [SerializeField] private GameManager _manager;
+    private Animator _animator;
 
     void Start()
     {
-        animator = GetComponent<Animator>();
-        manager = FindAnyObjectByType<GameManager>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Find the player's transform
+        _animator = GetComponent<Animator>();
+        _manager = FindAnyObjectByType<GameManager>();
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Find the player's transform
     }
 
     void Update()
     {
         // Move towards the player
-        transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, movementSpeed * Time.deltaTime);
-        if (hp <= 0)
+        transform.position = Vector2.MoveTowards(transform.position, _playerTransform.position, _movementSpeed * Time.deltaTime);
+        if (_hp <= 0)
         {
             Die();
         }
@@ -38,12 +40,26 @@ public class Enemy : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             Debug.Log("enemy hit player");
-            manager.endScene();
+            _manager.endScene();
         }
     }
-    public void hit(int damage)
+    public void Hit(float damage, string Type)
     {
-        hp -= damage;
-        animator.Play("EnemyHit");
+        print(damage);
+        IngameStats stats = IngameStats.Instance;
+        if (Type == "spell")
+        {
+            print($"calc is {damage * stats.BaseMagicDamage * stats.MagicalDamageMultiplier}");
+            _hp -= damage * stats.BaseMagicDamage * stats.MagicalDamageMultiplier;
+        } 
+        if (Type == "arrow")
+        {
+            _hp -= damage * stats.BaseDamage * stats.PhysicalDamageMultiplier;
+        }
+        _animator.Play("EnemyHit");
+    }
+    public void SetHealth(float health)
+    {
+        _hp = health;
     }
 }

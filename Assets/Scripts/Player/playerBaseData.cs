@@ -13,6 +13,8 @@ public class playerBaseData : MonoBehaviour
     public float CastSpeed;
     public float CriticalRate;
     public float CriticalDamage;
+    public float BaseDamage;
+    public float BaseMagicDamage;
     public float PhysicalDamageMultiplier;
     public float MagicalDamageMultiplier;
     public int NumOfArrows;

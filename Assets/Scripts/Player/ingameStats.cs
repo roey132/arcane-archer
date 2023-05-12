@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class ingameStats : MonoBehaviour
+public class IngameStats : MonoBehaviour
 {
-    public static ingameStats Instance;
+    public static IngameStats Instance;
 
     [SerializeField] private playerBaseData _baseData;
 
@@ -23,6 +23,11 @@ public class ingameStats : MonoBehaviour
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
         _baseData = transform.parent.Find("playerBaseStats").GetComponent<playerBaseData>();
 
         MaxHp = _baseData.Health;
@@ -36,14 +41,13 @@ public class ingameStats : MonoBehaviour
         CriticalDamage = _baseData.CriticalDamage;
         PhysicalDamageMultiplier = _baseData.PhysicalDamageMultiplier;
         MagicalDamageMultiplier = _baseData.MagicalDamageMultiplier;
+        BaseDamage = _baseData.BaseDamage;
+        BaseMagicDamage = _baseData.BaseMagicDamage;
         NumOfArrows = _baseData.NumOfArrows;
     }
     void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+
     }
 
     public void hitPlayer(float damage)

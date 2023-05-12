@@ -62,7 +62,6 @@ public class SpellManager : MonoBehaviour
     private IEnumerator DestroyEffect(GameObject effect, float duration)
     {
         yield return new WaitForSeconds(duration / 1000);
-        print("destroy");
         Destroy(effect);
     }
 }

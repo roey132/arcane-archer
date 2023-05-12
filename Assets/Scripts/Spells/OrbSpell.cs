@@ -7,7 +7,7 @@ public class OrbSpell : MonoBehaviour
     private float _rotationSpeed;
     private float _radius;
     private bool _isActive;
-    private int _damage;
+    private float _damage;
 
     private Vector3 rotationAxis = Vector3.forward;
 
@@ -24,10 +24,10 @@ public class OrbSpell : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Debug.Log("orb hit enemy");
-            collision.GetComponent<Enemy>().hit(_damage);
+            collision.GetComponent<Enemy>().Hit(_damage, "spell");
         }
     }
-    public void InitOrb(Transform playerTransform, float rotationSpeed, float radius, int damage)
+    public void InitOrb(Transform playerTransform, float rotationSpeed, float radius, float damage)
     {
         _isActive = true;
         _rotateAround = playerTransform;
