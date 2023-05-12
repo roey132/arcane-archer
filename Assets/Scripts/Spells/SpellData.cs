@@ -3,12 +3,19 @@ using UnityEngine;
 public class SpellData : ScriptableObject
 {
     public float Cooldown;
-    public float SpellDamage;
-    public float SpellType;
-    public float SpellName;
-    public float SpellElement;
+    public int SpellDamage;
+    public string SpellType;
+    public string SpellName;
+    public string SpellElement;
+    public bool isActiveSpell;
+    public int _effectDurationMilliSeconds;
 
-    public virtual void Activate()
+    public virtual GameObject Activate(Vector2 center, Transform playerTransform)
+    {
+        GameObject temp = new GameObject();
+        return temp;
+    }
+    public virtual void DeleteSpell(GameObject spellObject) 
     {
 
     }

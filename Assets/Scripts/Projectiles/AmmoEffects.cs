@@ -34,7 +34,7 @@ public class AmmoEffects : MonoBehaviour
     }
     private IEnumerator FireExplosion()
     {
-        GameObject explosionPrefab = AssetDatabase.LoadAssetAtPath<GameObject>($"Assets/Prefabs/Explosion.prefab");
+        GameObject explosionPrefab = AssetDatabase.LoadAssetAtPath<GameObject>($"Assets/Prefabs/AmmoPrefabs/Explosion.prefab");
         GameObject explosion = Instantiate(explosionPrefab, _effectPosition,Quaternion.identity);
         explosion.GetComponent<SpriteRenderer>().color = new Color(230,0,0,0.6f);
 
