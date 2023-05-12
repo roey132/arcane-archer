@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642e1d0ad5dca5c489cd15b481bfcbb7, type: 3}
+  m_Name: FireSpinningOrbs
+  m_EditorClassIdentifier: 
+  Cooldown: 0
+  SpellDamage: 5
+  SpellType: SpinningOrbs
+  SpellName: FireSpinningOrbs
+  SpellElement: Fire
+  isActiveSpell: 0
+  _effectDurationMilliSeconds: 0
+  NumOfOrbs: 3
+  SpinRadius: 5
+  SpinSpeed: 100
+  OrbPrefab: {fileID: 6810920920247145468, guid: 15de3d3ae3e9b024dad50bb89ab00b40, type: 3}

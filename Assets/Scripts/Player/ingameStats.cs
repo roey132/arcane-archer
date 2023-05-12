@@ -1,100 +1,100 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ingameStats : MonoBehaviour
 {
+    public static ingameStats Instance;
+
     [SerializeField] private playerBaseData _baseData;
 
-    public float _maxHp { get; private set; }
-    public float _currHp { get; private set; }
-    public float _maxMana { get; private set; }
-    public float _currMana { get; private set; }
-    public float _attackSpeed { get; private set; }
-    public float _castSpeed { get; private set; }
-    public float _movementSpeed { get; private set; }
-    public float _criticalRate { get; private set; }
-    public float _criticalDamage { get; private set; }
-    public float _physicalDamageMultiplier { get; private set; }
-    public float _magicalDamageMultiplier { get; private set; }
-    public float _numOfArrows { get; private set; }
+    public float MaxHp { get; private set; }
+    public float CurrHp { get; private set; }
+    public float MaxMana { get; private set; }
+    public float CurrMana { get; private set; }
+    public float AttackSpeed { get; private set; }
+    public float CastSpeed { get; private set; }
+    public float MovementSpeed { get; private set; }
+    public float CriticalRate { get; private set; }
+    public float CriticalDamage { get; private set; }
+    public float PhysicalDamageMultiplier { get; private set; }
+    public float MagicalDamageMultiplier { get; private set; }
+    public float NumOfArrows { get; private set; }
+    public float BaseDamage { get; private set; }
+    public float BaseMagicDamage { get; private set; }
+
     void Awake()
     {
         _baseData = transform.parent.Find("playerBaseStats").GetComponent<playerBaseData>();
 
-        _maxHp = _baseData._health;
-        _currHp = _baseData._health;
-        _maxMana = _baseData._mana;
-        _currMana = _baseData._mana;
-        _attackSpeed = _baseData._attackSpeed;
-        _castSpeed = _baseData._castSpeed;
-        _movementSpeed = _baseData._movementSpeed;
-        _criticalRate = _baseData._criticalRate;
-        _criticalDamage = _baseData._criticalDamage;
-        _physicalDamageMultiplier = _baseData._physicalDamageMultiplier;
-        _magicalDamageMultiplier = _baseData._magicalDamageMultiplier;
-        _numOfArrows = _baseData._numOfArrows;
+        MaxHp = _baseData.Health;
+        CurrHp = _baseData.Health;
+        MaxMana = _baseData.Mana;
+        CurrMana = _baseData.Mana;
+        AttackSpeed = _baseData.AttackSpeed;
+        CastSpeed = _baseData.CastSpeed;
+        MovementSpeed = _baseData.MovementSpeed;
+        CriticalRate = _baseData.CriticalRate;
+        CriticalDamage = _baseData.CriticalDamage;
+        PhysicalDamageMultiplier = _baseData.PhysicalDamageMultiplier;
+        MagicalDamageMultiplier = _baseData.MagicalDamageMultiplier;
+        NumOfArrows = _baseData.NumOfArrows;
     }
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
 
     public void hitPlayer(float damage)
     {
-        _currHp -= damage;
+        CurrHp -= damage;
         print($"player was hit for {damage} damage");
     }
     public bool useMana(float mana)
     {
-        if (_currMana - mana >= 0) 
+        if (CurrMana - mana >= 0) 
         { 
-            _currMana -= mana;
+            CurrMana -= mana;
             return true;
         }
         else return false;
     }
     public void gainMana(float mana)
     {
-        float newMana = _currMana + mana;
-        _currMana = Mathf.Clamp(newMana, 0, _maxMana);
+        float newMana = CurrMana + mana;
+        CurrMana = Mathf.Clamp(newMana, 0, MaxMana);
     }
     public void changeAttackSpeed(float attackSpeed)
     {
-        _attackSpeed += attackSpeed;
+        AttackSpeed += attackSpeed;
     }
     public void changeCastSpeed(float castSpeed)
     {
-        _castSpeed += castSpeed;
+        CastSpeed += castSpeed;
     }
     public void changeMovementSpeed(float movementSpeed)
     {
-        _movementSpeed += movementSpeed;
+        MovementSpeed += movementSpeed;
     }
     public void changeCriticalRate(float critRate)
     {
-        _criticalRate += critRate;
+        CriticalRate += critRate;
     }
     public void changeCriticalDamage(float critDamage)
     {
-        _criticalDamage += critDamage;
+        CriticalDamage += critDamage;
     }
     public void changePhysicalMultipler(float multiplier)
     {
-        _physicalDamageMultiplier += multiplier;
+        PhysicalDamageMultiplier += multiplier;
     }
     public void changeMagicalMultiplier(float multiplier)
     {
-        _magicalDamageMultiplier += multiplier;
+        MagicalDamageMultiplier += multiplier;
     }
     public void changeNumOfArrows(float numOfArrows)
     {
-        _numOfArrows += numOfArrows;
+        NumOfArrows += numOfArrows;
     }
 }

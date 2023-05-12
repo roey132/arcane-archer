@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class playerBaseData : MonoBehaviour
 {
-    public float _health;
-    public float _mana;
-    public float _movementSpeed;
-    public float _attackSpeed;
-    public float _castSpeed;
-    public float _criticalRate;
-    public float _criticalDamage;
-    public float _physicalDamageMultiplier;
-    public float _magicalDamageMultiplier;
-    public int _numOfArrows;
+    public static playerBaseData Instance;
+
+    public float Health;
+    public float Mana;
+    public float MovementSpeed;
+    public float AttackSpeed;
+    public float CastSpeed;
+    public float CriticalRate;
+    public float CriticalDamage;
+    public float PhysicalDamageMultiplier;
+    public float MagicalDamageMultiplier;
+    public int NumOfArrows;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
 }
 
 
