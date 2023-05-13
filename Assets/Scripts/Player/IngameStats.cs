@@ -64,8 +64,8 @@ public class IngameStats : MonoBehaviour
     }
     public bool useMana(float mana)
     {
-        if (CurrMana - mana >= 0)
-        {
+        if (CurrMana - mana >= 0) 
+        { 
             CurrMana -= mana;
             return true;
         }
@@ -116,8 +116,8 @@ public class IngameStats : MonoBehaviour
             IngameCurrency += currency;
             return true;
         }
-        else
-        {
+        else 
+        { 
             // return false if the player can't use X amount of currency 
             if (IngameCurrency + currency < 0)
             {
@@ -132,3 +132,4 @@ public class IngameStats : MonoBehaviour
         }
     }
 }
+
