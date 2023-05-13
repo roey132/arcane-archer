@@ -18,6 +18,7 @@ public class playerBaseData : MonoBehaviour
     public float PhysicalDamageMultiplier;
     public float MagicalDamageMultiplier;
     public int NumOfArrows;
+    public int StartingIngameCurrency;
 
     void Awake()
     {
