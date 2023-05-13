@@ -1,14 +1,10 @@
-using Mono.Cecil.Cil;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     private float _movementSpeed = 0f; // Movement speed of the enemy
     private float _hp = 10; // Health points of the enemy
-
+    private int _currencyValue = 1;
     private Transform _playerTransform; // Reference to the player's transform
     [SerializeField] private GameManager _manager;
     private Animator _animator;
@@ -33,6 +29,7 @@ public class Enemy : MonoBehaviour
     // Destroy the enemy object
     private void Die()
     {
+        IngameStats.Instance.changeIngameCurrency(_currencyValue);
         Destroy(gameObject);
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -51,7 +48,7 @@ public class Enemy : MonoBehaviour
         {
             print($"calc is {damage * stats.BaseMagicDamage * stats.MagicalDamageMultiplier}");
             _hp -= damage * stats.BaseMagicDamage * stats.MagicalDamageMultiplier;
-        } 
+        }
         if (Type == "arrow")
         {
             _hp -= damage * stats.BaseDamage * stats.PhysicalDamageMultiplier;
@@ -61,5 +58,9 @@ public class Enemy : MonoBehaviour
     public void SetHealth(float health)
     {
         _hp = health;
+    }
+    public void SetValue(int value)
+    {
+        _currencyValue = value;
     }
 }

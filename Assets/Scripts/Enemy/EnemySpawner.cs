@@ -6,6 +6,8 @@ public class EnemySpawner : MonoBehaviour
     public float spawnDistance = 10f; // The minimum distance from the player to spawn enemies
     public int minHp = 5; // The minimum hp for enemies
     public int maxHp = 15; // The maximum hp for enemies
+    public int MinValue = 5;
+    public int MaxValue = 15;
     public float spawnCooldown = 2f; // The cooldown time between enemy spawns
     public Transform spawnArea; // The area in which to spawn enemies
 
@@ -39,7 +41,10 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         int hp = Random.Range(minHp, maxHp + 1); // Randomize the hp
+        int currency = Random.Range(minHp, maxHp + 1); // Randomize the value
         GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity); // Spawn the enemy
         enemy.GetComponent<Enemy>().SetHealth(hp); // Set the enemy's hp
+        enemy.GetComponent<Enemy>().SetValue(currency); // Set the enemy's value
+
     }
 }
