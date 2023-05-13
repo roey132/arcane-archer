@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class IngameStats : MonoBehaviour
 {
@@ -20,15 +22,15 @@ public class IngameStats : MonoBehaviour
     public float NumOfArrows { get; private set; }
     public float BaseDamage { get; private set; }
     public float BaseMagicDamage { get; private set; }
-
+    public float IngameCurrency { get; private set; }
+    // TODO temporary set currency UI through this code, make a UI manager later on
+    [SerializeField] private TextMeshProUGUI currencyText;
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
         }
-
-        _baseData = transform.parent.Find("playerBaseStats").GetComponent<playerBaseData>();
 
         MaxHp = _baseData.Health;
         CurrHp = _baseData.Health;
@@ -44,10 +46,15 @@ public class IngameStats : MonoBehaviour
         BaseDamage = _baseData.BaseDamage;
         BaseMagicDamage = _baseData.BaseMagicDamage;
         NumOfArrows = _baseData.NumOfArrows;
+        IngameCurrency = _baseData.StartingIngameCurrency;
     }
     void Start()
     {
 
+    }
+    void Update()
+    {
+        currencyText.text = IngameCurrency.ToString();
     }
 
     public void hitPlayer(float damage)
@@ -57,8 +64,8 @@ public class IngameStats : MonoBehaviour
     }
     public bool useMana(float mana)
     {
-        if (CurrMana - mana >= 0) 
-        { 
+        if (CurrMana - mana >= 0)
+        {
             CurrMana -= mana;
             return true;
         }
@@ -100,5 +107,28 @@ public class IngameStats : MonoBehaviour
     public void changeNumOfArrows(float numOfArrows)
     {
         NumOfArrows += numOfArrows;
+    }
+    public bool changeIngameCurrency(int currency)
+    {
+        // add currency if the currency value is above 0
+        if (currency > 0)
+        {
+            IngameCurrency += currency;
+            return true;
+        }
+        else
+        {
+            // return false if the player can't use X amount of currency 
+            if (IngameCurrency + currency < 0)
+            {
+                return false;
+            }
+            // return true if the player has enough currency to use
+            else
+            {
+                IngameCurrency += currency;
+                return true;
+            }
+        }
     }
 }
