@@ -108,7 +108,7 @@ public class IngameStats : MonoBehaviour
     {
         NumOfArrows += numOfArrows;
     }
-    public bool changeIngameCurrency(int currency)
+    public bool changeIngameCurrency(float currency)
     {
         // add currency if the currency value is above 0
         if (currency > 0)
