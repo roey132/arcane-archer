@@ -10,7 +10,6 @@ public class AmmoExplosion : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        print("test");
         StartCoroutine(FireExplosion());
     }
     private void Update()
@@ -33,7 +32,6 @@ public class AmmoExplosion : MonoBehaviour
         }
 
         yield return new WaitForSeconds(_effectDurationSeconds);
-        print("this should work");
         Destroy(gameObject);
     }
 }
