@@ -251,7 +251,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1563080784}
   - component: {fileID: 1563080785}
-  - component: {fileID: 1563080786}
   m_Layer: 0
   m_Name: arrowManager
   m_TagString: Untagged
@@ -290,20 +289,6 @@ MonoBehaviour:
   MaxSpreadAngle: 0
   MinSpreadAngle: 1
   canShoot: 1
---- !u!114 &1563080786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563080783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c9903818dc1cc1439fbbc0e7b8f5629, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _AmmoPrefab: {fileID: 5439112176742407111, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
-  AmountToPool: 500
 --- !u!1 &1897254033
 GameObject:
   m_ObjectHideFlags: 0

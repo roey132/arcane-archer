@@ -5258,10 +5258,6 @@ PrefabInstance:
       propertyPath: currencyText
       value: 
       objectReference: {fileID: 1185288715}
-    - target: {fileID: 1563080786, guid: 901315c7f65749b4585a1ba9375ceb3c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6887121872436583789, guid: 901315c7f65749b4585a1ba9375ceb3c, type: 3}
       propertyPath: m_RootOrder
       value: 1
