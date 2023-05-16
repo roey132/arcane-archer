@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private EnemyData _enemyData;
     private float _movementSpeed = 0f; // Movement speed of the enemy
-    private float _hp = 10; // Health points of the enemy
-    private int _currencyValue = 1;
+    private float _health; // Health points of the enemy
+    private float _currencyValue = 1;
     private Transform _playerTransform; // Reference to the player's transform
     [SerializeField] private GameManager _manager;
     private Animator _animator;
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
     {
         // Move towards the player
         transform.position = Vector2.MoveTowards(transform.position, _playerTransform.position, _movementSpeed * Time.deltaTime);
-        if (_hp <= 0)
+        if (_health <= 0)
         {
             Die();
         }
@@ -40,6 +41,14 @@ public class Enemy : MonoBehaviour
             _manager.endScene();
         }
     }
+    public void InitData(EnemyData enemyData)
+    {
+        _enemyData = enemyData;
+        float randomEnemyDifficulty = Random.Range(1f,1.2f);
+        _health = _enemyData.MinHealth * randomEnemyDifficulty;
+        _movementSpeed = _enemyData.MinMovementSpeed * randomEnemyDifficulty;
+        _currencyValue = Random.Range(_enemyData.MinCurrencyValue, _enemyData.MaxCurrencyValue);
+    }
     public void Hit(float damage, string Type)
     {
         print(damage);
@@ -47,20 +56,12 @@ public class Enemy : MonoBehaviour
         if (Type == "spell")
         {
             print($"calc is {damage * stats.BaseMagicDamage * stats.MagicalDamageMultiplier}");
-            _hp -= damage * stats.BaseMagicDamage * stats.MagicalDamageMultiplier;
+            _health -= damage * stats.BaseMagicDamage * stats.MagicalDamageMultiplier;
         }
         if (Type == "arrow")
         {
-            _hp -= damage * stats.BaseDamage * stats.PhysicalDamageMultiplier;
+            _health -= damage * stats.BaseDamage * stats.PhysicalDamageMultiplier;
         }
         _animator.Play("EnemyHit");
-    }
-    public void SetHealth(float health)
-    {
-        _hp = health;
-    }
-    public void SetValue(int value)
-    {
-        _currencyValue = value;
     }
 }

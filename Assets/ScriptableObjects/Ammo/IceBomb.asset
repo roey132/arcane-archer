@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eca09348ecb8714ca8417416dbd16d2, type: 3}
   m_Name: IceBomb
   m_EditorClassIdentifier: 
-  ammoName: IceBomb
-  speed: 15
-  damage: 5
-  sprite: {fileID: 21300000, guid: b0f8e32cdf2fd7b48b4d99ab33b781db, type: 3}
-  effectType: Explosion
-  effectName: IceExplosion
+  AmmoName: IceBomb
+  Speed: 15
+  Damage: 3
+  Sprite: {fileID: 21300000, guid: f4372a9983c21a14d9f608e8a7d43c59, type: 3}
+  EffectType: asd
+  EffectName: asd
+  Effect: {fileID: 172829619294467308, guid: ca1f962982164074ebf00b3fbcb55765, type: 3}

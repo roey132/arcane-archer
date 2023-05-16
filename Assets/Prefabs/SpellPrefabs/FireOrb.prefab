@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6810920920247145471}
   - component: {fileID: 6810920920247145456}
   - component: {fileID: 7789439069415062867}
+  - component: {fileID: 6338012437001187656}
   m_Layer: 0
   m_Name: FireOrb
   m_TagString: Projectile
@@ -114,3 +115,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ec151f9f8fb6b469f2dea9e7e178da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &6338012437001187656
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6810920920247145468}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b85b465427fbb1946a73e01f1528e15f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
