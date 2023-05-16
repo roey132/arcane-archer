@@ -18,7 +18,7 @@ MonoBehaviour:
   SpellName: FireBomb
   SpellElement: Fire
   isActiveSpell: 1
-  _effectDurationMilliSeconds: 100
+  _effectDurationMilliSeconds: 200
   _center: {x: 0, y: 0}
   _areaRadius: 3
   _damage: 5

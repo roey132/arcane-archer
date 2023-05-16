@@ -72,7 +72,7 @@ public class ProjectileShooter : MonoBehaviour
                     Ammo.SetActive(true);
 
                     // set speed using the stats of the scriptable object
-                    projectile.GetComponent<Rigidbody2D>().velocity = shootDirection * Ammo.GetComponent<AmmoSetup>()._ammo.speed;
+                    projectile.GetComponent<Rigidbody2D>().velocity = shootDirection * Ammo.GetComponent<AmmoSetup>()._ammo.Speed;
 
                 }
                 else // more than 1 arrow, calculate angle for each arrow
@@ -105,7 +105,7 @@ public class ProjectileShooter : MonoBehaviour
                         Ammo.SetActive(true);
 
                         // set velocity
-                        projectile.GetComponent<Rigidbody2D>().velocity = projectileDirection * Ammo.GetComponent<AmmoSetup>()._ammo.speed;
+                        projectile.GetComponent<Rigidbody2D>().velocity = projectileDirection * Ammo.GetComponent<AmmoSetup>()._ammo.Speed;
                     }
                 }
                 

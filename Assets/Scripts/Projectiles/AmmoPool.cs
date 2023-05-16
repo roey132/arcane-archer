@@ -6,7 +6,7 @@ public class AmmoPool : MonoBehaviour
     public static AmmoPool Instance;
 
     [SerializeField] private GameObject _AmmoPrefab;
-    private List<GameObject> _ammoPool = new List<GameObject>();
+    private List<GameObject> _ammoPool = new();
 
     public int AmountToPool = 1;
 

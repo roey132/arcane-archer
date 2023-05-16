@@ -19,7 +19,7 @@ MonoBehaviour:
   SpellElement: Ice
   isActiveSpell: 0
   _effectDurationMilliSeconds: 0
-  NumOfOrbs: 5
-  SpinRadius: 7
-  SpinSpeed: 50
+  NumOfOrbs: 1
+  SpinRadius: 10
+  SpinSpeed: 1000
   OrbPrefab: {fileID: 6810920920247145468, guid: d09fd4ae069493f428b9eb99e2049efd, type: 3}

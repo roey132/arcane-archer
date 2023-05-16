@@ -3,10 +3,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Ammo", menuName = "Ammo")]
 public class AmmoData : ScriptableObject
 {
-    public string ammoName;
-    public float speed;
-    public float damage;
-    public Sprite sprite;
-    public string effectType;
-    public string effectName;
+    public string AmmoName;
+    public float Speed;
+    public float Damage;
+    public Sprite Sprite;
+    public string EffectType;
+    public string EffectName;
+    public GameObject Effect;
+
+    public virtual GameObject ActivateEffect(Vector2 position)
+    {
+        GameObject effectObject = Instantiate(Effect ,position, Quaternion.identity);
+        return effectObject;
+    }
+
 }
