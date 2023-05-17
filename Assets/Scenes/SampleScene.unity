@@ -1204,12 +1204,12 @@ GameObject:
   - component: {fileID: 300291939}
   - component: {fileID: 300291938}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Debugging Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &300291938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3651,6 +3651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e2405e17f94e441b156f691713be53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UiISActive: 0
   buffsUi: {fileID: 1756631944}
 --- !u!4 &1273402821
 Transform:
@@ -3968,6 +3969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 4925623648255022561, guid: 594554f95175e624e8a53b4f416a36ef, type: 3}
+  ActiveEnemies: []
   spawnDistance: 8
   spawnArea: {fileID: 1335447561}
   spawnPosition: {x: 0, y: 0}

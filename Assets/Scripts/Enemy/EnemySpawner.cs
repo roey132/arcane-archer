@@ -20,7 +20,24 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (!WaveManager.Instance.WaveIsActive) return;
+        if (!WaveManager.Instance.WaveIsActive) 
+        {
+            if (GameManager.Instance.UiISActive == false && ActiveEnemies.Count != 0)
+            {
+                bool allNull = true;
+                foreach (GameObject obj in ActiveEnemies) 
+                {
+                    if (obj != null)
+                    {
+                        allNull = false;
+                    }
+                }
+                if (allNull) WaveManager.Instance.EndWave();
+            }
+            return;
+        } 
+
+        
 
         spawnTimer -= Time.deltaTime;
         setSpawnPoint();

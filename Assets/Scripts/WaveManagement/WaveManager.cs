@@ -30,16 +30,15 @@ public class WaveManager : MonoBehaviour
         _currentWavePoints = _wavePoints;
         WaveIsActive = true;
     }
-    private void EndWave()
+    public void EndWave()
     {
-        WaveIsActive = false;
         GameManager.Instance.showItemPickItemUI();
     }
     public EnemyData GetEnemyData()
     {
         if (_currentWavePoints <= 0)
         {
-            EndWave();
+            WaveIsActive = false;
             return null;
         }
         int randomEnemy = Random.Range(0, WaveManager.Instance.WaveEnemies.Count - 1);

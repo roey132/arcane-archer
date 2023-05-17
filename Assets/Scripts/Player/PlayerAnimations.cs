@@ -17,6 +17,11 @@ public class PlayerAnimations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.UiISActive) 
+        {
+            _animator.CrossFade(Animator.StringToHash("IdleNoctis"),0);
+            return;
+        }
         float horizontalAxis = Input.GetAxis("Horizontal");
         float verticalAxis = Input.GetAxis("Vertical");
 
