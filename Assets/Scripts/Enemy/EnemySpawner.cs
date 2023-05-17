@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject EnemyPrefab;
+    public List<GameObject> ActiveEnemies = new();
     public float spawnDistance = 10f; // The minimum distance from the player to spawn enemies
     public Transform spawnArea; // The area in which to spawn enemies
 
@@ -18,7 +20,24 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (!WaveManager.Instance.WaveIsActive) return;
+        if (!WaveManager.Instance.WaveIsActive) 
+        {
+            if (GameManager.Instance.UiISActive == false && ActiveEnemies.Count != 0)
+            {
+                bool allNull = true;
+                foreach (GameObject obj in ActiveEnemies) 
+                {
+                    if (obj != null)
+                    {
+                        allNull = false;
+                    }
+                }
+                if (allNull) WaveManager.Instance.EndWave();
+            }
+            return;
+        } 
+
+        
 
         spawnTimer -= Time.deltaTime;
         setSpawnPoint();
@@ -44,6 +63,7 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject enemy = Instantiate(EnemyPrefab, spawnPosition, Quaternion.identity); // Spawn the enemy
             enemy.GetComponent<Enemy>().InitData(enemyData);
+            ActiveEnemies.Add(enemy);
         }
     }
 }

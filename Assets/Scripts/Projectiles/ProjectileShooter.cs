@@ -27,6 +27,8 @@ public class ProjectileShooter : MonoBehaviour
     }
     void Update()
     {
+        if (GameManager.Instance.UiISActive) return;
+
         _attackSpeed = _stats.AttackSpeed;
         _numOfArrows = _stats.NumOfArrows;
 
