@@ -3,16 +3,24 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager Instance;
+
+    private void Start()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private GameObject buffsUi;
+    public void showItemPickItemUI()
     {
-        
+        buffsUi.SetActive(true);
+    }
+    public void hideItemPickItemUI() 
+    {
+        buffsUi.SetActive(false);
     }
     public void endScene()
     {

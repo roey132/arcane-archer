@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject EnemyPrefab;
+    public List<GameObject> ActiveEnemies = new();
     public float spawnDistance = 10f; // The minimum distance from the player to spawn enemies
     public Transform spawnArea; // The area in which to spawn enemies
 
@@ -44,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject enemy = Instantiate(EnemyPrefab, spawnPosition, Quaternion.identity); // Spawn the enemy
             enemy.GetComponent<Enemy>().InitData(enemyData);
+            ActiveEnemies.Add(enemy);
         }
     }
 }
