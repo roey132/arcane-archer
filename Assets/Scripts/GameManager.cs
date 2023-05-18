@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        UiISActive = true;
     }
 
     [SerializeField] private GameObject buffsUi;

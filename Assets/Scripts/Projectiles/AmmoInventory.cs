@@ -7,8 +7,8 @@ public class AmmoInventory : MonoBehaviour
     public static AmmoInventory Instance;
 
     [SerializeField] private Dictionary<string, int> _ammoInventory = new Dictionary<string, int>();
-    [SerializeField] public TextMeshProUGUI _fireAmmoCount;
-    [SerializeField] public TextMeshProUGUI _iceAmmoCount;
+    //[SerializeField] public TextMeshProUGUI _fireAmmoCount;
+    //[SerializeField] public TextMeshProUGUI _iceAmmoCount;
 
     void Awake()
     {
@@ -27,8 +27,8 @@ public class AmmoInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _fireAmmoCount.text = _ammoInventory["FireBomb"].ToString();
-        _iceAmmoCount.text = _ammoInventory["IceBomb"].ToString();
+        //_fireAmmoCount.text = _ammoInventory["FireBomb"].ToString();
+        //_iceAmmoCount.text = _ammoInventory["IceBomb"].ToString();
     }
     public bool useAmmo(string ammoType)
     {

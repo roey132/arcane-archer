@@ -24,7 +24,7 @@ public class IngameStats : MonoBehaviour
     public float BaseMagicDamage { get; private set; }
     public float IngameCurrency { get; private set; }
     // TODO temporary set currency UI through this code, make a UI manager later on
-    [SerializeField] private TextMeshProUGUI currencyText;
+    //[SerializeField] private TextMeshProUGUI currencyText;
     void Awake()
     {
         if (Instance == null)
@@ -54,7 +54,7 @@ public class IngameStats : MonoBehaviour
     }
     void Update()
     {
-        currencyText.text = IngameCurrency.ToString();
+        //currencyText.text = IngameCurrency.ToString();
     }
 
     public void hitPlayer(float damage)
