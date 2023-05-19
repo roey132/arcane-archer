@@ -3,17 +3,19 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
+    public static ItemManager Instance;
     private List<ItemData> _items;
 
     void Start()
     {
-        _items = new List<ItemData>();
+        if (Instance == null)
+        {
+            Instance = this;
+            _items = new List<ItemData>();
+        }
+
     }
 
-    void Update()
-    {
-        
-    }
     public void AddItem(ItemData item)
     {
         _items.Add(item);

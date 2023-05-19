@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Haste
   m_EditorClassIdentifier: 
   ItemName: Haste
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: 21300000, guid: 8dbd2034fec7cca47a30a54d99483895, type: 3}
   ItemType: Player
   ItemDescription: Adds movement speed
   ItemElement: 
