@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ExtraArrow
   m_EditorClassIdentifier: 
   ItemName: ExtraArrow
-  ItemIcon: {fileID: 0}
-  ItemType: asd
-  ItemDescription: asd
+  ItemIcon: {fileID: 21300000, guid: adecf988fb41c0c4a84ea78a5c463de0, type: 3}
+  ItemType: Bow
+  ItemDescription: Adds an extra arrow
   ItemElement: 
-  IsBuff: 0
+  IsBuff: 1
   Stats: 03000000
   Values:
   - 1

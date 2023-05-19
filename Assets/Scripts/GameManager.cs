@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,21 +13,25 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        UiISActive = true;
+    }
+    private void Start()
+    {
+        ShowItemPickItemUI();
     }
 
     [SerializeField] private GameObject buffsUi;
-    public void showItemPickItemUI()
+    public void ShowItemPickItemUI()
     {
         UiISActive = true;
         buffsUi.SetActive(true);
+        buffsUi.GetComponent<BuffSelectionManager>().SetAllButtons();
     }
-    public void hideItemPickItemUI() 
+    public void HideItemPickItemUI() 
     {
         UiISActive = false;
         buffsUi.SetActive(false);
     }
-    public void endScene()
+    public void EndScene()
     {
         SceneManager.LoadScene(0);
     }

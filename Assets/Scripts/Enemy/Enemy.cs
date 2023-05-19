@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             Debug.Log("enemy hit player");
-            _manager.endScene();
+            _manager.EndScene();
         }
     }
     public void InitData(EnemyData enemyData)

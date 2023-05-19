@@ -32,7 +32,7 @@ public class WaveManager : MonoBehaviour
     }
     public void EndWave()
     {
-        GameManager.Instance.showItemPickItemUI();
+        GameManager.Instance.ShowItemPickItemUI();
     }
     public EnemyData GetEnemyData()
     {
