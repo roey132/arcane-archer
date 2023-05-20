@@ -77,7 +77,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0377872, y: -0.15114844}
+  m_Offset: {x: 0.061583042, y: 0.002046764}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -88,7 +88,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3641307, y: 2.5114858}
+  m_Size: {x: 0.8838434, y: 2.0063558}
   m_EdgeRadius: 0
 --- !u!114 &1277251008861649120
 MonoBehaviour:
@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0986669e3ffe71049923048e67c7d3b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ec8a4b998e4b944d847ab242722b246, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -211,7 +211,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5632399893452943476}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3f4059d05d3d81d409f40e35c1e71c25, type: 2}
   m_CullingMode: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5632399893452943476}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f6052aa84ed7b6448e7334cec91f562, type: 3}
   m_Name: 
@@ -490,6 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5632399895480721464}
   - component: {fileID: 5632399895480721465}
+  - component: {fileID: 695230123}
   m_Layer: 0
   m_Name: AmmoManager
   m_TagString: Untagged
@@ -524,8 +525,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0aa9cbfcefef5844a8b881f6f7c0802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireAmmoCount: {fileID: 0}
-  _iceAmmoCount: {fileID: 0}
+--- !u!114 &695230123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632399895480721471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a178b2dcda315e845b810a0d44166943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 2
+  _durationTimer: 0
+  _slowTimeScale: 0
+  _slowMotionCooldown: 1
+  _slowMotionTimer: 0
+  _slowMotionActive: 0
+  _slowMotionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0000010174699
+      value: 0
+      inSlope: -0.00006730345
+      outSlope: -0.00006730345
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.29615268
+      value: -0.000019932166
+      inSlope: -0.037693746
+      outSlope: -0.037693746
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.45890677
+    - serializedVersion: 3
+      time: 0.7040365
+      value: 0.26993728
+      inSlope: 1.1457548
+      outSlope: 1.1457548
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.39217547
+    - serializedVersion: 3
+      time: 0.90019584
+      value: 0.65798503
+      inSlope: 3.2037988
+      outSlope: 3.2037988
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33202523
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 3.4268608
+      outSlope: 3.4268608
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5632399895519416241
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,4 +639,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseData: {fileID: 5632399894076212007}
-  currencyText: {fileID: 0}
