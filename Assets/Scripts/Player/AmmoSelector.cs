@@ -18,6 +18,7 @@ public class AmmoSelector : MonoBehaviour
     [SerializeField] private AnimationCurve _slowMotionCurve;
 
     private float _currentAnimationCurve;
+    [SerializeField] private GameObject _AmmoUi; 
 
     void Start()
     {
@@ -31,11 +32,13 @@ public class AmmoSelector : MonoBehaviour
         {
             _slowMotionActive = true;
             _currentAnimationCurve = 0f;
+            _AmmoUi.SetActive(true);
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && _durationTimer > 0 && _slowMotionTimer <= 0 && _slowMotionActive)
         {
             SlowMotion();
+
             _durationTimer -= Time.unscaledDeltaTime;
         }
         else 
@@ -50,6 +53,7 @@ public class AmmoSelector : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
+            _AmmoUi.SetActive(false);
             Time.timeScale = 1f;
         }
 
@@ -62,7 +66,6 @@ public class AmmoSelector : MonoBehaviour
     {
 
         _currentAnimationCurve = Mathf.MoveTowards(_currentAnimationCurve, 1f, Time.unscaledDeltaTime / _duration);
-        print(Mathf.Lerp(_slowTimeScale, 1f, Time.timeScale));
         Time.timeScale = Mathf.Lerp(_slowTimeScale, 1f,_slowMotionCurve.Evaluate(_currentAnimationCurve));
         Time.fixedDeltaTime = Time.timeScale * 0.02f;
     }

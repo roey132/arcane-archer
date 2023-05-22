@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ProjectileShooter : MonoBehaviour
 {
+    public static ProjectileShooter Instance;
+
     public GameObject ProjectilePrefab;
     public float MaxSpreadAngle;
     public float MinSpreadAngle;
@@ -19,6 +21,14 @@ public class ProjectileShooter : MonoBehaviour
 
     private float nextFireTime;
     [SerializeField] private bool canShoot = true;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
     private void Start()
     {
         _stats = IngameStats.Instance;
@@ -39,7 +49,7 @@ public class ProjectileShooter : MonoBehaviour
                 if (Input.GetKey(KeyCode.Mouse0) )
                 {
                     // use current ammo
-                    if (AmmoInventory.Instance.useAmmo(_equippedArrowName))
+                    if (AmmoInventory.Instance.useAmmo(_equippedArrowData))
                     {
                         _currArrowData = _equippedArrowData;
                     }
@@ -115,9 +125,9 @@ public class ProjectileShooter : MonoBehaviour
         }
     }
 
-    public void setEquippedAmmo(string ammoName)
+    public void setEquippedAmmo(AmmoData ammoData)
     {
-        _equippedArrowName = ammoName;
-        _equippedArrowData = AssetDatabase.LoadAssetAtPath<AmmoData>($"Assets/ScriptableObjects/Ammo/{ammoName}.asset");
+        _equippedArrowName = ammoData.name;
+        _equippedArrowData = ammoData;
     }
 }

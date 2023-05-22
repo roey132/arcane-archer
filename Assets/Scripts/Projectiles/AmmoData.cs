@@ -16,5 +16,4 @@ public class AmmoData : ScriptableObject
         GameObject effectObject = Instantiate(Effect ,position, Quaternion.identity);
         return effectObject;
     }
-
 }
