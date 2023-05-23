@@ -29,6 +29,7 @@ public class AmmoInventory : MonoBehaviour
     {
         // do not do anything if ammoType is NormalArrow
         if (ammoData.name == "NormalArrow") return false;
+        if (!_ammoInventory.ContainsKey(ammoData)) return false;
         // check if there is more than 1 arrow and use it
         if (_ammoInventory[ammoData]._ammoCount > 0)
         {
@@ -41,6 +42,7 @@ public class AmmoInventory : MonoBehaviour
         else 
         {
             _ammoInventory[ammoData]._button.GetComponent<AmmoButton>().ResetButton();
+            _ammoInventory.Remove(ammoData);
             return false; 
         }
     }
@@ -62,6 +64,7 @@ public class AmmoInventory : MonoBehaviour
                 if(button.activeSelf == false)
                 {
                     _ammoInventory.Add(ammoData,new EquippedAmmoInfo(button, ammoCount));
+                    button.SetActive(true);
                     button.GetComponent<AmmoButton>().InitButton(ammoData,ammoCount);
                     break;
                 }

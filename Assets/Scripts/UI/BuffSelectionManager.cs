@@ -22,19 +22,12 @@ public class BuffSelectionManager : MonoBehaviour
     public void SetAllButtons()
     {
         List<ItemData> tempList = new List<ItemData>(_items);
-        foreach (ItemData item in tempList)
-        {
-            print(item.name);
-        }
         for (int i = 0; i < 3; i++)
         {
             int rndItem = Random.Range(0, tempList.Count - 1);
-            print($"random item num {rndItem}");
             SetButton(transform.Find($"PickItemButton{i+1}"), tempList[rndItem]);
 
-            print($"before removal {tempList.Count}");
             tempList.RemoveAt(rndItem);
-            print($"after removal {tempList.Count}");
         }
     }
 
