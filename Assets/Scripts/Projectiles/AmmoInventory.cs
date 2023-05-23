@@ -21,8 +21,8 @@ public class AmmoInventory : MonoBehaviour
 
     void Start()
     {
-        addAmmo(test1,200);
-        addAmmo(test2,200);
+        addAmmo(test1,5);
+        addAmmo(test2,5);
     }
 
     public bool useAmmo(AmmoData ammoData)

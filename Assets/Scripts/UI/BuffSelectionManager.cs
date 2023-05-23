@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,9 +21,13 @@ public class BuffSelectionManager : MonoBehaviour
 
     public void SetAllButtons()
     {
+        List<ItemData> tempList = new List<ItemData>(_items);
+
         for (int i = 0; i < 3; i++)
         {
-            SetButton(transform.Find($"PickItemButton{i+1}"), _items[i]);
+            int rndItem = Random.Range(0, _items.Count - 1);
+            SetButton(transform.Find($"PickItemButton{i+1}"), tempList[rndItem]);
+            tempList.RemoveAt(rndItem);
         }
     }
 

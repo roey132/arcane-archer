@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "newStatItem",menuName = "Items/StatItem")]
 public class StatsItem : ItemData
 {
     public bool IsBuff;

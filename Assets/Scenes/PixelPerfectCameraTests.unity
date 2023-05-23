@@ -220,8 +220,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7239326463886387404, guid: 4626664ae0786c547b0c0057ce03ce00, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7295458989322532088, guid: 4626664ae0786c547b0c0057ce03ce00, type: 3}
+      propertyPath: _items.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7295458989322532088, guid: 4626664ae0786c547b0c0057ce03ce00, type: 3}
+      propertyPath: _items.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: ccfaa419701fcd9428af047400b4556b, type: 2}
+    - target: {fileID: 7295458989322532088, guid: 4626664ae0786c547b0c0057ce03ce00, type: 3}
+      propertyPath: _items.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f5541c9ebd76a74abd3e687a649798f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4626664ae0786c547b0c0057ce03ce00, type: 3}
 --- !u!1001 &77467488
