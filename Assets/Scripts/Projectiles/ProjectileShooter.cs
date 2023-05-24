@@ -20,6 +20,7 @@ public class ProjectileShooter : MonoBehaviour
 
 
     private float nextFireTime;
+    [SerializeField] SpriteRenderer equippedAmmoSprite;
     [SerializeField] private bool canShoot = true;
 
     void Awake()
@@ -129,5 +130,8 @@ public class ProjectileShooter : MonoBehaviour
     {
         _equippedArrowName = ammoData.name;
         _equippedArrowData = ammoData;
+        equippedAmmoSprite.gameObject.SetActive(true);
+        equippedAmmoSprite.sprite = ammoData.Sprite;
+
     }
 }

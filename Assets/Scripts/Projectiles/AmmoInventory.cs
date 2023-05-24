@@ -10,6 +10,7 @@ public class AmmoInventory : MonoBehaviour
 
     [SerializeField] private Dictionary<AmmoData, EquippedAmmoInfo> _ammoInventory = new Dictionary<AmmoData, EquippedAmmoInfo>();
     [SerializeField] private List<GameObject> _buttons = new();
+    [SerializeField] private GameObject _equippedAmmoIndicator;
 
     void Awake()
     {
@@ -30,21 +31,24 @@ public class AmmoInventory : MonoBehaviour
         // do not do anything if ammoType is NormalArrow
         if (ammoData.name == "NormalArrow") return false;
         if (!_ammoInventory.ContainsKey(ammoData)) return false;
+
+        bool shotArrow = false;
         // check if there is more than 1 arrow and use it
         if (_ammoInventory[ammoData]._ammoCount > 0)
         {
             _ammoInventory[ammoData]._ammoCount -= 1;
             int currAmmoCount = _ammoInventory[ammoData]._ammoCount;
             _ammoInventory[ammoData]._button.GetComponent<AmmoButton>().UpdateAmmoCount(currAmmoCount);
-
-            return true;
+            shotArrow = true;
         }
-        else 
+        if (_ammoInventory[ammoData]._ammoCount == 0)
         {
             _ammoInventory[ammoData]._button.GetComponent<AmmoButton>().ResetButton();
             _ammoInventory.Remove(ammoData);
-            return false; 
+            _equippedAmmoIndicator.SetActive(false);
+            return shotArrow; 
         }
+        return shotArrow;
     }
     public bool addAmmo(AmmoData ammoData, int ammoCount)
     {

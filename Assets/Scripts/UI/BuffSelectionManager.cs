@@ -24,7 +24,7 @@ public class BuffSelectionManager : MonoBehaviour
         List<ItemData> tempList = new List<ItemData>(_items);
         for (int i = 0; i < 3; i++)
         {
-            int rndItem = Random.Range(0, tempList.Count - 1);
+            int rndItem = Random.Range(0, tempList.Count);
             SetButton(transform.Find($"PickItemButton{i+1}"), tempList[rndItem]);
 
             tempList.RemoveAt(rndItem);
