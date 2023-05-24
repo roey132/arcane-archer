@@ -5,8 +5,6 @@ using UnityEngine;
 public class AmmoInventory : MonoBehaviour
 {
     public static AmmoInventory Instance;
-    [SerializeField] private AmmoData test1;
-    [SerializeField] private AmmoData test2;
 
     [SerializeField] private Dictionary<AmmoData, EquippedAmmoInfo> _ammoInventory = new Dictionary<AmmoData, EquippedAmmoInfo>();
     [SerializeField] private List<GameObject> _buttons = new();
@@ -22,8 +20,7 @@ public class AmmoInventory : MonoBehaviour
 
     void Start()
     {
-        addAmmo(test1,5);
-        addAmmo(test2,5);
+
     }
 
     public bool useAmmo(AmmoData ammoData)
