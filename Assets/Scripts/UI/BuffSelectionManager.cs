@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,9 +21,13 @@ public class BuffSelectionManager : MonoBehaviour
 
     public void SetAllButtons()
     {
+        List<ItemData> tempList = new List<ItemData>(_items);
         for (int i = 0; i < 3; i++)
         {
-            SetButton(transform.Find($"PickItemButton{i+1}"), _items[i]);
+            int rndItem = Random.Range(0, tempList.Count);
+            SetButton(transform.Find($"PickItemButton{i+1}"), tempList[rndItem]);
+
+            tempList.RemoveAt(rndItem);
         }
     }
 
@@ -44,12 +46,12 @@ public class BuffSelectionManager : MonoBehaviour
 
         button.onClick.RemoveAllListeners();
 
-        UnityAction action1 = () => ItemManager.Instance.AddItem(item);
-        UnityAction action2 = () => GameManager.Instance.HideItemPickItemUI();
-        UnityAction action3 = () => WaveManager.Instance.StartWave();
+        UnityAction AddItem = () => ItemManager.Instance.AddItem(item);
+        UnityAction HideUI = () => GameManager.Instance.HideItemPickItemUI();
+        UnityAction StartWave = () => WaveManager.Instance.StartWave();
 
-        button.onClick.AddListener(action1);
-        button.onClick.AddListener(action2);
-        button.onClick.AddListener(action3);
+        button.onClick.AddListener(AddItem);
+        button.onClick.AddListener(HideUI);
+        button.onClick.AddListener(StartWave);
     }
 }

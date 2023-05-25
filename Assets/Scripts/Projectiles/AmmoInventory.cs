@@ -6,9 +6,9 @@ public class AmmoInventory : MonoBehaviour
 {
     public static AmmoInventory Instance;
 
-    [SerializeField] private Dictionary<string, int> _ammoInventory = new Dictionary<string, int>();
-    //[SerializeField] public TextMeshProUGUI _fireAmmoCount;
-    //[SerializeField] public TextMeshProUGUI _iceAmmoCount;
+    [SerializeField] private Dictionary<AmmoData, EquippedAmmoInfo> _ammoInventory = new Dictionary<AmmoData, EquippedAmmoInfo>();
+    [SerializeField] private List<GameObject> _buttons = new();
+    [SerializeField] private GameObject _equippedAmmoIndicator;
 
     void Awake()
     {
@@ -20,50 +20,69 @@ public class AmmoInventory : MonoBehaviour
 
     void Start()
     {
-        _ammoInventory.Add("FireBomb", 50);
-        _ammoInventory.Add("IceBomb", 50);
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //_fireAmmoCount.text = _ammoInventory["FireBomb"].ToString();
-        //_iceAmmoCount.text = _ammoInventory["IceBomb"].ToString();
-    }
-    public bool useAmmo(string ammoType)
+    public bool useAmmo(AmmoData ammoData)
     {
         // do not do anything if ammoType is NormalArrow
-        if (ammoType == "NormalArrow") return false;
+        if (ammoData.name == "NormalArrow") return false;
+        if (!_ammoInventory.ContainsKey(ammoData)) return false;
+
+        bool shotArrow = false;
         // check if there is more than 1 arrow and use it
-        if (_ammoInventory[ammoType] > 0)
+        if (_ammoInventory[ammoData]._ammoCount > 0)
         {
-            _ammoInventory[ammoType] -= 1;
-            return true;
+            _ammoInventory[ammoData]._ammoCount -= 1;
+            int currAmmoCount = _ammoInventory[ammoData]._ammoCount;
+            _ammoInventory[ammoData]._button.GetComponent<AmmoButton>().UpdateAmmoCount(currAmmoCount);
+            shotArrow = true;
         }
-        else 
-        { 
-            return false; 
+        if (_ammoInventory[ammoData]._ammoCount == 0)
+        {
+            _ammoInventory[ammoData]._button.GetComponent<AmmoButton>().ResetButton();
+            _ammoInventory.Remove(ammoData);
+            _equippedAmmoIndicator.SetActive(false);
+            return shotArrow; 
         }
+        return shotArrow;
     }
-    public bool addAmmo(string ammoType, int ammoCount)
+    public bool addAmmo(AmmoData ammoData, int ammoCount)
     {
         // add ammo to existing ammo inventory
-        if (_ammoInventory.ContainsKey(ammoType))
+        if (_ammoInventory.ContainsKey(ammoData))
         {
-            _ammoInventory[ammoType] += ammoCount;
+            _ammoInventory[ammoData]._ammoCount += ammoCount;
+            int currAmmoCount = _ammoInventory[ammoData]._ammoCount;
+            _ammoInventory[ammoData]._button.GetComponent<AmmoButton>().UpdateAmmoCount(currAmmoCount);
             return true;
         }
         // add new ammo to inventory unless theres already 5.
         else if (_ammoInventory.Count < 5)
         {
-            _ammoInventory.Add(ammoType, ammoCount);
+            foreach (GameObject button in _buttons)
+            {
+                if(button.activeSelf == false)
+                {
+                    _ammoInventory.Add(ammoData,new EquippedAmmoInfo(button, ammoCount));
+                    button.SetActive(true);
+                    button.GetComponent<AmmoButton>().InitButton(ammoData,ammoCount);
+                    break;
+                }
+            }
         }
         return false;
     }
-    // temporary for test buttons UI
-    public void addAmmoButton(string ammoType)
-    {
-        _ammoInventory[ammoType] += 50;
-    }
+}
 
+public class EquippedAmmoInfo
+{
+    public GameObject _button;
+    public int _ammoCount;
+
+    public EquippedAmmoInfo(GameObject button, int ammoCount)
+    {
+        _button = button;
+        _ammoCount = ammoCount;
+    }
 }

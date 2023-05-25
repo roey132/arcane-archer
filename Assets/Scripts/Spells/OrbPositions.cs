@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class OrbPositions : MonoBehaviour
@@ -9,12 +6,16 @@ public class OrbPositions : MonoBehaviour
     public int numOrbs;
     public float radius;
     public Transform centerTransform;
+    private Transform _player;
 
     private GameObject[] orbs;
 
+    private void Awake()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     void Start()
     {
-        centerTransform = transform.parent;
         createOrbs();
     }
     private void destroyOrbs()
@@ -31,8 +32,8 @@ public class OrbPositions : MonoBehaviour
         for (int i = 0; i < numOrbs; i++)
         {
             float angle = i * Mathf.PI * 2f / numOrbs;
-            Vector3 spawnPos = centerTransform.position + new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0f);
-            orbs[i] = Instantiate(orbPrefab, spawnPos, Quaternion.identity, transform.parent);
+            Vector3 spawnPos = _player.position + new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0f);
+            orbs[i] = Instantiate(orbPrefab, spawnPos, Quaternion.identity, _player);
         }
     }
     public void addOrb()

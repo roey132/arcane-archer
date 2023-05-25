@@ -6,8 +6,6 @@ public class IngameStats : MonoBehaviour
 {
     public static IngameStats Instance;
 
-    [SerializeField] private playerBaseData _baseData;
-
     public float MaxHp { get; private set; }
     public float CurrHp { get; private set; }
     public float MaxMana { get; private set; }
@@ -31,22 +29,23 @@ public class IngameStats : MonoBehaviour
         {
             Instance = this;
         }
+        
 
-        MaxHp = _baseData.Health;
-        CurrHp = _baseData.Health;
-        MaxMana = _baseData.Mana;
-        CurrMana = _baseData.Mana;
-        AttackSpeed = _baseData.AttackSpeed;
-        CastSpeed = _baseData.CastSpeed;
-        MovementSpeed = _baseData.MovementSpeed;
-        CriticalRate = _baseData.CriticalRate;
-        CriticalDamage = _baseData.CriticalDamage;
-        PhysicalDamageMultiplier = _baseData.PhysicalDamageMultiplier;
-        MagicalDamageMultiplier = _baseData.MagicalDamageMultiplier;
-        BaseDamage = _baseData.BaseDamage;
-        BaseMagicDamage = _baseData.BaseMagicDamage;
-        NumOfArrows = _baseData.NumOfArrows;
-        IngameCurrency = _baseData.StartingIngameCurrency;
+        MaxHp = PlayerBaseData.Instance.Health;
+        CurrHp = PlayerBaseData.Instance.Health;
+        MaxMana = PlayerBaseData.Instance.Mana;
+        CurrMana = PlayerBaseData.Instance.Mana;
+        AttackSpeed = PlayerBaseData.Instance.AttackSpeed;
+        CastSpeed = PlayerBaseData.Instance.CastSpeed;
+        MovementSpeed = PlayerBaseData.Instance.MovementSpeed;
+        CriticalRate = PlayerBaseData.Instance.CriticalRate;
+        CriticalDamage = PlayerBaseData.Instance.CriticalDamage;
+        PhysicalDamageMultiplier = PlayerBaseData.Instance.PhysicalDamageMultiplier;
+        MagicalDamageMultiplier = PlayerBaseData.Instance.MagicalDamageMultiplier;
+        BaseDamage = PlayerBaseData.Instance.BaseDamage;
+        BaseMagicDamage = PlayerBaseData.Instance.BaseMagicDamage;
+        NumOfArrows = PlayerBaseData.Instance.NumOfArrows;
+        IngameCurrency = PlayerBaseData.Instance.StartingIngameCurrency;
     }
     void Start()
     {
