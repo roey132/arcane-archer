@@ -16,8 +16,7 @@ public class SpellManager : MonoBehaviour
         {
             instance = this;
         }
-        _playerTransform = transform.parent;
-
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame

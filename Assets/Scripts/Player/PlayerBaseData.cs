@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerBaseData : MonoBehaviour
+public class PlayerBaseData : MonoBehaviour
 {
-    public static playerBaseData Instance;
+    public static PlayerBaseData Instance;
 
     public float Health;
     public float Mana;

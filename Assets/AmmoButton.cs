@@ -23,7 +23,7 @@ public class AmmoButton : MonoBehaviour
         _text.text = ammoCount.ToString();
 
         Button button = GetComponent<Button>();
-        UnityAction action1 = () => ProjectileShooter.Instance.setEquippedAmmo(ammo);
+        UnityAction action1 = () => ProjectileShooter.Instance.SetEquippedAmmo(ammo);
         button.onClick.AddListener(action1);
     }
     public void UpdateAmmoCount(int ammoCount)
