@@ -29,8 +29,9 @@ public class IngameStats : MonoBehaviour
         {
             Instance = this;
         }
-        
-
+    }
+    void Start()
+    {
         MaxHp = PlayerBaseData.Instance.Health;
         CurrHp = PlayerBaseData.Instance.Health;
         MaxMana = PlayerBaseData.Instance.Mana;
@@ -47,13 +48,9 @@ public class IngameStats : MonoBehaviour
         NumOfArrows = PlayerBaseData.Instance.NumOfArrows;
         IngameCurrency = PlayerBaseData.Instance.StartingIngameCurrency;
     }
-    void Start()
-    {
-
-    }
     void Update()
     {
-        //currencyText.text = IngameCurrency.ToString();
+
     }
 
     public void hitPlayer(float damage)
