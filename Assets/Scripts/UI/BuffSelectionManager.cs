@@ -48,10 +48,10 @@ public class BuffSelectionManager : MonoBehaviour
 
         UnityAction AddItem = () => ItemManager.Instance.AddItem(item);
         UnityAction HideUI = () => GameManager.Instance.HideItemPickItemUI();
-        UnityAction StartWave = () => WaveManager.Instance.StartWave();
+        //UnityAction StartWave = () => WaveManager.Instance.StartWave();
 
         button.onClick.AddListener(AddItem);
         button.onClick.AddListener(HideUI);
-        button.onClick.AddListener(StartWave);
+        //button.onClick.AddListener(StartWave);
     }
 }
