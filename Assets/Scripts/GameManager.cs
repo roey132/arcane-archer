@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         UiISActive = false;
         buffsUi.SetActive(false);
-        UpdateGameState(GameState.InCombat);
+        UpdateGameState(GameState.ShopRoom);
     }
     public void EndScene()
     {

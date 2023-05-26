@@ -10330,10 +10330,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 1626159618070536503, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752041067998637248, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752041068562051652, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752041068934794350, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752041069047042220, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752041069343581471, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3782942823776620400, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
       propertyPath: equippedAmmoSprite
       value: 
       objectReference: {fileID: 828130553}
+    - target: {fileID: 6201639247524221578, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6941494298080715012, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
       propertyPath: m_RootOrder
       value: 8

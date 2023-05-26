@@ -17,6 +17,7 @@ MonoBehaviour:
   ItemType: Bow
   ItemDescription: Adds an extra arrow
   ItemElement: 
+  ItemBasePrice: 5
   IsBuff: 1
   Stats: 03000000
   Values:

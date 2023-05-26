@@ -6,18 +6,13 @@ using UnityEngine;
 
 public class ShopItem : MonoBehaviour
 {
-    [SerializeField] private float _price;
     [SerializeField] private TextMeshPro _priceText;
-    [SerializeField] private ItemData _item;
+
+    private float _price;
+    private ItemData _item;
     private bool _playerColliding;
     private bool _canBuy;
-    // Start is called before the first frame update
-    void Start()
-    {
-        InitShopItem(_price, _item);
-    }
 
-    // Update is called once per frame
     void Update()
     {
         _canBuy = IngameStats.Instance.IngameCurrency >= _price;
@@ -35,23 +30,15 @@ public class ShopItem : MonoBehaviour
         _item = item;
         _priceText.text = _price.ToString();
         GetComponent<SpriteRenderer>().sprite = item.ItemIcon;
+        gameObject.SetActive(true);
     }
     public void BuyItem()
     {
         ItemManager.Instance.AddItem( _item );
+        print($"Bought Item {_item.ItemName}");
         gameObject.SetActive( false );
     }
 
-    public void OnTriggerStay2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Player")) return;
-        print("Player Colliding");
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            print("Pressed Enter");
-            BuyItem();
-        }
-    }
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if (!collider.CompareTag("Player")) return;
@@ -62,4 +49,5 @@ public class ShopItem : MonoBehaviour
         if (!collider.CompareTag("Player")) return;
         _playerColliding = false;
     }
+
 }

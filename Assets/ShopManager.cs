@@ -1,18 +1,31 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private List<ItemData> _items;
+    [SerializeField] private int _numOfItems;
+    void Awake()
     {
-        
+        GameManager.OnGameStateChange += ActivateShop;
+    }
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChange -= ActivateShop;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivateShop(GameState state)
     {
-        
+        if (state != GameState.ShopRoom) return;
+
+        List<ItemData> tempList = new List<ItemData>(_items);
+        for (int i = 0; i < _numOfItems; i++)
+        {
+            int rndItem = Random.Range(0, tempList.Count);
+            transform.Find($"ShopItemObject{i + 1}").GetComponent<ShopItem>().InitShopItem(tempList[rndItem].ItemBasePrice, tempList[rndItem]);
+
+            tempList.RemoveAt(rndItem);
+        }
     }
+
 }

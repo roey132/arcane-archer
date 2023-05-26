@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1752041068438044862
 Transform:
   m_ObjectHideFlags: 0
@@ -138,9 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f98282945886a44911ae123fd1e105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 10
   _priceText: {fileID: 7122527337315285034}
-  _item: {fileID: 11400000, guid: c22e5504e4289da4793f524e2bb6e69e, type: 2}
 --- !u!1 &3094110809668205631
 GameObject:
   m_ObjectHideFlags: 0
