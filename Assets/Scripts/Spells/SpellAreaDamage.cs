@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "BaseSpell", menuName = "Spells/AreaDamageSpell")]
 public class SpellAreaDamage : SpellData
 {
     public Vector2 _center;

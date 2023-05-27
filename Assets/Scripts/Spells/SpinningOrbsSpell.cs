@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "BaseSpell", menuName = "Spells/SpinningOrbsSpell")]
 public class SpinningOrbsSpell : SpellData
 {
     public int NumOfOrbs;
