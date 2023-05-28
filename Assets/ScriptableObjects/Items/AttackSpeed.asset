@@ -18,6 +18,7 @@ MonoBehaviour:
   ItemDescription: Adds attack speed to the bow
   ItemElement: 
   ItemBasePrice: 5
+  BaseWeight: 100000000
   IsBuff: 1
   Stats: 04000000
   Values:

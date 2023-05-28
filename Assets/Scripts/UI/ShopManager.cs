@@ -18,6 +18,8 @@ public class ShopManager : MonoBehaviour
     {
         if (state != GameState.ShopRoom) return;
 
+        print(_items.RandomItems(3));
+
         List<ItemData> tempList = new List<ItemData>(_items);
         for (int i = 0; i < _numOfItems; i++)
         {
@@ -27,5 +29,4 @@ public class ShopManager : MonoBehaviour
             tempList.RemoveAt(rndItem);
         }
     }
-
 }

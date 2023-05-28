@@ -47,7 +47,6 @@ public class ProjectileShooter : MonoBehaviour
         _numOfArrows = _stats.NumOfArrows;
 
         if (Time.time <= nextFireTime) return;
-        print("this code executes");
 
         if (!_canShoot) return;
         

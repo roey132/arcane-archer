@@ -7,21 +7,20 @@ using UnityEngine.UI;
 public class BuffSelectionManager : MonoBehaviour
 {
     [SerializeField] private List<ItemData> _items;
-
-    void Start()
+    private void Awake()
     {
-        
+        GameManager.OnGameStateChange += SetAllButtons;
+    }
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChange -= SetAllButtons;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetAllButtons(GameState state)
     {
-        
-    }
-
-    public void SetAllButtons()
-    {
+        if (state != GameState.BuffSelection) return;
         List<ItemData> tempList = new List<ItemData>(_items);
+
         for (int i = 0; i < 3; i++)
         {
             int rndItem = Random.Range(0, tempList.Count);
@@ -48,10 +47,10 @@ public class BuffSelectionManager : MonoBehaviour
 
         UnityAction AddItem = () => ItemManager.Instance.AddItem(item);
         UnityAction HideUI = () => GameManager.Instance.HideItemPickItemUI();
-        //UnityAction StartWave = () => WaveManager.Instance.StartWave();
+        UnityAction RoomSelection = () => GameManager.Instance.UpdateGameState(GameState.RoomSelection);
 
         button.onClick.AddListener(AddItem);
         button.onClick.AddListener(HideUI);
-        //button.onClick.AddListener(StartWave);
+        button.onClick.AddListener(RoomSelection);
     }
 }

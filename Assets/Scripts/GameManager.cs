@@ -26,13 +26,17 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameState.RoomSelection:
+                print("RoomSelection state");
                 break;
             case GameState.InCombat:
+                print("InCombat state");
                 break;
             case GameState.ShopRoom:
+                print("ShopRoom state");
                 break;
             case GameState.BuffSelection:
                 ShowItemPickItemUI();
+                print("BuffSelection state");
                 break;
         }
 
@@ -56,13 +60,11 @@ public class GameManager : MonoBehaviour
     {
         UiISActive = true;
         buffsUi.SetActive(true);
-        buffsUi.GetComponent<BuffSelectionManager>().SetAllButtons();
     }
     public void HideItemPickItemUI() 
     {
         UiISActive = false;
         buffsUi.SetActive(false);
-        UpdateGameState(GameState.ShopRoom);
     }
     public void EndScene()
     {

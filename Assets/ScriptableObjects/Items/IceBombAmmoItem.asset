@@ -18,5 +18,6 @@ MonoBehaviour:
   ItemDescription: Adds 100 crystal illbi
   ItemElement: Ice
   ItemBasePrice: 5
+  BaseWeight: 100
   AmmoData: {fileID: 11400000, guid: fd3b58319d0490a41ace6e8d5d705667, type: 2}
   AmmoCount: 100

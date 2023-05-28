@@ -18,6 +18,7 @@ MonoBehaviour:
   ItemDescription: Adds an extra arrow
   ItemElement: 
   ItemBasePrice: 5
+  BaseWeight: 1000000000
   IsBuff: 1
   Stats: 03000000
   Values:

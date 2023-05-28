@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomSelector : MonoBehaviour
@@ -31,6 +29,7 @@ public class RoomSelector : MonoBehaviour
     public void ActivatePortal(RoomObject room)
     {
         _room = room;
+        GetComponent<SpriteRenderer>().sprite = room.PortalSprite;
         gameObject.SetActive(true);
     }
 }
