@@ -16,7 +16,14 @@ public class ShopManager : MonoBehaviour
 
     public void ActivateShop(GameState state)
     {
-        if (state != GameState.ShopRoom) return;
+        if (state != GameState.ShopRoom) 
+        {
+            gameObject.SetActive(false);
+            return;
+        };
+        gameObject.SetActive(true);
+
+        transform.Find("RoomSelectionActivator").gameObject.SetActive(true);
 
         print(_items.RandomItems(3));
 
