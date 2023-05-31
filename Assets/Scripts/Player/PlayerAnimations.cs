@@ -1,20 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAnimations : MonoBehaviour
 {
     [SerializeField] Animator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
-    // Start is called before the first frame update
+    private PlayerInputs _playerInputs;
+
     void Start()
     {
+        _playerInputs = new PlayerInputs();
+
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
+    private void OnEnable()
+    {
+    }
+    private void OnDisable()
+    {
+        
+    }
     void Update()
     {
         if (GameManager.Instance.UiISActive) 

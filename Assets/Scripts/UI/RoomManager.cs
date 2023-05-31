@@ -30,7 +30,7 @@ public class RoomManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             RoomSelector room = transform.Find($"RoomSelector{i+1}").GetComponent<RoomSelector>();
-            room.ActivatePortal(selectedRooms[i]);
+            room.InitPortal(selectedRooms[i]);
         }
     }
 }
