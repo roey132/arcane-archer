@@ -1,21 +1,28 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RoomSelectionActivator : MonoBehaviour
 {
     private bool _playerColliding;
 
+    private PlayerInputs _playerInputs;
+    private InputAction _interact;
+
     private void Awake()
     {
-        
+        _playerInputs = new PlayerInputs();
+
     }
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.F) && _playerColliding)
-        {
-            GameManager.Instance.UpdateGameState(GameState.RoomSelection);
-            gameObject.SetActive(false);
-        }
+        _interact = _playerInputs.Player.Interact;
+        _interact.performed += OnInteract;
+        _interact.Enable();
+    }
+    private void OnDisable()
+    {
+        _interact.performed -= OnInteract;
+        _interact?.Disable();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -31,5 +38,12 @@ public class RoomSelectionActivator : MonoBehaviour
         {
             _playerColliding = false;
         }
+    }
+    private void OnInteract(InputAction.CallbackContext input)
+    {
+        if (!_playerColliding) return;
+
+        GameManager.Instance.UpdateGameState(GameState.RoomSelection);
+        gameObject.SetActive(false);
     }
 }

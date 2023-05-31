@@ -749,6 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da91b50bf3f62e34999fabc4eea67893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EquippedAmmo: {fileID: 0}
 --- !u!1 &2043350923333150394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,7 +1594,8 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 5439112176742407111, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
   MaxSpreadAngle: 0
   MinSpreadAngle: 1
-  equippedAmmoSprite: {fileID: 0}
+  _defaultArrowData: {fileID: 11400000, guid: bf0b8af26c763df4196ea8b58c88e887, type: 2}
+  _equippedAmmoSprite: {fileID: 0}
   _canShoot: 1
 --- !u!1 &6128018689641080570
 GameObject:
@@ -2863,7 +2865,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 368129540368503340, guid: c54ec65294878134994930df6155d8a5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c54ec65294878134994930df6155d8a5, type: 3}
 --- !u!4 &1752041068562051652 stripped
 Transform:
@@ -2925,7 +2928,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 368129540368503340, guid: c54ec65294878134994930df6155d8a5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c54ec65294878134994930df6155d8a5, type: 3}
 --- !u!4 &1752041067998637248 stripped
 Transform:
@@ -2987,7 +2991,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 368129540368503340, guid: c54ec65294878134994930df6155d8a5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c54ec65294878134994930df6155d8a5, type: 3}
 --- !u!4 &1752041069343581471 stripped
 Transform:
@@ -3049,7 +3054,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 368129540368503340, guid: c54ec65294878134994930df6155d8a5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c54ec65294878134994930df6155d8a5, type: 3}
 --- !u!4 &1752041068934794350 stripped
 Transform:
@@ -3111,7 +3117,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 368129540368503340, guid: c54ec65294878134994930df6155d8a5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c54ec65294878134994930df6155d8a5, type: 3}
 --- !u!4 &1752041069047042220 stripped
 Transform:
@@ -3173,7 +3180,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 368129540368503340, guid: c54ec65294878134994930df6155d8a5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c54ec65294878134994930df6155d8a5, type: 3}
 --- !u!4 &1626159618070536503 stripped
 Transform:
@@ -3191,10 +3199,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomSelectionActivator
       objectReference: {fileID: 0}
-    - target: {fileID: 2222705930805759749, guid: 4263517eef4af5a4c845af3a5e374673, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2222705930805759769, guid: 4263517eef4af5a4c845af3a5e374673, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3205,7 +3209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2222705930805759769, guid: 4263517eef4af5a4c845af3a5e374673, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07487965
+      value: 8.87
       objectReference: {fileID: 0}
     - target: {fileID: 2222705930805759769, guid: 4263517eef4af5a4c845af3a5e374673, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3300,10 +3304,6 @@ PrefabInstance:
     - target: {fileID: 126496672821066023, guid: 79a1d2a01b736b049811839729633ca7, type: 3}
       propertyPath: m_Name
       value: WaveManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 126496672821066023, guid: 79a1d2a01b736b049811839729633ca7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79a1d2a01b736b049811839729633ca7, type: 3}

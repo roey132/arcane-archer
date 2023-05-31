@@ -22,15 +22,10 @@ public class RoomSelector : MonoBehaviour
     }
     private void OnDisable()
     {
+        _interact.performed -= OnInteract;
         _interact?.Disable();
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
 
-        }
-    }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")){

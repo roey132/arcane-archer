@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ProjectileShooter : MonoBehaviour
 {
@@ -9,39 +10,73 @@ public class ProjectileShooter : MonoBehaviour
     public float MaxSpreadAngle;
     public float MinSpreadAngle;
 
-    private string _equippedArrowName = "NormalArrow";
-    private string _defaultArrowName = "NormalArrow";
     private AmmoData _currArrowData;
     private AmmoData _equippedArrowData;
-    private AmmoData _defaultArrowData;
+    [SerializeField] private AmmoData _defaultArrowData;
     private float _attackSpeed;
     private float _numOfArrows;
     private IngameStats _stats;
     private Transform _player;
 
+    private PlayerInputs _playerInputs;
+    private InputAction _fire;
+    private bool _isUsingAmmo;
 
     private float nextFireTime;
-    [SerializeField] SpriteRenderer equippedAmmoSprite;
+    [SerializeField] private SpriteRenderer _equippedAmmoSprite;
     [SerializeField] private bool _canShoot = true;
 
     void Awake()
     {
+        _playerInputs = new PlayerInputs();
         if (Instance == null)
         {
             Instance = this;
         }
+
         _player = GameObject.FindGameObjectWithTag("Player").transform;
         GameManager.OnGameStateChange += CanShoot;
+    }
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChange -= CanShoot;
+    }
+    private void OnEnable()
+    {
+        _equippedAmmoSprite.gameObject.SetActive(true);
+        _isUsingAmmo = false;
+
+        // handle input actions
+        _playerInputs.Enable();
+        _fire = _playerInputs.Player.Fire;
+        _fire.performed += OnFirePerformed;
+        _fire.Enable();
+    }
+
+
+    private void OnDisable()
+    {
+        _equippedAmmoSprite.gameObject.SetActive(false);
+
+        // handle input actions
+        _fire.performed -= OnFirePerformed;
+        _fire.Disable();
     }
     private void Start()
     {
         _stats = IngameStats.Instance;
-        _equippedArrowData = AssetDatabase.LoadAssetAtPath<AmmoData>($"Assets/ScriptableObjects/Ammo/{_defaultArrowName}.asset");
-        _defaultArrowData = AssetDatabase.LoadAssetAtPath<AmmoData>($"Assets/ScriptableObjects/Ammo/{_defaultArrowName}.asset");
+        _equippedArrowData = _defaultArrowData;
     }
     void Update()
     {
         if (GameManager.Instance.UiISActive) return;
+
+        if (IngameStats.Instance.EquippedAmmo != null) 
+        {
+            _equippedAmmoSprite.gameObject.SetActive(true);
+            _equippedAmmoSprite.sprite = IngameStats.Instance.EquippedAmmo.Sprite;
+        }
+        else _equippedAmmoSprite.gameObject.SetActive(false);;
 
         _attackSpeed = _stats.AttackSpeed;
         _numOfArrows = _stats.NumOfArrows;
@@ -49,15 +84,13 @@ public class ProjectileShooter : MonoBehaviour
         if (Time.time <= nextFireTime) return;
 
         if (!_canShoot) return;
-        
-        if (Input.GetKey(KeyCode.Mouse0) )
+
+        _currArrowData = _defaultArrowData;
+        if (_isUsingAmmo && IngameStats.Instance.EquippedAmmo != null)
         {
-            // use current ammo
-            if (AmmoInventory.Instance.useAmmo(_equippedArrowData)) _currArrowData = _equippedArrowData;
-            // set curr arrow to default if there is no more ammo in the inventory
-            else _currArrowData = _defaultArrowData;
+            _currArrowData = IngameStats.Instance.EquippedAmmo;
+            AmmoInventory.Instance.useAmmo(_currArrowData);
         }
-        else _currArrowData = _defaultArrowData;
 
         nextFireTime = Time.time + 1f / _attackSpeed;
 
@@ -126,16 +159,12 @@ public class ProjectileShooter : MonoBehaviour
             projectile.GetComponent<Rigidbody2D>().velocity = projectileDirection * Ammo.GetComponent<AmmoSetup>()._ammo.Speed;
         }
     }
-
-    public void SetEquippedAmmo(AmmoData ammoData)
-    {
-        _equippedArrowName = ammoData.name;
-        _equippedArrowData = ammoData;
-        equippedAmmoSprite.gameObject.SetActive(true);
-        equippedAmmoSprite.sprite = ammoData.Sprite;
-    }
     public void CanShoot(GameState state)
     {
-        _canShoot = (state == GameState.InCombat);
+        gameObject.SetActive(state == GameState.InCombat);
+    }
+    public void OnFirePerformed(InputAction.CallbackContext input) 
+    {
+        _isUsingAmmo = 0 < input.ReadValue<float>();
     }
 }

@@ -20,4 +20,4 @@ MonoBehaviour:
   ItemBasePrice: 0
   BaseWeight: 0
   AmmoData: {fileID: 11400000, guid: 58e85cfb1c1bb72439351595465c9d0f, type: 2}
-  AmmoCount: 100
+  AmmoCount: 5

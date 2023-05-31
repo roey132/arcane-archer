@@ -10315,7 +10315,7 @@ PrefabInstance:
       value: Managers
       objectReference: {fileID: 0}
     - target: {fileID: 3782942823776620400, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
-      propertyPath: equippedAmmoSprite
+      propertyPath: _equippedAmmoSprite
       value: 
       objectReference: {fileID: 828130553}
     - target: {fileID: 6941494298080715012, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}

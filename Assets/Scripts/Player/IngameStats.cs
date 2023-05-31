@@ -21,6 +21,8 @@ public class IngameStats : MonoBehaviour
     public float BaseDamage { get; private set; }
     public float BaseMagicDamage { get; private set; }
     public float IngameCurrency { get; private set; }
+
+    public AmmoData EquippedAmmo = null;
     // TODO temporary set currency UI through this code, make a UI manager later on
     //[SerializeField] private TextMeshProUGUI currencyText;
     void Awake()
@@ -126,5 +128,9 @@ public class IngameStats : MonoBehaviour
                 return true;
             }
         }
+    }
+    public void SetEquippedAmmo(AmmoData ammo)
+    {
+        EquippedAmmo = ammo;
     }
 }
