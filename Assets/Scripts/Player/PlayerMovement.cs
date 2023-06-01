@@ -6,11 +6,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private PlayerInputs _playerInputs;
     private Vector2 _movementVector = Vector2.zero;
-
-    [SerializeField] private Vector2 movement;
     private void Awake()
     {
         _playerInputs = new PlayerInputs();
+        GameManager.OnGameStateChange += CanMove;
+    }
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChange -= CanMove;
     }
     private void Start()
     {
@@ -39,5 +42,15 @@ public class PlayerMovement : MonoBehaviour
     private void OnMoveCanceled(InputAction.CallbackContext inputValue)
     {
         _movementVector = Vector2.zero;
+    }
+    public void CanMove(GameState state)
+    {
+        if (state == GameState.BuffSelection)
+        {
+            _playerInputs.Disable();
+            return;
+        }
+        _playerInputs.Enable();
+        return;
     }
 }
