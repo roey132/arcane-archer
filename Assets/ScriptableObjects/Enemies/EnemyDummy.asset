@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: EnemyDummy
   m_EditorClassIdentifier: 
   EnemyName: EnemyDummy
-  MinHealth: 1
+  MinHealth: 100
   MinMovementSpeed: 2
   DistanceFromPlayer: 10
   SpawnValue: 2
   Level: 1
   MinCurrencyValue: 5
   MaxCurrencyValue: 0
+  Damage: 0
   EnemySprite: {fileID: 0}
   Animator: {fileID: 0}

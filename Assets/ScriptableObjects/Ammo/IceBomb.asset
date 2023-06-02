@@ -19,3 +19,4 @@ MonoBehaviour:
   EffectType: asd
   EffectName: asd
   Effect: {fileID: 172829619294467308, guid: ca1f962982164074ebf00b3fbcb55765, type: 3}
+  Debuff: {fileID: 11400000, guid: 05e9ed768a315d44e8515fac92c77ebb, type: 2}

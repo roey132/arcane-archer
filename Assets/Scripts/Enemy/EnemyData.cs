@@ -11,6 +11,7 @@
         public float Level;
         public float MinCurrencyValue;
         public float MaxCurrencyValue;
+        public float Damage;
         public Sprite EnemySprite;
         public Animator Animator;
 

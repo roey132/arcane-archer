@@ -18,7 +18,7 @@ MonoBehaviour:
   ItemDescription: Adds movement speed
   ItemElement: 
   ItemBasePrice: 0
-  BaseWeight: 100000000
+  BaseWeight: 0
   IsBuff: 1
   Stats: 00000000
   Values:
