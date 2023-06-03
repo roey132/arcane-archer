@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "BaseSpell",menuName = "Spells/BaseSpell")]
 public class SpellData : ScriptableObject
 {
     public float Cooldown;

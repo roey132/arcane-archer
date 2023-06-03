@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
         {
             if (collision.CompareTag("Enemy")){
                 collision.GetComponent<Enemy>().Hit(_damage,"arrow");
+                HandleEnemyDebuff(collision.GetComponent<Enemy>());
             }
             if (_effectName != "")
             {
@@ -30,5 +31,12 @@ public class Projectile : MonoBehaviour
         _damage = data.Damage;
         _effectName = data.EffectName;
         gameObject.GetComponent<SpriteRenderer>().sprite = data.Sprite;
+    }
+    public void HandleEnemyDebuff(Enemy enemy)
+    {
+        print("debuff handler runs");
+        if (_ammo.Debuff == null) return;
+        print("Sets enemy debuff");
+        enemy.SetActiveEffect(_ammo.Debuff);
     }
 }

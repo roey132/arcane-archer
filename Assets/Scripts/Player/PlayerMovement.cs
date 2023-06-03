@@ -1,30 +1,125 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
+    private PlayerInputs _playerInputs;
+    private Vector2 _movementVector = Vector2.zero;
 
-    [SerializeField] private Vector2 movement;
+    [SerializeField] private float _dashDistance;
+    [SerializeField] private float _dashCooldown;
+    private float _dashTimer;
+
+    [SerializeField] LayerMask _objectsLayerMask;
+    private void Awake()
+    {
+        _playerInputs = new PlayerInputs();
+        GameManager.OnGameStateChange += CanMove;
+    }
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChange -= CanMove;
+    }
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+    }
+    private void OnEnable()
+    {
+        _playerInputs.Enable();
+        _playerInputs.Player.Move.performed += OnMovePerformed;
+        _playerInputs.Player.Move.canceled += OnMoveCanceled;
+        _playerInputs.Player.Dash.performed += OnDashPerformed;
+    }
+    private void OnDisable()
+    {
+        _playerInputs.Disable();
+        _playerInputs.Player.Move.performed -= OnMovePerformed;
+        _playerInputs.Player.Move.canceled -= OnMoveCanceled;
+        _playerInputs.Player.Dash.performed -= OnDashPerformed;
     }
 
+    private void Update()
+    {
+        _dashTimer -= Time.deltaTime;
+        _dashTimer = Mathf.Clamp(_dashTimer,0,_dashCooldown);
+    }
     private void FixedUpdate()
     {
-        if (GameManager.Instance.UiISActive) 
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right,_dashDistance, _objectsLayerMask);
+        if (hit.collider != null)
         {
-            rb.velocity = Vector2.zero;
-            return;
+            print(hit.collider);
+            if (hit.collider.CompareTag("Wall"))
+            {
+                print("ray hits wall");
+                float hitDistance = hit.distance;
+                print(hitDistance);
+                if (hitDistance < _dashDistance)
+                {
+                    print("close to wall");
+                }
+            }
+        }
+        else
+        {
+            print("ray doesnt hit");
+        }
+        Debug.DrawRay(transform.position, Vector2.right * _dashDistance,Color.red);
+        _rb.velocity = _movementVector * IngameStats.Instance.MovementSpeed;
+    }
+    private void OnMovePerformed(InputAction.CallbackContext inputValue)
+    {
+        _movementVector = inputValue.ReadValue<Vector2>();
+    }
+    private void OnMoveCanceled(InputAction.CallbackContext inputValue)
+    {
+        _movementVector = Vector2.zero;
+    }
+    private void OnDashPerformed(InputAction.CallbackContext inputValue)
+    {
+        Dash();
+    }
+    private void Dash()
+    {
+        if (_dashTimer > 0) return;
+        _dashTimer = _dashCooldown;
+        float dashDistance = _dashDistance;
+        Vector2 dashDirection;
+
+        dashDirection = Vector2.right;
+        if (_movementVector != Vector2.zero)
+        {
+            dashDirection = _movementVector;
         }
 
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dashDirection, _dashDistance, _objectsLayerMask);
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag("Wall"))
+            {
+                float hitDistance = hit.distance;
+                print(hitDistance);
+                if (hitDistance < _dashDistance)
+                {
+                    dashDistance = hitDistance;
+                }
+            }
+        }
 
-        movement = new Vector2(moveHorizontal, moveVertical);
+        _rb.position += dashDistance * dashDirection;
 
-        rb.velocity = movement * IngameStats.Instance.MovementSpeed;
+    }
+    public void CanMove(GameState state)
+    {
+        if (state == GameState.BuffSelection)
+        {
+            _playerInputs.Disable();
+            return;
+        }
+        _playerInputs.Enable();
+        return;
     }
 }

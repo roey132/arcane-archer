@@ -23,29 +23,26 @@ public class AmmoInventory : MonoBehaviour
 
     }
 
-    public bool useAmmo(AmmoData ammoData)
+    public void useAmmo(AmmoData ammoData)
     {
         // do not do anything if ammoType is NormalArrow
-        if (ammoData.name == "NormalArrow") return false;
-        if (!_ammoInventory.ContainsKey(ammoData)) return false;
+        if (ammoData.name == "NormalArrow") return;
+        if (!_ammoInventory.ContainsKey(ammoData)) return;
 
-        bool shotArrow = false;
         // check if there is more than 1 arrow and use it
         if (_ammoInventory[ammoData]._ammoCount > 0)
         {
             _ammoInventory[ammoData]._ammoCount -= 1;
             int currAmmoCount = _ammoInventory[ammoData]._ammoCount;
             _ammoInventory[ammoData]._button.GetComponent<AmmoButton>().UpdateAmmoCount(currAmmoCount);
-            shotArrow = true;
         }
         if (_ammoInventory[ammoData]._ammoCount == 0)
         {
             _ammoInventory[ammoData]._button.GetComponent<AmmoButton>().ResetButton();
             _ammoInventory.Remove(ammoData);
             _equippedAmmoIndicator.SetActive(false);
-            return shotArrow; 
+            IngameStats.Instance.SetEquippedAmmo(null);
         }
-        return shotArrow;
     }
     public bool addAmmo(AmmoData ammoData, int ammoCount)
     {

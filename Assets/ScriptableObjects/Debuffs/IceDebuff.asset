@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79bca34b2055b04087c11cee9396887, type: 3}
+  m_Name: IceDebuff
+  m_EditorClassIdentifier: 
+  Element: 2
+  DebuffTime: 5
+  DebuffTickTime: 0.5
+  DebuffValueKeys:
+  - TickDamage
+  - SlowPct
+  DebuffValues:
+  - 2
+  - 80
+  debuffColor: {r: 0.10969208, g: 0.8018868, b: 0.7878978, a: 0.5176471}

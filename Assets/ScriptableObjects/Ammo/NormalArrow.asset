@@ -19,3 +19,4 @@ MonoBehaviour:
   EffectType: 
   EffectName: 
   Effect: {fileID: 0}
+  Debuff: {fileID: 0}

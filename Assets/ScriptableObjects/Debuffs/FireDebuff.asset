@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79bca34b2055b04087c11cee9396887, type: 3}
+  m_Name: FireDebuff
+  m_EditorClassIdentifier: 
+  Element: 1
+  DebuffTime: 3
+  DebuffTickTime: 0.5
+  DebuffValueKeys:
+  - TickDamage
+  DebuffValues:
+  - 5
+  debuffColor: {r: 0.9056604, g: 0.39576307, b: 0.06407974, a: 0.48235294}

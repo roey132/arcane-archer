@@ -13,6 +13,17 @@ public class EnemySpawner : MonoBehaviour
     private Transform playerTransform; // Reference to the player's transform
     private float spawnTimer; // The time of the last enemy spawn
 
+    private bool _inCombatRoom;
+
+    private void Awake()
+    {
+        GameManager.OnGameStateChange += InCombat;
+    }
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChange -= InCombat;
+    }
+
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Find the player's transform
@@ -20,24 +31,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        if (!WaveManager.Instance.WaveIsActive) 
-        {
-            if (GameManager.Instance.UiISActive == false && ActiveEnemies.Count != 0)
-            {
-                bool allNull = true;
-                foreach (GameObject obj in ActiveEnemies) 
-                {
-                    if (obj != null)
-                    {
-                        allNull = false;
-                    }
-                }
-                if (allNull) WaveManager.Instance.EndWave();
-            }
-            return;
-        } 
-
-        
+        if (!_inCombatRoom) return;
 
         spawnTimer -= Time.deltaTime;
         setSpawnPoint();
@@ -47,6 +41,22 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy();
             spawnTimer = WaveManager.Instance.WaveSpawnCooldown; // Reset the spawn cooldown
+        }
+
+        if (ActiveEnemies.Count != 0)
+        {
+            bool allNull = true;
+            foreach (GameObject obj in ActiveEnemies)
+            {
+                if (obj != null)
+                {
+                    allNull = false;
+                }
+            }
+            if (allNull) 
+            {
+                WaveManager.Instance.EndWave();
+            };
         }
     }
 
@@ -59,11 +69,22 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         EnemyData enemyData = WaveManager.Instance.GetEnemyData();
-        if (enemyData != null)
+        if (enemyData == null) return;
+        
+        GameObject enemy = Instantiate(EnemyPrefab, spawnPosition, Quaternion.identity); // Spawn the enemy
+        enemy.GetComponent<Enemy>().InitData(enemyData);
+        ActiveEnemies.Add(enemy);
+        
+    }
+    private void InCombat(GameState state)
+    {
+        if (state == GameState.InCombat)
         {
-            GameObject enemy = Instantiate(EnemyPrefab, spawnPosition, Quaternion.identity); // Spawn the enemy
-            enemy.GetComponent<Enemy>().InitData(enemyData);
-            ActiveEnemies.Add(enemy);
+            ActiveEnemies = new();
+            _inCombatRoom = true;
+            return;
         }
+
+        _inCombatRoom = false;
     }
 }

@@ -15,7 +15,8 @@ MonoBehaviour:
   AmmoName: IceBomb
   Speed: 15
   Damage: 3
-  Sprite: {fileID: 21300000, guid: f4372a9983c21a14d9f608e8a7d43c59, type: 3}
+  Sprite: {fileID: 21300000, guid: 109760f5aedc4e340bb16fa92b5ef000, type: 3}
   EffectType: asd
   EffectName: asd
   Effect: {fileID: 172829619294467308, guid: ca1f962982164074ebf00b3fbcb55765, type: 3}
+  Debuff: {fileID: 11400000, guid: 05e9ed768a315d44e8515fac92c77ebb, type: 2}

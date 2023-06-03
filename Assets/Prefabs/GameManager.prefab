@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UiISActive: 0
+  State: 0
   buffsUi: {fileID: 0}
 --- !u!114 &1344931761908559363
 MonoBehaviour:

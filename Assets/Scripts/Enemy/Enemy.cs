@@ -3,31 +3,94 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private EnemyData _enemyData;
-    private float _movementSpeed = 0f; // Movement speed of the enemy
-    private float _health; // Health points of the enemy
-    private float _currencyValue = 1;
-    private Transform _playerTransform; // Reference to the player's transform
+    private float _movementSpeed;
+    private float _currMovementSpeed;
+    private float _health;
+    private float _damage;
+    private float _currDamage;
+
+    private float _currencyValue;
+
+
+    private Transform _playerTransform;
+
     [SerializeField] private GameManager _manager;
     private Animator _animator;
 
+    private DebuffData _activeDebuffData;
+    private int _debuffStack;
+
+    private float _debuffTimer;
+    private float _debuffTickTimer;
+
+    private SpriteRenderer _springsRenderer;
+
     void Start()
     {
+        _springsRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _manager = FindAnyObjectByType<GameManager>();
-        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform; // Find the player's transform
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
         // Move towards the player
-        transform.position = Vector2.MoveTowards(transform.position, _playerTransform.position, _movementSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, _playerTransform.position, _currMovementSpeed * Time.deltaTime);
+
+        if (_activeDebuffData != null) HandleDebuff();
+
         if (_health <= 0)
         {
             Die();
         }
     }
 
-    // Destroy the enemy object
+    public void InitData(EnemyData enemyData)
+    {
+        _enemyData = enemyData;
+        float randomEnemyDifficulty = Random.Range(1f, 1.2f);
+        _health = _enemyData.MinHealth * randomEnemyDifficulty;
+        _movementSpeed = _enemyData.MinMovementSpeed * randomEnemyDifficulty;
+        _currMovementSpeed = _movementSpeed;
+        _currencyValue = Random.Range(_enemyData.MinCurrencyValue, _enemyData.MaxCurrencyValue);
+    }
+    private void HandleDebuff()
+    {
+        if (_debuffTimer < 0)
+        {
+            ResetStats();
+            return;
+        }
+        _debuffTickTimer -= Time.deltaTime;
+        if (_debuffTickTimer < 0)
+        {
+            EnemyElementalDebuffs.ApplyDebuff(this, _activeDebuffData);
+            _debuffTickTimer = _activeDebuffData.DebuffTickTime;
+        }
+        _debuffTimer -= Time.deltaTime;
+    }
+    public void SetActiveEffect(DebuffData debuff)
+    {
+        _debuffTimer = debuff.DebuffTime;
+        _debuffTickTimer = 0;
+        if (_activeDebuffData == debuff)
+        {
+            _debuffStack += 1;
+            _debuffStack = Mathf.Clamp(_debuffStack, 1, 5);
+            return;
+        }
+        _activeDebuffData = debuff;
+        _debuffStack = 1;
+    }
+    private void ResetStats()
+    {
+        _activeDebuffData = null;
+        _currMovementSpeed = _movementSpeed;
+        _springsRenderer.color = Color.white;
+        _currDamage = _damage;
+    }
+
     private void Die()
     {
         IngameStats.Instance.changeIngameCurrency(_currencyValue);
@@ -41,14 +104,7 @@ public class Enemy : MonoBehaviour
             _manager.EndScene();
         }
     }
-    public void InitData(EnemyData enemyData)
-    {
-        _enemyData = enemyData;
-        float randomEnemyDifficulty = Random.Range(1f,1.2f);
-        _health = _enemyData.MinHealth * randomEnemyDifficulty;
-        _movementSpeed = _enemyData.MinMovementSpeed * randomEnemyDifficulty;
-        _currencyValue = Random.Range(_enemyData.MinCurrencyValue, _enemyData.MaxCurrencyValue);
-    }
+
     public void Hit(float damage, string Type)
     {
         print(damage);
@@ -63,5 +119,14 @@ public class Enemy : MonoBehaviour
             _health -= damage * stats.BaseDamage * stats.PhysicalDamageMultiplier;
         }
         _animator.Play("EnemyHit");
+    }
+    public void SlowPct(float slowPct)
+    {
+        _currMovementSpeed = _movementSpeed * ((100 - slowPct) / 100);
+    }
+    public void SetColor(Color color)
+    {
+        print($"attempting to set color to {color}");
+        _springsRenderer.color = color;
     }
 }

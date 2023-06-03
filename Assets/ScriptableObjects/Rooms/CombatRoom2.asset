@@ -9,16 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01c5d25f4af21ef4b866b41cb82dc070, type: 3}
-  m_Name: BowMastery
+  m_Script: {fileID: 11500000, guid: a20cb34f0813b7c4186c96d4e7a6d8bf, type: 3}
+  m_Name: CombatRoom2
   m_EditorClassIdentifier: 
-  ItemName: Bow Mastery
-  ItemIcon: {fileID: 0}
-  ItemType: Bow
-  ItemDescription: Adds attack speed and arrow count
-  ItemElement: 
-  IsBuff: 1
-  Stats: 0300000004000000
-  Values:
-  - 2
-  - 1
+  RoomName: Combat 2
+  RoomState: 1
+  PortalSprite: {fileID: 21300000, guid: fc05db48d6b50d647907ad85c2745f54, type: 3}
+  BaseWeight: 100

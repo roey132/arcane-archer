@@ -10,6 +10,7 @@ public class AmmoData : ScriptableObject
     public string EffectType;
     public string EffectName;
     public GameObject Effect;
+    public DebuffData Debuff;
 
     public virtual GameObject ActivateEffect(Vector2 position)
     {
