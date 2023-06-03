@@ -1,4 +1,4 @@
-using UnityEditor;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +17,7 @@ public class ProjectileShooter : MonoBehaviour
     private float _numOfArrows;
     private IngameStats _stats;
     private Transform _player;
+    private Transform _bow;
 
     private PlayerInputs _playerInputs;
     private InputAction _fire;
@@ -25,6 +26,8 @@ public class ProjectileShooter : MonoBehaviour
     private float nextFireTime;
     [SerializeField] private SpriteRenderer _equippedAmmoSprite;
     [SerializeField] private bool _canShoot = true;
+
+    public static event Action ShootArrow; 
 
     void Awake()
     {
@@ -35,6 +38,7 @@ public class ProjectileShooter : MonoBehaviour
         }
 
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _bow = GameObject.FindGameObjectWithTag("Player").transform.Find("Bow").transform;
         GameManager.OnGameStateChange += CanShoot;
     }
     private void OnDestroy()
@@ -43,6 +47,8 @@ public class ProjectileShooter : MonoBehaviour
     }
     private void OnEnable()
     {
+        BowAnimations.ShootAction += Shoot;
+
         _equippedAmmoSprite.gameObject.SetActive(true);
         _isUsingAmmo = false;
 
@@ -56,7 +62,12 @@ public class ProjectileShooter : MonoBehaviour
 
     private void OnDisable()
     {
-        _equippedAmmoSprite.gameObject.SetActive(false);
+        BowAnimations.ShootAction -= Shoot;
+
+        if (_equippedAmmoSprite != null)
+        {
+            _equippedAmmoSprite.gameObject.SetActive(false);
+        }
 
         // handle input actions
         _fire.performed -= OnFirePerformed;
@@ -81,10 +92,17 @@ public class ProjectileShooter : MonoBehaviour
         _attackSpeed = _stats.AttackSpeed;
         _numOfArrows = _stats.NumOfArrows;
 
+
         if (Time.time <= nextFireTime) return;
 
         if (!_canShoot) return;
 
+        nextFireTime = Time.time + 1f / _attackSpeed;
+        ShootArrow?.Invoke();
+    }
+
+    public void Shoot()
+    {
         _currArrowData = _defaultArrowData;
         if (_isUsingAmmo && IngameStats.Instance.EquippedAmmo != null)
         {
@@ -92,20 +110,18 @@ public class ProjectileShooter : MonoBehaviour
             AmmoInventory.Instance.useAmmo(_currArrowData);
         }
 
-        nextFireTime = Time.time + 1f / _attackSpeed;
-
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 shootDirection = (mousePosition - (Vector2)_player.position).normalized;
 
-        if (_numOfArrows == 1) 
+
+        if (_numOfArrows == 1)
         {
             ShootOneArrow(shootDirection);
             return;
         }
-        ShootMultipleArrows(shootDirection); 
+        ShootMultipleArrows(shootDirection);
         return;
     }
-    
 
     public void ShootOneArrow(Vector2 shootDirection)
     {
@@ -118,7 +134,7 @@ public class ProjectileShooter : MonoBehaviour
         Transform projectile = Ammo.transform.Find("Projectile");
 
         // set the position of the projectile to the player position and set rotation to mouse
-        projectile.transform.position = _player.position;
+        projectile.transform.position = _bow.position;
         projectile.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg);
 
         Ammo.SetActive(true);
@@ -148,7 +164,7 @@ public class ProjectileShooter : MonoBehaviour
             Transform projectile = Ammo.transform.Find("Projectile");
 
             // set the position of the projectile to the player position
-            projectile.position = _player.position;
+            projectile.position = _bow.position;
 
             // set rotation
             projectile.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(projectileDirection.y, projectileDirection.x) * Mathf.Rad2Deg);

@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        Application.targetFrameRate = 144;
     }
     private void Start()
     {

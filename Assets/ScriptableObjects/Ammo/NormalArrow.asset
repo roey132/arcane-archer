@@ -15,7 +15,7 @@ MonoBehaviour:
   AmmoName: NormalArrow
   Speed: 15
   Damage: 1
-  Sprite: {fileID: 21300000, guid: 5f4336890c3bc05418b2d8de3302030f, type: 3}
+  Sprite: {fileID: 21300000, guid: 82af342900fbbb84481ac86a92181ebd, type: 3}
   EffectType: 
   EffectName: 
   Effect: {fileID: 0}
