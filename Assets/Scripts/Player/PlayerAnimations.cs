@@ -34,13 +34,9 @@ public class PlayerAnimations : MonoBehaviour
 
         bool isWalking = (horizontalAxis != 0 || verticalAxis != 0);
 
-        if (horizontalAxis > 0)
+        if (horizontalAxis != 0)
         {
-            _spriteRenderer.flipX = true;
-        }
-        if (horizontalAxis < 0)
-        {
-            _spriteRenderer.flipX = false;
+            _spriteRenderer.flipX = horizontalAxis < 0;
         }
 
         var state = isWalking ? Animator.StringToHash("NoctisWalk") : Animator.StringToHash("IdleNoctis");

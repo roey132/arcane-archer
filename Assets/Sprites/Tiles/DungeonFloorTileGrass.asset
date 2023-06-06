@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
+  m_Name: DungeonFloorTileGrass
+  m_EditorClassIdentifier: 
+  m_DefaultSprite: {fileID: -1919395293, guid: 3db50d5bbd47ad143b8f2ebf32663cef, type: 3}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
+  m_TilingRules:
+  - m_Id: 0
+    m_Sprites:
+    - {fileID: 1058024745, guid: 3db50d5bbd47ad143b8f2ebf32663cef, type: 3}
+    - {fileID: -437019541, guid: 3db50d5bbd47ad143b8f2ebf32663cef, type: 3}
+    - {fileID: 655858575, guid: 3db50d5bbd47ad143b8f2ebf32663cef, type: 3}
+    - {fileID: -1724984129, guid: 3db50d5bbd47ad143b8f2ebf32663cef, type: 3}
+    - {fileID: 922873698, guid: 3db50d5bbd47ad143b8f2ebf32663cef, type: 3}
+    - {fileID: -31777027, guid: 3db50d5bbd47ad143b8f2ebf32663cef, type: 3}
+    - {fileID: 1941246689, guid: 3db50d5bbd47ad143b8f2ebf32663cef, type: 3}
+    - {fileID: -82294022, guid: 3db50d5bbd47ad143b8f2ebf32663cef, type: 3}
+    m_GameObject: {fileID: 0}
+    m_MinAnimationSpeed: 1
+    m_MaxAnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 1
+    m_ColliderType: 1
+    m_RandomTransform: 0
+    m_Neighbors: 
+    m_NeighborPositions:
+    - {x: -1, y: 1, z: 0}
+    - {x: 0, y: 1, z: 0}
+    - {x: 1, y: 1, z: 0}
+    - {x: -1, y: 0, z: 0}
+    - {x: 1, y: 0, z: 0}
+    - {x: -1, y: -1, z: 0}
+    - {x: 0, y: -1, z: 0}
+    - {x: 1, y: -1, z: 0}
+    m_RuleTransform: 0

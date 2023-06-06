@@ -5,7 +5,7 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance;
 
-    private float _wavePoints = 2;
+    [SerializeField] private float _wavePoints = 2;
     private float _currentWavePoints;
     [SerializeField] public List<EnemyData> WaveEnemies;
     public float WaveSpawnCooldown;
