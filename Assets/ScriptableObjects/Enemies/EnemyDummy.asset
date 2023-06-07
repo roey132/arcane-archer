@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyDummy
   m_EditorClassIdentifier: 
   EnemyName: EnemyDummy
-  MinHealth: 50
+  MinHealth: 20
   MinMovementSpeed: 2
   DistanceFromPlayer: 10
   SpawnValue: 2

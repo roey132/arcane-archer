@@ -6,6 +6,9 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] Animator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
     private PlayerInputs _playerInputs;
+    private bool _isWalking;
+
+    [SerializeField] private ParticleSystem _walkParticles;
 
     void Start()
     {
@@ -32,16 +35,31 @@ public class PlayerAnimations : MonoBehaviour
         float horizontalAxis = Input.GetAxis("Horizontal");
         float verticalAxis = Input.GetAxis("Vertical");
 
-        bool isWalking = (horizontalAxis != 0 || verticalAxis != 0);
+        _isWalking = (horizontalAxis != 0 || verticalAxis != 0);
+        print(_isWalking);
+        HandleWalkParticles();
 
         if (horizontalAxis != 0)
         {
             _spriteRenderer.flipX = horizontalAxis < 0;
         }
 
-        var state = isWalking ? Animator.StringToHash("NoctisWalk") : Animator.StringToHash("IdleNoctis");
+        var state = _isWalking ? Animator.StringToHash("NoctisWalk") : Animator.StringToHash("IdleNoctis");
 
         //_animator.SetBool("isWalking", horizontalAxis != 0 || verticalAxis != 0);
         _animator.CrossFade(state, 0);
+
+    }
+    private void HandleWalkParticles()
+    {
+        if (_isWalking && !_walkParticles.isPlaying)
+        {
+            _walkParticles.Play();
+            return;
+        }
+        if (!_isWalking)
+        {
+            _walkParticles.Stop();
+        }
     }
 }
