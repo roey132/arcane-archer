@@ -7,23 +7,31 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] SpriteRenderer _spriteRenderer;
     private PlayerInputs _playerInputs;
     private bool _isWalking;
-
+    private SpriteRenderer _renderer;
     [SerializeField] private ParticleSystem _walkParticles;
+
+    private void Awake()
+    {
+        PlayerMovement.OnTeleportStart += TransparentOnTeleportStart;
+        PlayerMovement.OnTeleportEnd += ShowOnTeleportEnd;
+    }
 
     void Start()
     {
         _playerInputs = new PlayerInputs();
-
+        _renderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
     {
+
     }
     private void OnDisable()
     {
-        
+        PlayerMovement.OnTeleportStart -= TransparentOnTeleportStart;
+        PlayerMovement.OnTeleportEnd -= ShowOnTeleportEnd;
     }
     void Update()
     {
@@ -61,5 +69,13 @@ public class PlayerAnimations : MonoBehaviour
         {
             _walkParticles.Stop();
         }
+    }
+    private void TransparentOnTeleportStart()
+    {
+        _renderer.color = new Color(1, 1, 1, 0);
+    }
+    private void ShowOnTeleportEnd()
+    {
+        _renderer.color = Color.white;
     }
 }

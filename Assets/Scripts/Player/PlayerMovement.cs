@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private PlayerInputs _playerInputs;
     private Vector2 _movementVector = Vector2.zero;
+    public static event Action OnTeleportStart;
+    public static event Action OnTeleportEnd;
+
 
     [SerializeField] private float _dashDistance;
     [SerializeField] private float _dashCooldown;
@@ -85,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
     private void Dash()
     {
         if (_dashTimer > 0) return;
+        OnTeleportStart?.Invoke();
         _dashTimer = _dashCooldown;
         float dashDistance = _dashDistance;
         Vector2 dashDirection;
@@ -110,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _rb.position += dashDistance * dashDirection;
-
+        StartCoroutine(DelayedTeleportEnd());
     }
     public void CanMove(GameState state)
     {
@@ -121,5 +127,10 @@ public class PlayerMovement : MonoBehaviour
         }
         _playerInputs.Enable();
         return;
+    }
+    public IEnumerator DelayedTeleportEnd()
+    {
+        yield return new WaitForSeconds(0.1f) ;
+        OnTeleportEnd?.Invoke();
     }
 }
