@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6931598}
+  - component: {fileID: 6931599}
   m_Layer: 0
   m_Name: EnemyStats
   m_TagString: Untagged
@@ -154,6 +155,35 @@ Transform:
   m_Father: {fileID: 346237284}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6931599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6931597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d76a0b6c283334583452752f8c47aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Self: {fileID: 346237284}
+  EnemyData: {fileID: 0}
+  BaseHealth: 0
+  BaseMovementSpeed: 0
+  BaseDamage: 0
+  CurrencyValue: 0
+  CurrHealth: 0
+  CurrMovementSpeed: 0
+  CurrDamage: 0
+  MaxAttackDistance: 0
+  MaintainAttackDistance: 0
+  DistanceFromPlayer: 0
+  DirectionToPlayer: {x: 0, y: 0}
+  AttackCooldownSeconds: 0
+  NextAttackTime: 0
+  Player: {fileID: 0}
+  _testInit: {fileID: 0}
 --- !u!1001 &71309783
 PrefabInstance:
   m_ObjectHideFlags: 0
