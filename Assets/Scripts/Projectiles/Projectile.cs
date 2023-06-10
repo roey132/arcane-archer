@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
         if (!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
         {
             if (collision.CompareTag("Enemy")){
-                collision.GetComponent<Enemy>().Hit(_damage,"arrow");
+                collision.transform.Find("EnemyStats").GetComponent<EnemyStats>().Hit(_damage);
                 HandleEnemyDebuff(collision.GetComponent<Enemy>());
             }
             if (_effectName != "")

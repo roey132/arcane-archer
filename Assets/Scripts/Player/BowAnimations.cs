@@ -22,8 +22,6 @@ public class BowAnimations : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime; 
-        print(1f / IngameStats.Instance.AttackSpeed);
-        print(animationDuration);
         if (1f / IngameStats.Instance.AttackSpeed > animationDuration) return;
 
         float speed = animationDuration / (1 / IngameStats.Instance.AttackSpeed);

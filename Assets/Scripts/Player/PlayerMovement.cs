@@ -68,10 +68,6 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            print("ray doesnt hit");
-        }
         Debug.DrawRay(transform.position, Vector2.right * _dashDistance,Color.red);
         _rb.velocity = _movementVector * IngameStats.Instance.MovementSpeed;
     }

@@ -44,7 +44,6 @@ public class PlayerAnimations : MonoBehaviour
         float verticalAxis = Input.GetAxis("Vertical");
 
         _isWalking = (horizontalAxis != 0 || verticalAxis != 0);
-        print(_isWalking);
         HandleWalkParticles();
 
         if (horizontalAxis != 0)
