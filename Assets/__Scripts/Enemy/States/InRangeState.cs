@@ -2,7 +2,7 @@
 
 public class InRangeState : EnemyState
 {
-    [SerializeField] private MeleeEnemyStats _stats;
+    [SerializeField] private EnemyStats _stats;
     [SerializeField] private EnemyState _attackState;
     [SerializeField] private EnemyState _chaseState;
     public override EnemyState StateBehaviour()

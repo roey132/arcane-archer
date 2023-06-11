@@ -3,11 +3,9 @@
 
 public class MeleeEnemyStats : EnemyStats
 {
-    [SerializeField] public Transform Player;
-    [SerializeField] private EnemyData _testInit;
     void Start()
     {
-        InitData(_testInit);
+        InitData(TestInit);
         Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

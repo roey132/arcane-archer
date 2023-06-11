@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-public class MeleeChaseState : EnemyState
+public class ChaseState : EnemyState
 {
-    [SerializeField] private MeleeEnemyStats _stats;
+    [SerializeField] private EnemyStats _stats;
     [SerializeField] private EnemyState _inAttackRangeState;
     public override EnemyState StateBehaviour()
     {

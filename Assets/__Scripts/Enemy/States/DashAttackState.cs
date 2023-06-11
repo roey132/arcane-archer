@@ -4,7 +4,7 @@ using UnityEngine;
 public class DashAttackState : EnemyState
 {
     [Header("Objects")]
-    [SerializeField] private MeleeEnemyStats _stats;
+    [SerializeField] private EnemyStats _stats;
     [SerializeField] private Rigidbody2D _rb;
 
     [Header("Dash Variables")]

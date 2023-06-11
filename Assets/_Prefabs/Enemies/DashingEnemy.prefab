@@ -406,6 +406,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Self: {fileID: 7774721818786160630}
+  Player: {fileID: 0}
+  TestInit: {fileID: 11400000, guid: db522c4e89bf9544eb64786248b45ae9, type: 2}
   EnemyData: {fileID: 0}
   BaseHealth: 0
   BaseMovementSpeed: 0
@@ -420,5 +422,3 @@ MonoBehaviour:
   DirectionToPlayer: {x: 0, y: 0}
   AttackCooldownSeconds: 0
   NextAttackTime: 0
-  Player: {fileID: 0}
-  _testInit: {fileID: 11400000, guid: db522c4e89bf9544eb64786248b45ae9, type: 2}

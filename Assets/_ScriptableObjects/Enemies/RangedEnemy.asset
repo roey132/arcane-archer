@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8eae5699bc56186498b40e4edebd1291, type: 3}
-  m_Name: newEnemyData
+  m_Name: RangedEnemy
   m_EditorClassIdentifier: 
-  EnemyName: 
-  MinHealth: 0
-  MinMovementSpeed: 0
-  DistanceFromPlayer: 0
-  SpawnValue: 0
+  EnemyName: Elemental
+  MinHealth: 15
+  MinMovementSpeed: 3
+  MaxAttackDistance: 15
+  MaintainAttackDistance: 10
+  SpawnValue: 2
+  MinCurrencyValue: 5
+  MaxCurrencyValue: 10
+  Damage: 4
   Level: 0
-  MinCurrencyValue: 0
-  MaxCurrencyValue: 0
-  Damage: 0
+  AttackCooldownSeconds: 3
   EnemySprite: {fileID: 0}
   Animator: {fileID: 0}

@@ -3,6 +3,8 @@ using UnityEngine;
 public abstract class EnemyStats : MonoBehaviour
 {
     [SerializeField] public Transform Self;
+    [SerializeField] public Transform Player;
+    [SerializeField] public EnemyData TestInit;
 
     [Header("Base Stats")]
     public EnemyData EnemyData;
