@@ -50,8 +50,8 @@ public class Enemy : MonoBehaviour
     {
         _enemyData = enemyData;
         float randomEnemyDifficulty = Random.Range(1f, 1.2f);
-        _health = _enemyData.MinHealth * randomEnemyDifficulty;
-        _movementSpeed = _enemyData.MinMovementSpeed * randomEnemyDifficulty;
+        _health = _enemyData.MaxHealth * randomEnemyDifficulty;
+        _movementSpeed = _enemyData.ChaseMovementSpeed * randomEnemyDifficulty;
         _currMovementSpeed = _movementSpeed;
         _currencyValue = Random.Range(_enemyData.MinCurrencyValue, _enemyData.MaxCurrencyValue);
     }

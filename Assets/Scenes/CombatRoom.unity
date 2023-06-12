@@ -6077,6 +6077,10 @@ MonoBehaviour:
   _stats: {fileID: 1203142714}
   _attackState: {fileID: 584392976}
   _chaseState: {fileID: 1298824394}
+  _distanceFromWall: 0
+  _objectsLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &1167580369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18135,6 +18139,10 @@ PrefabInstance:
       propertyPath: EnemyPrefab
       value: 
       objectReference: {fileID: 7774721818786160624, guid: af4c2164180809645baf5ac40053f3ea, type: 3}
+    - target: {fileID: 3656636995822154766, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: spawnDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3782942823776620400, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
       propertyPath: _equippedAmmoSprite
       value: 
@@ -18187,5 +18195,25 @@ PrefabInstance:
       propertyPath: _wavePoints
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 8406328448436103594, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: WaveEnemies.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406328448436103594, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: WaveEnemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: db522c4e89bf9544eb64786248b45ae9, type: 2}
+    - target: {fileID: 8406328448436103594, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: WaveEnemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: db522c4e89bf9544eb64786248b45ae9, type: 2}
+    - target: {fileID: 8406328448436103594, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: WaveEnemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: db522c4e89bf9544eb64786248b45ae9, type: 2}
+    - target: {fileID: 8406328448436103594, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: WaveEnemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: db522c4e89bf9544eb64786248b45ae9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}

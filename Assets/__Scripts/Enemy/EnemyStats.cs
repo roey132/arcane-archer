@@ -9,18 +9,19 @@ public abstract class EnemyStats : MonoBehaviour
     [Header("Base Stats")]
     public EnemyData EnemyData;
     public float BaseHealth;
-    public float BaseMovementSpeed;
     public float BaseDamage;
     public float CurrencyValue;
 
     [Header("Current Stats")]
     public float CurrHealth;
-    public float CurrMovementSpeed;
-    public float CurrDamage;
+    public float MovementSpeedModifier;
+    public float DamageModifier;
 
     [Header("Behaviour Stats")]
     public float MaxAttackDistance;
     public float MaintainAttackDistance;
+    public float ChaseMovementSpeed;
+    public float InRangeMovementSpeed;
 
     [Header("Calculated Measures")]
     public float DistanceFromPlayer;
@@ -46,16 +47,16 @@ public abstract class EnemyStats : MonoBehaviour
     {
         EnemyData = enemyData;
         float randomEnemyDifficulty = Random.Range(1f, 1.2f);
-        BaseHealth = EnemyData.MinHealth * randomEnemyDifficulty;
-        BaseMovementSpeed = EnemyData.MinMovementSpeed * randomEnemyDifficulty;
+        BaseHealth = EnemyData.MaxHealth * randomEnemyDifficulty;
+        ChaseMovementSpeed = EnemyData.ChaseMovementSpeed * randomEnemyDifficulty;
+        InRangeMovementSpeed = EnemyData.InRangeMovementSpeed * randomEnemyDifficulty;
         AttackCooldownSeconds = EnemyData.AttackCooldownSeconds;
 
         BaseDamage = EnemyData.Damage * randomEnemyDifficulty;
-        CurrDamage = BaseDamage;
-        CurrMovementSpeed = BaseMovementSpeed;
+        DamageModifier = 1f;
+        MovementSpeedModifier = 1f;
         CurrencyValue = Random.Range(EnemyData.MinCurrencyValue, EnemyData.MaxCurrencyValue);
         MaxAttackDistance = EnemyData.MaxAttackDistance;
-        MaintainAttackDistance = EnemyData.MaintainAttackDistance;
     }
     public void CalculateDistanceFromPlayer(Vector3 playerPosition)
     {

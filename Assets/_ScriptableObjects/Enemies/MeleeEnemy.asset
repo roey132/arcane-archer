@@ -16,7 +16,7 @@ MonoBehaviour:
   MinHealth: 20
   MinMovementSpeed: 2
   MaxAttackDistance: 5
-  MaintainAttackDistance: 3
+  MaintainAttackDistance: 2
   SpawnValue: 2
   MinCurrencyValue: 5
   MaxCurrencyValue: 10

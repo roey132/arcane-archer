@@ -361,6 +361,10 @@ MonoBehaviour:
   _stats: {fileID: 7774721819065485372}
   _attackState: {fileID: 7774721817782866989}
   _chaseState: {fileID: 7774721817553129169}
+  _distanceFromWall: 1
+  _objectsLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &7774721819065485374
 GameObject:
   m_ObjectHideFlags: 0

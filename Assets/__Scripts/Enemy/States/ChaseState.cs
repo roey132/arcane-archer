@@ -13,6 +13,6 @@ public class ChaseState : EnemyState
     }
     private void MoveTowardsPlayer()
     {
-        _stats.Self.position = Vector2.MoveTowards(_stats.Self.position, _stats.Player.position, _stats.CurrMovementSpeed * Time.deltaTime);
+        _stats.Self.position = Vector2.MoveTowards(_stats.Self.position, _stats.Player.position, _stats.ChaseMovementSpeed * _stats.MovementSpeedModifier * Time.deltaTime);
     }
 }
