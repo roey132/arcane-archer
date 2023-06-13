@@ -5286,10 +5286,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashingEnemy
       objectReference: {fileID: 0}
-    - target: {fileID: 7774721818786160624, guid: af4c2164180809645baf5ac40053f3ea, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7774721818786160630, guid: af4c2164180809645baf5ac40053f3ea, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -5334,9 +5330,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7774721818786160635, guid: af4c2164180809645baf5ac40053f3ea, type: 3}
-      propertyPath: m_Mass
-      value: 1
+    - target: {fileID: 7774721819065485374, guid: af4c2164180809645baf5ac40053f3ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4c2164180809645baf5ac40053f3ea, type: 3}
