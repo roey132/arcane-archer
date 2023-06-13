@@ -1,10 +1,14 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class EnemyStats : MonoBehaviour
 {
     [SerializeField] public Transform Self;
     [SerializeField] public Transform Player;
     [SerializeField] public EnemyData TestInit;
+
+    [SerializeField] private Rigidbody2D _rb;
 
     [Header("Base Stats")]
     public EnemyData EnemyData;
@@ -31,6 +35,8 @@ public abstract class EnemyStats : MonoBehaviour
     public float AttackCooldownSeconds;
     public float NextAttackTime;
 
+
+
     public void Hit(float damage)
     {
         CurrHealth -= damage;
@@ -45,6 +51,8 @@ public abstract class EnemyStats : MonoBehaviour
     }
     public void InitData(EnemyData enemyData)
     {
+        _rb = Self.GetComponent<Rigidbody2D>();
+
         EnemyData = enemyData;
         float randomEnemyDifficulty = Random.Range(1f, 1.2f);
         BaseHealth = EnemyData.MaxHealth * randomEnemyDifficulty;
@@ -58,10 +66,13 @@ public abstract class EnemyStats : MonoBehaviour
         CurrencyValue = Random.Range(EnemyData.MinCurrencyValue, EnemyData.MaxCurrencyValue);
         MaxAttackDistance = EnemyData.MaxAttackDistance;
     }
+    
     public void CalculateDistanceFromPlayer(Vector3 playerPosition)
     {
         DistanceFromPlayer =  Vector3.Distance(transform.position ,playerPosition);
+
     }
+
     public void CalculateDirectionToPlayer(Vector3 playerPosition)
     {
         DirectionToPlayer = (playerPosition - transform.position).normalized;

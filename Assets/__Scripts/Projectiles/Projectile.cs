@@ -2,19 +2,24 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Projectile : MonoBehaviour
 {
     private float _damage;
     private AmmoData _ammo;
     private string _effectName;
+    private Rigidbody2D _rb;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
         {
             if (collision.CompareTag("Enemy")){
-                collision.transform.Find("EnemyStats").GetComponent<EnemyStats>().Hit(_damage);
+                EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
+                enemyStats.Hit(_damage);
+
+                collision.GetComponent<KnockbackEnemy>()?.ApplyKnockback(_rb.velocity, 2f, 0.05f);
                 HandleEnemyDebuff(collision.GetComponent<Enemy>());
             }
             if (_effectName != "")
@@ -31,6 +36,7 @@ public class Projectile : MonoBehaviour
         _damage = data.Damage;
         _effectName = data.EffectName;
         gameObject.GetComponent<SpriteRenderer>().sprite = data.Sprite;
+        _rb = GetComponent<Rigidbody2D>();
     }
     public void HandleEnemyDebuff(Enemy enemy)
     {

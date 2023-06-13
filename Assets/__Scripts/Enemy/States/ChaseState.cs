@@ -8,7 +8,7 @@ public class ChaseState : EnemyState
     {
         print("running chase state");
         if (_stats.DistanceFromPlayer <= _stats.MaxAttackDistance) return _inAttackRangeState;
-        MoveTowardsPlayer();
+        //MoveTowardsPlayer();
         return null;
     }
     private void MoveTowardsPlayer()
