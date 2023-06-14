@@ -22,8 +22,8 @@ public abstract class EnemyStats : MonoBehaviour
     public float DamageModifier;
 
     [Header("Behaviour Stats")]
-    public float MaxAttackDistance;
-    public float MaintainAttackDistance;
+    public float AttackRange;
+    public float MaintainRange;
     public float ChaseMovementSpeed;
     public float InRangeMovementSpeed;
 
@@ -51,6 +51,7 @@ public abstract class EnemyStats : MonoBehaviour
     }
     public void InitData(EnemyData enemyData)
     {
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
         _rb = Self.GetComponent<Rigidbody2D>();
 
         EnemyData = enemyData;
@@ -64,7 +65,8 @@ public abstract class EnemyStats : MonoBehaviour
         DamageModifier = 1f;
         MovementSpeedModifier = 1f;
         CurrencyValue = Random.Range(EnemyData.MinCurrencyValue, EnemyData.MaxCurrencyValue);
-        MaxAttackDistance = EnemyData.MaxAttackDistance;
+        AttackRange = EnemyData.AttackRange;
+        MaintainRange = EnemyData.MaintainRange;
     }
     
     public void CalculateDistanceFromPlayer(Vector3 playerPosition)

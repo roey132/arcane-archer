@@ -7,8 +7,8 @@ public class ChaseState : EnemyState
     public override EnemyState StateBehaviour()
     {
         print("running chase state");
-        if (_stats.DistanceFromPlayer <= _stats.MaxAttackDistance) return _inAttackRangeState;
-        //MoveTowardsPlayer();
+        if (_stats.DistanceFromPlayer <= _stats.AttackRange) return _inAttackRangeState;
+        MoveTowardsPlayer();
         return null;
     }
     private void MoveTowardsPlayer()
