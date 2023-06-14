@@ -5,6 +5,7 @@ public class InRangeState : EnemyState
     [SerializeField] private EnemyStats _stats;
     [SerializeField] private EnemyState _attackState;
     [SerializeField] private EnemyState _chaseState;
+
     public override EnemyState StateBehaviour()
     {
         print("running in range state");

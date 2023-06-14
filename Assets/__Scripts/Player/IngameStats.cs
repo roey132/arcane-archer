@@ -57,7 +57,8 @@ public class IngameStats : MonoBehaviour
 
     public void hitPlayer(float damage)
     {
-        CurrHp -= damage;
+        
+        CurrHp -= Mathf.RoundToInt(damage);
         print($"player was hit for {damage} damage");
     }
     public bool useMana(float mana)

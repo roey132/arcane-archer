@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
   EnemyName: EnemyDummy
-  Damage: 5
+  Damage: 1
   MaxHealth: 15
   ChaseMovementSpeed: 4
   InRangeMovementSpeed: 3

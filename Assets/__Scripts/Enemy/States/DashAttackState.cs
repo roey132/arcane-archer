@@ -4,7 +4,7 @@ using UnityEngine;
 public class DashAttackState : EnemyState
 {
     [Header("Objects")]
-    [SerializeField] private EnemyStats _stats;
+    [SerializeField] private MeleeEnemyStats _stats;
     [SerializeField] private Rigidbody2D _rb;
     [SerializeField] private KnockbackEnemy _knockbackEnemy;
 
@@ -18,6 +18,11 @@ public class DashAttackState : EnemyState
 
     [SerializeField]  private bool _isAttacking;
     [SerializeField] private bool _attackPerformed;
+
+    private void OnDisable()
+    {
+        _stats.CollidedWithPlayer -= HitPlayerOnCollision;
+    }
 
     public override EnemyState StateBehaviour()
     {
@@ -52,12 +57,20 @@ public class DashAttackState : EnemyState
         print("setting dash vector");
         Vector2 DashDir = _stats.Player.position - transform.position;
         yield return new WaitForSeconds(_dashPrepareTime * 0.2f);
+
         print("dashing");
+        _stats.CollidedWithPlayer += HitPlayerOnCollision;
+
         _rb.velocity = DashDir.normalized * _dashSpeed;
         yield return new WaitForSeconds(_dashDuration);
         print("finish dashing");
         _rb.velocity = Vector2.zero;
         _attackPerformed = true;
         _knockbackEnemy.enabled = true;
+        _stats.CollidedWithPlayer -= HitPlayerOnCollision;
+    }
+    private void HitPlayerOnCollision()
+    {
+        IngameStats.Instance.hitPlayer(_stats.BaseDamage * _stats.DamageModifier);
     }
 }
