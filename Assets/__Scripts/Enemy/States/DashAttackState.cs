@@ -6,6 +6,7 @@ public class DashAttackState : EnemyState
     [Header("Objects")]
     [SerializeField] private EnemyStats _stats;
     [SerializeField] private Rigidbody2D _rb;
+    [SerializeField] private KnockbackEnemy _knockbackEnemy;
 
     [Header("Dash Variables")]
     [SerializeField] private float _dashSpeed;
@@ -41,6 +42,7 @@ public class DashAttackState : EnemyState
     {
         print("preparing dash");
         float timer = _dashPrepareTime * 0.8f;
+        _knockbackEnemy.enabled = false;
         while (timer > 0)
         {
             yield return null;
@@ -56,5 +58,6 @@ public class DashAttackState : EnemyState
         print("finish dashing");
         _rb.velocity = Vector2.zero;
         _attackPerformed = true;
+        _knockbackEnemy.enabled = true;
     }
 }

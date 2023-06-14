@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
                 EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
                 enemyStats.Hit(_damage);
 
-                collision.GetComponent<KnockbackEnemy>()?.ApplyKnockback(_rb.velocity, 2f, 0.05f);
+                collision.GetComponent<KnockbackEnemy>()?.ApplyKnockback(_rb.velocity, 10f, 0.05f);
                 HandleEnemyDebuff(collision.GetComponent<Enemy>());
             }
             if (_effectName != "")

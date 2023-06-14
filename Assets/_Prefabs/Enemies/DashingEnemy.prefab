@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 7774721819065485372}
   _rb: {fileID: 7774721818786160635}
+  _knockbackEnemy: {fileID: 914518547}
   _dashSpeed: 15
   _dashDuration: 0.5
   _dashPrepareTime: 1
