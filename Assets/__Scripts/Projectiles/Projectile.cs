@@ -1,8 +1,4 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Projectile : MonoBehaviour
 {
@@ -13,21 +9,21 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player") && !collision.CompareTag("Projectile"))
-        {
-            if (collision.CompareTag("Enemy")){
-                EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
-                enemyStats.Hit(_damage);
+        if (collision.CompareTag("Wall")) transform.parent.gameObject.SetActive(false);
 
-                collision.GetComponent<KnockbackEnemy>()?.ApplyKnockback(_rb.velocity, 10f, 0.05f);
-                HandleEnemyDebuff(collision.GetComponent<Enemy>());
-            }
-            if (_effectName != "")
-            {
-                _ammo.ActivateEffect(transform.position);
-            }
+        if (collision.CompareTag("Enemy")){
+            EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
+            enemyStats?.Hit(_damage);
+
+            collision.GetComponent<KnockbackEnemy>()?.ApplyKnockback(_rb.velocity, 10f, 0.05f);
+            HandleEnemyDebuff(collision.GetComponent<Enemy>());
             transform.parent.gameObject.SetActive(false);
         }
+        if (_effectName != "")
+        {
+            _ammo.ActivateEffect(transform.position);
+        }
+        
     }
 
     public void InitProjectile(AmmoData data)

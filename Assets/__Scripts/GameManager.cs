@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public bool UiISActive;
-
+    [SerializeField] public Transform ObjectCollector;
 
 
     public GameState State;

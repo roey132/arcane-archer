@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: RangedEnemy
   m_EditorClassIdentifier: 
   EnemyName: Elemental
-  MinHealth: 15
-  MinMovementSpeed: 3
-  MaxAttackDistance: 15
-  MaintainAttackDistance: 10
-  SpawnValue: 2
+  Damage: 1
+  MaxHealth: 20
+  ChaseMovementSpeed: 5
+  InRangeMovementSpeed: 3
+  MaintainRange: 10
+  AttackRange: 15
+  AttackCooldownSeconds: 3
   MinCurrencyValue: 5
   MaxCurrencyValue: 10
-  Damage: 4
-  Level: 0
-  AttackCooldownSeconds: 3
+  SpawnValue: 2
+  RandomizerWeight: 100
   EnemySprite: {fileID: 0}
   Animator: {fileID: 0}

@@ -19,11 +19,16 @@ public class DashAttackState : EnemyState
     [SerializeField]  private bool _isAttacking;
     [SerializeField] private bool _attackPerformed;
 
+    private bool _isDashing;
+    private void OnEnable()
+    {
+        _stats.CollidedWithPlayer += HitPlayerOnCollision;
+    }
+
     private void OnDisable()
     {
         _stats.CollidedWithPlayer -= HitPlayerOnCollision;
     }
-
     public override EnemyState StateBehaviour()
     {
         print("running attack state");
@@ -59,7 +64,7 @@ public class DashAttackState : EnemyState
         yield return new WaitForSeconds(_dashPrepareTime * 0.2f);
 
         print("dashing");
-        _stats.CollidedWithPlayer += HitPlayerOnCollision;
+        _isDashing = true;
 
         _rb.velocity = DashDir.normalized * _dashSpeed;
         yield return new WaitForSeconds(_dashDuration);
@@ -67,10 +72,12 @@ public class DashAttackState : EnemyState
         _rb.velocity = Vector2.zero;
         _attackPerformed = true;
         _knockbackEnemy.enabled = true;
-        _stats.CollidedWithPlayer -= HitPlayerOnCollision;
+
+        _isDashing = false;
     }
     private void HitPlayerOnCollision()
     {
+        if (!_isDashing) return;
         IngameStats.Instance.hitPlayer(_stats.BaseDamage * _stats.DamageModifier);
     }
 }
