@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4161060779268025275}
   - component: {fileID: 4161060779268025273}
   - component: {fileID: 4161060779268025272}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (4)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,7 +97,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 4161060779308875807}
   - component: {fileID: 4161060779308875805}
   - component: {fileID: 4161060779308875804}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (3)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -208,7 +208,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 4161060780432982527}
   - component: {fileID: 4161060780432982525}
   - component: {fileID: 4161060780432982524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -319,7 +319,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 4161060780609132675}
   - component: {fileID: 4161060780609132674}
   - component: {fileID: 4161060780609132672}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -408,7 +408,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -430,7 +430,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 4161060780742894391}
   - component: {fileID: 4161060780742894390}
   - component: {fileID: 4161060780742894385}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Border
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -519,8 +519,56 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 1
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 4161060780609132672}
+    m_ColliderPaths:
+    - - X: 200000000
+        Y: 115000000
+      - X: -200000000
+        Y: 115000000
+      - X: -200000000
+        Y: 105000000
+      - X: 200000000
+        Y: 105000000
+  - m_Collider: {fileID: 4161060780432982524}
+    m_ColliderPaths:
+    - - X: 200000000
+        Y: -105000000
+      - X: -200000000
+        Y: -105000000
+      - X: -200000000
+        Y: -115000000
+      - X: 200000000
+        Y: -115000000
+  - m_Collider: {fileID: 4161060779308875804}
+    m_ColliderPaths:
+    - - X: 204999984
+        Y: 115000008
+      - X: 194999984
+        Y: 115000008
+      - X: 195000016
+        Y: -115000008
+      - X: 205000016
+        Y: -115000008
+  - m_Collider: {fileID: 4161060779268025272}
+    m_ColliderPaths:
+    - - X: -195000016
+        Y: 115000008
+      - X: -205000016
+        Y: 115000008
+      - X: -204999984
+        Y: -115000008
+      - X: -194999984
+        Y: -115000008
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: 20.499973, y: -11.500001}
+      - {x: 20.49997, y: 11.500001}
+      - {x: -20.500002, y: 11.499971}
+      - {x: -20.49997, y: -11.500001}
+    - - {x: 19.500002, y: -10.49997}
+      - {x: -19.499998, y: -10.49997}
+      - {x: -19.499973, y: 10.5}
+      - {x: 19.499998, y: 10.49997}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005

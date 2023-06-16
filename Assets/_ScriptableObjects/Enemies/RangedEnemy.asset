@@ -15,10 +15,10 @@ MonoBehaviour:
   EnemyName: Elemental
   Damage: 1
   MaxHealth: 20
-  ChaseMovementSpeed: 5
-  InRangeMovementSpeed: 3
-  MaintainRange: 10
-  AttackRange: 15
+  ChaseMovementSpeed: 3
+  InRangeMovementSpeed: 2
+  MaintainRange: 7
+  AttackRange: 10
   AttackCooldownSeconds: 3
   MinCurrencyValue: 5
   MaxCurrencyValue: 10
