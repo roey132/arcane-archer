@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eae5699bc56186498b40e4edebd1291, type: 3}
+  m_Name: FireBlob
+  m_EditorClassIdentifier: 
+  EnemyName: FireBlob
+  Damage: 2
+  MaxHealth: 5
+  ChaseMovementSpeed: 4
+  InRangeMovementSpeed: 2
+  MaintainRange: 2
+  AttackRange: 1
+  AttackCooldownSeconds: 2
+  MinCurrencyValue: 5
+  MaxCurrencyValue: 10
+  SpawnValue: 2
+  RandomizerWeight: 100
+  EnemySprite: {fileID: 0}
+  Animator: {fileID: 0}

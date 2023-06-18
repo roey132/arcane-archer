@@ -12915,6 +12915,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayManagers
       objectReference: {fileID: 0}
+    - target: {fileID: 3656636995822154766, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: EnemyPrefab
+      value: 
+      objectReference: {fileID: 3267379211884181901, guid: f5bda801e581c2e4a9dae503b9f406ae, type: 3}
     - target: {fileID: 3782942823776620400, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
       propertyPath: _equippedAmmoSprite
       value: 
