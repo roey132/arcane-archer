@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        IngameStats.Instance.changeIngameCurrency(_currencyValue);
+        IngameStats.Instance.ChangeIngameCurrency(_currencyValue);
         Destroy(gameObject);
     }
     private void OnCollisionEnter2D(Collision2D collision)

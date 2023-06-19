@@ -30,13 +30,13 @@ public class StatsItem : ItemData
         switch (stat) 
         {
             case Stat.MovementSpeed:
-                IngameStats.Instance.changeMovementSpeed(value); break;
+                IngameStats.Instance.ChangeMovementSpeed(value); break;
             case Stat.AttackSpeed:
-                IngameStats.Instance.changeAttackSpeed(value); break;
+                IngameStats.Instance.ChangeAttackSpeed(value); break;
             case Stat.NumOfArrows:
-                IngameStats.Instance.changeNumOfArrows(value); break;
+                IngameStats.Instance.ChangeNumOfArrows(value); break;
             case Stat.DamagePercantage:
-                IngameStats.Instance.changePhysicalMultipler(value) ; break;
+                IngameStats.Instance.ChangePhysicalMultipler(value) ; break;
         }
     }
 }

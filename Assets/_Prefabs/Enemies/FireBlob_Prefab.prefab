@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 3267379211884181894}
   - component: {fileID: 1339786773136622894}
   m_Layer: 8
-  m_Name: FireBlob
+  m_Name: FireBlob_Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,11 +16,10 @@ public class KnockbackEnemy : MonoBehaviour
     public void ApplyKnockback(Vector3 forceDirection, float force, float delay)
     {
         if (!this.enabled) return;
+        StopAllCoroutines();
         startKnockback?.Invoke();
-
         _rb.AddForce(forceDirection.normalized * force, ForceMode2D.Impulse);
         StartCoroutine(knockbackDelay(delay));
-
         endKnockback?.Invoke();
     }
     private IEnumerator knockbackDelay(float delay)

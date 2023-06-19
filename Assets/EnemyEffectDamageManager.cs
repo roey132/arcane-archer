@@ -13,7 +13,7 @@ public class EnemyEffectDamageManager : MonoBehaviour
         if (_playerWasHit) return;
         if (!collision.CompareTag("Player")) return;
         _playerWasHit=true;
-        IngameStats.Instance.hitPlayer(_damage);
+        IngameStats.Instance.HitPlayer(_damage);
     }
     public void Activate(float damage)
     {

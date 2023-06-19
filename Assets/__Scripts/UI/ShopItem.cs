@@ -34,7 +34,7 @@ public class ShopItem : MonoBehaviour
     }
     public void BuyItem()
     {
-        IngameStats.Instance.changeIngameCurrency(-_price);
+        IngameStats.Instance.ChangeIngameCurrency(-_price);
         ItemManager.Instance.AddItem( _item );
         print($"Bought Item {_item.ItemName}");
         gameObject.SetActive( false );

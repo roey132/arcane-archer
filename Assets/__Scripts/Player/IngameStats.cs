@@ -55,13 +55,13 @@ public class IngameStats : MonoBehaviour
 
     }
 
-    public void hitPlayer(float damage)
+    public void HitPlayer(float damage)
     {
         
         CurrHp -= Mathf.RoundToInt(damage);
         print($"player was hit for {damage} damage");
     }
-    public bool useMana(float mana)
+    public bool UseMana(float mana)
     {
         if (CurrMana - mana >= 0)
         {
@@ -70,44 +70,44 @@ public class IngameStats : MonoBehaviour
         }
         else return false;
     }
-    public void gainMana(float mana)
+    public void GainMana(float mana)
     {
         float newMana = CurrMana + mana;
         CurrMana = Mathf.Clamp(newMana, 0, MaxMana);
     }
-    public void changeAttackSpeed(float attackSpeed)
+    public void ChangeAttackSpeed(float attackSpeed)
     {
         AttackSpeed += attackSpeed;
     }
-    public void changeCastSpeed(float castSpeed)
+    public void ChangeCastSpeed(float castSpeed)
     {
         CastSpeed += castSpeed;
     }
-    public void changeMovementSpeed(float movementSpeed)
+    public void ChangeMovementSpeed(float movementSpeed)
     {
         MovementSpeed += movementSpeed;
     }
-    public void changeCriticalRate(float critRate)
+    public void ChangeCriticalRate(float critRate)
     {
         CriticalRate += critRate;
     }
-    public void changeCriticalDamage(float critDamage)
+    public void ChangeCriticalDamage(float critDamage)
     {
         CriticalDamage += critDamage;
     }
-    public void changePhysicalMultipler(float multiplier)
+    public void ChangePhysicalMultipler(float multiplier)
     {
         PhysicalDamageMultiplier += multiplier;
     }
-    public void changeMagicalMultiplier(float multiplier)
+    public void ChangeMagicalMultiplier(float multiplier)
     {
         MagicalDamageMultiplier += multiplier;
     }
-    public void changeNumOfArrows(float numOfArrows)
+    public void ChangeNumOfArrows(float numOfArrows)
     {
         NumOfArrows += numOfArrows;
     }
-    public bool changeIngameCurrency(float currency)
+    public bool ChangeIngameCurrency(float currency)
     {
         // add currency if the currency value is above 0
         if (currency > 0)

@@ -12,7 +12,7 @@ public class EnemyProjectile : MonoBehaviour
             return;
         }
         if (!collision.CompareTag("Player")) return;
-        IngameStats.Instance.hitPlayer(_stats.BaseDamage * _stats.DamageModifier);
+        IngameStats.Instance.HitPlayer(_stats.BaseDamage * _stats.DamageModifier);
         Destroy(gameObject);
     }
     public void InitProjectile(RangedEnemyStats stats, Vector2 projectileDirection, float projectilSpeed)

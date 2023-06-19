@@ -10,7 +10,7 @@ public class StateManager : MonoBehaviour
     {
         _currState  = _startingState;
     }
-    void Update()
+    void FixedUpdate()
     {
         ActivateCurrentState();
     }

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8eae5699bc56186498b40e4edebd1291, type: 3}
-  m_Name: FireBlob
+  m_Name: FireBlob_ScriptableObject
   m_EditorClassIdentifier: 
   EnemyName: FireBlob
   Damage: 2
   MaxHealth: 5
-  ChaseMovementSpeed: 4
-  InRangeMovementSpeed: 2
-  MaintainRange: 2
-  AttackRange: 1
+  ChaseMovementSpeed: 5
+  InRangeMovementSpeed: 3
+  MaintainRange: 1.5
+  AttackRange: 2
   AttackCooldownSeconds: 2
   MinCurrencyValue: 5
   MaxCurrencyValue: 10
