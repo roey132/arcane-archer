@@ -95,9 +95,9 @@ MonoBehaviour:
   _knockbackEnemy: {fileID: 914518547}
   _animator: {fileID: 2007123817}
   _physicalCollider: {fileID: 0}
-  _dashSpeed: 15
-  _dashDuration: 0.5
-  _dashPrepareTime: 1
+  _dashSpeed: 20
+  _dashDuration: 0.4
+  _dashPrepareTime: 0.6
   _chaseState: {fileID: 7774721817553129169}
   _isAttacking: 0
   _attackPerformed: 0

@@ -62,8 +62,9 @@ GameObject:
   - component: {fileID: 6750358322370503652}
   - component: {fileID: 6750358322370503449}
   - component: {fileID: 6750358322370503450}
+  - component: {fileID: 973267596}
   m_Layer: 0
-  m_Name: RangedEnemy
+  m_Name: Rock_Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +128,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 1612183451, guid: b5379dc1e56658949a2748a2e177a187, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -154,8 +155,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -163,9 +164,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+    - - {x: 0.6878523, y: -0.041778475}
+      - {x: 0.6109825, y: 0.34042436}
+      - {x: 0.3159086, y: 0.76280034}
+      - {x: -0.19588149, y: 0.81241655}
+      - {x: -0.7760335, y: 0.29399306}
+      - {x: -0.32762432, y: -0.3591841}
+      - {x: 0.28844798, y: -0.38268977}
 --- !u!50 &6750358322370503450
 Rigidbody2D:
   serializedVersion: 4
@@ -187,6 +192,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &973267596
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6750358322370503653}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f675e3f822f51448b8bb369fc9aa495, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6750358322800304877
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,4 +492,8 @@ MonoBehaviour:
   _chaseState: {fileID: 6750358323022351441}
   _projectileObject: {fileID: 5518309277336933953, guid: 29b3c2f1cffc9a04ca82dd7392cc3525, type: 3}
   _stats: {fileID: 6750358322857488545}
-  _projectileSpeed: 10
+  _projectileSpeed: 20
+  _animator: {fileID: 973267596}
+  _prepAnimationDurationSeconds: 0.3
+  _idleAnimationName: Rock_Idle
+  _prepAnimationName: Rock_Attack

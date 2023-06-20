@@ -1490,6 +1490,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5632399894076212007, guid: ce9c92db6c3495c4f82b3864d9f72a37, type: 3}
+      propertyPath: AttackSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5632399894076212007, guid: ce9c92db6c3495c4f82b3864d9f72a37, type: 3}
+      propertyPath: NumOfArrows
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce9c92db6c3495c4f82b3864d9f72a37, type: 3}
 --- !u!1001 &1209093609
@@ -12918,7 +12926,7 @@ PrefabInstance:
     - target: {fileID: 3656636995822154766, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
       propertyPath: EnemyPrefab
       value: 
-      objectReference: {fileID: 7774721818786160624, guid: af4c2164180809645baf5ac40053f3ea, type: 3}
+      objectReference: {fileID: 6750358322370503653, guid: 61fb5522584669241b583c3f3ee31e41, type: 3}
     - target: {fileID: 3782942823776620400, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
       propertyPath: _equippedAmmoSprite
       value: 

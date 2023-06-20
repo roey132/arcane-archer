@@ -15,11 +15,11 @@ MonoBehaviour:
   EnemyName: FireBlob
   Damage: 2
   MaxHealth: 5
-  ChaseMovementSpeed: 5
-  InRangeMovementSpeed: 3
+  ChaseMovementSpeed: 7
+  InRangeMovementSpeed: 7
   MaintainRange: 1.5
-  AttackRange: 2
-  AttackCooldownSeconds: 2
+  AttackRange: 2.5
+  AttackCooldownSeconds: 1.5
   MinCurrencyValue: 5
   MaxCurrencyValue: 10
   SpawnValue: 2

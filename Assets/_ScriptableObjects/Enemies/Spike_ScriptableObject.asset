@@ -19,7 +19,7 @@ MonoBehaviour:
   InRangeMovementSpeed: 3
   MaintainRange: 3
   AttackRange: 5
-  AttackCooldownSeconds: 5
+  AttackCooldownSeconds: 4
   MinCurrencyValue: 5
   MaxCurrencyValue: 10
   SpawnValue: 2

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8eae5699bc56186498b40e4edebd1291, type: 3}
-  m_Name: RangedEnemy
+  m_Name: Rock_ScriptableObject
   m_EditorClassIdentifier: 
   EnemyName: Elemental
   Damage: 1
@@ -19,7 +19,7 @@ MonoBehaviour:
   InRangeMovementSpeed: 2
   MaintainRange: 7
   AttackRange: 10
-  AttackCooldownSeconds: 3
+  AttackCooldownSeconds: 1
   MinCurrencyValue: 5
   MaxCurrencyValue: 10
   SpawnValue: 2

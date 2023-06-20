@@ -7,7 +7,8 @@ public enum GameState
     RoomSelection,
     InCombat,
     ShopRoom,
-    BuffSelection
+    BuffSelection,
+    
 }
 
 public class GameManager : MonoBehaviour
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public bool UiISActive;
     [SerializeField] public Transform ObjectCollector;
-
+    [SerializeField] public GameState _startState;
 
     public GameState State;
     public static event Action<GameState> OnGameStateChange;
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        UpdateGameState(GameState.BuffSelection);
+        UpdateGameState(_startState);
     }
 
     [SerializeField] private GameObject buffsUi;
