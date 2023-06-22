@@ -10366,7 +10366,7 @@ MonoBehaviour:
   Health: 10
   Mana: 5
   MovementSpeed: 5
-  AttackSpeed: 3
+  AttackSpeed: 5
   CastSpeed: 0
   CriticalRate: 0
   CriticalDamage: 0
@@ -10374,5 +10374,5 @@ MonoBehaviour:
   BaseMagicDamage: 1
   PhysicalDamageMultiplier: 1
   MagicalDamageMultiplier: 1
-  NumOfArrows: 1
+  NumOfArrows: 3
   StartingIngameCurrency: 0

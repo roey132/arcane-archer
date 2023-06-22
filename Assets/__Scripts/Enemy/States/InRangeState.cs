@@ -20,4 +20,5 @@ public class InRangeState : EnemyState
             _stats.Player.position - ((Vector3)_stats.DirectionToPlayer * _stats.MaintainRange),
             _stats.InRangeMovementSpeed * _stats.MovementSpeedModifier * Time.deltaTime);
     }
+    
 }

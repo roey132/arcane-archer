@@ -492,7 +492,7 @@ MonoBehaviour:
   _chaseState: {fileID: 6750358323022351441}
   _projectileObject: {fileID: 5518309277336933953, guid: 29b3c2f1cffc9a04ca82dd7392cc3525, type: 3}
   _stats: {fileID: 6750358322857488545}
-  _projectileSpeed: 20
+  _projectileSpeed: 15
   _animator: {fileID: 973267596}
   _prepAnimationDurationSeconds: 0.3
   _idleAnimationName: Rock_Idle

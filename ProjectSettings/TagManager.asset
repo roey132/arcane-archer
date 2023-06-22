@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Enemy
   - EnemyProjectile
+  - SpawnArea
   layers:
   - Default
   - TransparentFX
