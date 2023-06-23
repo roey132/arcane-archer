@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
         if (spawnTimer <= 0 && Vector2.Distance(spawnPosition, playerTransform.position) > spawnDistance)
         {
             SpawnEnemy();
-            spawnTimer = WaveManager.Instance.WaveSpawnCooldown; // Reset the spawn cooldown
+            spawnTimer = EnemySpawnManager.Instance.WaveSpawnCooldown; // Reset the spawn cooldown
         }
 
         if (ActiveEnemies.Count != 0)
@@ -55,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
             }
             if (allNull) 
             {
-                WaveManager.Instance.EndWave();
+                EnemySpawnManager.Instance.EndWave();
             };
         }
     }
@@ -68,12 +68,12 @@ public class EnemySpawner : MonoBehaviour
     }
     private void SpawnEnemy()
     {
-        EnemyData enemyData = WaveManager.Instance.GetEnemyData();
-        if (enemyData == null) return;
+        //EnemyData enemyData = WaveManager.Instance.GetEnemyData();
+        //if (enemyData == null) return;
         
-        GameObject enemy = Instantiate(EnemyPrefab, spawnPosition, Quaternion.identity); // Spawn the enemy
-        enemy.transform.Find("EnemyStats").GetComponent<EnemyStats>().InitData(enemyData);
-        ActiveEnemies.Add(enemy);
+        //GameObject enemy = Instantiate(EnemyPrefab, spawnPosition, Quaternion.identity); // Spawn the enemy
+        //enemy.transform.Find("EnemyStats").GetComponent<EnemyStats>().InitData(enemyData);
+        //ActiveEnemies.Add(enemy);
         
     }
     private void InCombat(GameState state)

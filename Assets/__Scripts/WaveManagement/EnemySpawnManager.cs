@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveManager : MonoBehaviour
+public class EnemySpawnManager : MonoBehaviour
 {
-    public static WaveManager Instance;
+    public static EnemySpawnManager Instance;
 
     [SerializeField] private float _wavePoints = 2;
     private float _currentWavePoints;
-    [SerializeField] public List<EnemyData> WaveEnemies;
+
+    [SerializeField] public List<GameObject> AvailableEnemies;
+
     public float WaveSpawnCooldown;
     private int _currentWave;
     [SerializeField] public bool WaveIsActive;
@@ -45,17 +47,25 @@ public class WaveManager : MonoBehaviour
         WaveIsActive = false;
         GameManager.Instance.UpdateGameState(GameState.BuffSelection);
     }
-    public EnemyData GetEnemyData()
+    public GameObject GetEnemyObject(int maxValue)
     {
-        if (_currentWavePoints <= 0)
+        for (int i = 0; i < 1000; i++)
         {
-            return null;
+            int randomEnemy = Random.Range(0, AvailableEnemies.Count);
+            GameObject enemy = AvailableEnemies[randomEnemy];
+            if (GetEnemyValue(enemy) <= maxValue) return enemy;
         }
-        int randomEnemy = Random.Range(0, WaveManager.Instance.WaveEnemies.Count - 1);
-        EnemyData enemyData = WaveEnemies[randomEnemy];
-        _currentWavePoints -= enemyData.SpawnValue;
-        return enemyData;
+        print($"Couln't find an enemy with value under {maxValue}");
+        return null;
     }
+
+    public float GetEnemyValue(GameObject enemyObject)
+    {
+        EnemyStats currStats = enemyObject.transform.Find("EnemyStats").GetComponent<EnemyStats>();
+
+        return currStats.Data.SpawnValue;
+    }
+
     public void SetWaveIsActive(GameState state)
     {
         if (state != GameState.InCombat) return;

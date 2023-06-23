@@ -233,7 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Self: {fileID: 3267379211884181899}
   Player: {fileID: 0}
-  TestInit: {fileID: 11400000, guid: e4d533366118881448dcf59cc676dfdf, type: 2}
+  Data: {fileID: 11400000, guid: e4d533366118881448dcf59cc676dfdf, type: 2}
   _rb: {fileID: 0}
   EnemyData: {fileID: 0}
   BaseHealth: 0

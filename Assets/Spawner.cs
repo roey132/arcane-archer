@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -22,7 +23,9 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Vector2 _centerPoint;
     [SerializeField] private float _radius;
     [SerializeField] private Color _debugCircleColor;
-    
+    [SerializeField] private int _enemyCountForTests;
+    [SerializeField] private float _cooldownBetweenSpawns;
+
     private float _nextSpawnTime;
     private Vector2 _testPoint;
     private void Start()
@@ -38,22 +41,38 @@ public class Spawner : MonoBehaviour
     private void OnDrawGizmos()
     {
         DebugDrawCircle(_centerPoint, _radius, _debugCircleColor);
+
+    }
+    private void Update()
+    {
         DebugDrawCircle(_testPoint, 0.1f, Color.green);
         if (_nextSpawnTime >= Time.time) return;
+        if (_enemyCountForTests <= 0) return;
+        _enemyCountForTests --;
+        SpawnEvent(_centerPoint, _radius, 5, 1);
         _testPoint = GetValidSpawnPoint(_centerPoint, _radius, _spawnArea);
-        _nextSpawnTime = Time.time + 0.5f;
+        _nextSpawnTime = Time.time + _cooldownBetweenSpawns;
     }
-    
 
     public float SpawnEvent(Vector2 center, float radius, int maxEnemyValue, int enemyLevel)
     {
         Collider2D spawnArea = GameObject.FindGameObjectWithTag("SpawnArea").GetComponent<Collider2D>();
 
-        EnemyData enemyData = new EnemyData(); // get enemy data from wave manager
-        GameObject enemyPrefab = new GameObject(); // get enemy prefab from enemy data
-        Vector2 spawnPoint = new Vector2(); // create function to generate spawn point
-        Instantiate(enemyPrefab, spawnPoint, Quaternion.identity, _enemyPool);
-        return 0f;
+        GameObject enemyPrefab = EnemySpawnManager.Instance.GetEnemyObject(maxEnemyValue);
+        Vector2 spawnPoint = GetValidSpawnPoint(center, radius, spawnArea);
+
+        GameObject currEnemy = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity, _enemyPool);
+        InitEnemy(currEnemy, enemyLevel);
+
+        return EnemySpawnManager.Instance.GetEnemyValue(currEnemy);
+    }
+
+    public void InitEnemy(GameObject enemyObject, int enemyLevel)
+    {
+        EnemyStats currStats = enemyObject.transform.Find("EnemyStats").GetComponent<EnemyStats>();
+
+        currStats.InitData(enemyLevel);
+
     }
 
     public Vector2 GetValidSpawnPoint(Vector2 center, float radius, Collider2D spawnArea)

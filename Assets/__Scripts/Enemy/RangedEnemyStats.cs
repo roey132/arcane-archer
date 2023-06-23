@@ -4,7 +4,7 @@ public class RangedEnemyStats : EnemyStats
 {
     void Start()
     {
-        InitData(TestInit);
+        InitData(1);
     }
 
     void Update()

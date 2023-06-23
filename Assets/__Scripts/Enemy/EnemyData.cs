@@ -10,7 +10,7 @@ public class EnemyData : ScriptableObject{
     public float InRangeMovementSpeed;
     public float MaintainRange;
 
-    [Header("attack stats")]
+    [Header("Attack Stats")]
     public float AttackRange;
     public float AttackCooldownSeconds;
 
@@ -18,11 +18,14 @@ public class EnemyData : ScriptableObject{
     public float MinCurrencyValue;
     public float MaxCurrencyValue;
 
-    [Header("game system variables")]
-    public float SpawnValue;
-    public float RandomizerWeight;
+    [Header("Game System Variables")]
+    public int SpawnValue;
+    public int RandomizerWeight;
 
-    [Header("rendering")]
+    [Header("Rendering")]
     public Sprite EnemySprite;
     public Animator Animator;
+
+    [Header("Prefab")]
+    public GameObject Prefab;
 }

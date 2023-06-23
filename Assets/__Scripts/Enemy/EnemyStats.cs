@@ -6,9 +6,11 @@ public abstract class EnemyStats : MonoBehaviour
 {
     [SerializeField] public Transform Self;
     [SerializeField] public Transform Player;
-    [SerializeField] public EnemyData TestInit;
+    [SerializeField] public EnemyData Data;
 
     [SerializeField] private Rigidbody2D _rb;
+
+    [SerializeField] private AnimationCurve _levelScaleCurve;
 
     [Header("Base Stats")]
     public EnemyData EnemyData;
@@ -49,24 +51,25 @@ public abstract class EnemyStats : MonoBehaviour
     {
         // death function
     }
-    public void InitData(EnemyData enemyData)
+    public void InitData(int enemyLevel)
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         _rb = Self.GetComponent<Rigidbody2D>();
 
-        EnemyData = enemyData;
-        float randomEnemyDifficulty = Random.Range(1f, 1.2f);
-        BaseHealth = EnemyData.MaxHealth * randomEnemyDifficulty;
-        ChaseMovementSpeed = EnemyData.ChaseMovementSpeed * randomEnemyDifficulty;
-        InRangeMovementSpeed = EnemyData.InRangeMovementSpeed * randomEnemyDifficulty;
-        AttackCooldownSeconds = EnemyData.AttackCooldownSeconds;
+        // add level to calculation
 
-        BaseDamage = EnemyData.Damage * randomEnemyDifficulty;
+        float randomEnemyDifficulty = Random.Range(1f, 1.2f);
+        BaseHealth = Data.MaxHealth * randomEnemyDifficulty;
+        ChaseMovementSpeed = Data.ChaseMovementSpeed * randomEnemyDifficulty;
+        InRangeMovementSpeed = Data.InRangeMovementSpeed * randomEnemyDifficulty;
+        AttackCooldownSeconds = Data.AttackCooldownSeconds;
+
+        BaseDamage = Data.Damage * randomEnemyDifficulty;
         DamageModifier = 1f;
         MovementSpeedModifier = 1f;
-        CurrencyValue = Random.Range(EnemyData.MinCurrencyValue, EnemyData.MaxCurrencyValue);
-        AttackRange = EnemyData.AttackRange;
-        MaintainRange = EnemyData.MaintainRange;
+        CurrencyValue = Random.Range(Data.MinCurrencyValue, Data.MaxCurrencyValue);
+        AttackRange = Data.AttackRange;
+        MaintainRange = Data.MaintainRange;
     }
     
     public void CalculateDistanceFromPlayer(Vector3 playerPosition)

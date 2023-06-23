@@ -1674,37 +1674,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4161060780742894391, guid: c223d4eba6b5f7c4d838cf8985531d28, type: 3}
   m_PrefabInstance: {fileID: 1847726955}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1549146987
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1549146988}
-  m_Layer: 0
-  m_Name: EnemyPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1549146988
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549146987}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.2916193}
-  m_LocalScale: {x: 0.025, y: 0.045454543, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8460063726011277293}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590565700
 GameObject:
   m_ObjectHideFlags: 0
@@ -13009,10 +12978,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayManagers
       objectReference: {fileID: 0}
-    - target: {fileID: 3656636995822154766, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3782942823776620400, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
       propertyPath: _equippedAmmoSprite
       value: 
@@ -13063,55 +13028,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
---- !u!4 &8460063726011277293 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3656636995822154752, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
-  m_PrefabInstance: {fileID: 8460063726011277292}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8460063726011277294 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3656636995822154767, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
-  m_PrefabInstance: {fileID: 8460063726011277292}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8460063726011277295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8460063726011277294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7645aa88807d64046b6ce6a392483728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _radiusCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _amountToSpawnCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _valueToSpawnCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _randomizerCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _maxRadius: 0
-  _minRadius: 0
-  _enemyPool: {fileID: 0}
-  _centerPoint: {x: 2, y: 2}
-  _radius: 5
-  _debugCircleColor: {r: 1, g: 0, b: 0, a: 1}

@@ -7,7 +7,7 @@ public class MeleeEnemyStats : EnemyStats
     public event Action CollidedWithPlayer;
     void Start()
     {
-        InitData(TestInit);
+        InitData(1);
     }
 
     void Update()

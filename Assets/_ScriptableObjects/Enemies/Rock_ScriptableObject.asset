@@ -26,3 +26,4 @@ MonoBehaviour:
   RandomizerWeight: 100
   EnemySprite: {fileID: 0}
   Animator: {fileID: 0}
+  Prefab: {fileID: 6750358322370503653, guid: 61fb5522584669241b583c3f3ee31e41, type: 3}
