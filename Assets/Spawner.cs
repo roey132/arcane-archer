@@ -6,7 +6,6 @@ using UnityEngine.UIElements;
 public class Spawner : MonoBehaviour
 {
     [Header("Curves")]
-    [SerializeField] private AnimationCurve _radiusCurve;
     [SerializeField] private AnimationCurve _amountToSpawnCurve;
     [SerializeField] private AnimationCurve _valueToSpawnCurve;
     [SerializeField] private AnimationCurve _randomizerCurve;
@@ -25,17 +24,51 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Color _debugCircleColor;
     [SerializeField] private int _enemyCountForTests;
     [SerializeField] private float _cooldownBetweenSpawns;
-
+    [SerializeField] private float TimePassed;
     private float _nextSpawnTime;
     private Vector2 _testPoint;
     private void Start()
     {
+        
         _spawnArea = GameObject.FindGameObjectWithTag("SpawnArea").GetComponent<Collider2D>();
-
+        
     }
-    public float SpawnerEvent()
+
+    public float SpawnerEvent(int maxEnemies, int enemyLevel, bool isTimed)
     {
+        Vector2 spawnerCenter = GetValidSpawnPoint(Vector2.zero, 25, _spawnArea);
+        // limit the max random value for the first 10 seconds of a room
+        float randomLimit = _randomizerCurve.Evaluate(TimePassed / 10);
+        // get a random multiplier to generate a radius and an amount to spawn
+        float randomMultiplier = Random.Range(randomLimit, 0);
+
+        float randomRadius = randomMultiplier * _maxRadius;
+        float radius = Mathf.Clamp(randomRadius, _minRadius, _maxRadius);
+
+        return 0f;
+    }
+
+    public float AmountSpawnerEvent(int maxEnemies, int enemyLevel, float randomMultiplier, Vector2 spawnerCenter, float radius)
+    {
+        
+        // get the amount to spawn by evaluating the curve and multiplying by max enemies
+        int amountToSpawn = Mathf.CeilToInt(_amountToSpawnCurve.Evaluate(randomMultiplier) * maxEnemies) ;
+
+        for (int i = 0; i < amountToSpawn; i++)
+        {
+            StartCoroutine(IterateSpawnEvents(spawnerCenter, radius, 100, enemyLevel, 0.2f * i));
+        }
         return 0f ;
+    }
+    //public float ValueSpawnerEvent(int maxEnemies, int enemyLevel, float randomMultiplier, Vector2 spawnerCenter, float radius)
+    //{
+    //    float halfTimer
+    //}
+
+    private IEnumerator IterateSpawnEvents(Vector2 center, float radius, int maxEnemyValue, int enemyLevel, float timeToWaitSeconds)
+    {
+        yield return new WaitForSeconds(timeToWaitSeconds);
+        SpawnEvent(center, radius, 100, enemyLevel);
     }
 
     private void OnDrawGizmos()
@@ -45,11 +78,12 @@ public class Spawner : MonoBehaviour
     }
     private void Update()
     {
+        TimePassed = TimePassed + Time.deltaTime;
         DebugDrawCircle(_testPoint, 0.1f, Color.green);
         if (_nextSpawnTime >= Time.time) return;
         if (_enemyCountForTests <= 0) return;
         _enemyCountForTests --;
-        SpawnEvent(_centerPoint, _radius, 5, 1);
+        //AmountSpawnerEvent(10, 1);
         _testPoint = GetValidSpawnPoint(_centerPoint, _radius, _spawnArea);
         _nextSpawnTime = Time.time + _cooldownBetweenSpawns;
     }
@@ -77,13 +111,11 @@ public class Spawner : MonoBehaviour
 
     public Vector2 GetValidSpawnPoint(Vector2 center, float radius, Collider2D spawnArea)
     {
-        print($"attempting to find point in center {center} with radius {radius}");
         while (true)
         {
             Vector2 point = GeneratePoint(center, radius);
             if (spawnArea.OverlapPoint(point))
             {
-                print($"generated point {point}");
                 return point;
             }
         }
@@ -101,7 +133,6 @@ public class Spawner : MonoBehaviour
 
     private void DebugDrawCircle(Vector2 center, float radius, Color color)
     {
-        print("this is running");
         const float fullCircle = 2f * Mathf.PI;
         const int segments = 36; // Number of line segments to approximate the circle
 

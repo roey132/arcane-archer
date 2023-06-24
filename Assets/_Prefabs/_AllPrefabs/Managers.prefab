@@ -3602,7 +3602,8 @@ PrefabInstance:
       propertyPath: spawnDistance
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5176558861929130889, guid: 338f71c59ba352d4fa9e0a9aa3b5017c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 338f71c59ba352d4fa9e0a9aa3b5017c, type: 3}
 --- !u!4 &3656636995822154752 stripped
 Transform:
@@ -3626,15 +3627,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7645aa88807d64046b6ce6a392483728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radiusCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   _amountToSpawnCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.27930757
+      value: 0.47537574
+      inSlope: 0.014492682
+      outSlope: 0.014492682
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.19154069
+    - serializedVersion: 3
+      time: 0.73413175
+      value: 0.59012985
+      inSlope: 0.52373266
+      outSlope: 0.52373266
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08285776
+      outWeight: 0.2334871
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -3646,18 +3677,37 @@ MonoBehaviour:
     m_RotationOrder: 4
   _randomizerCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxRadius: 0
-  _minRadius: 0
+  _maxRadius: 10
+  _minRadius: 3
   _enemyPool: {fileID: 0}
-  _centerPoint: {x: 2, y: 2}
-  _radius: 20
+  _centerPoint: {x: 0, y: 0}
+  _radius: 25
   _debugCircleColor: {r: 1, g: 0, b: 0, a: 1}
   _enemyCountForTests: 15
-  _cooldownBetweenSpawns: 2
+  _cooldownBetweenSpawns: 3
+  TimePassed: 0
 --- !u!114 &8460063726011277298
 MonoBehaviour:
   m_ObjectHideFlags: 0
