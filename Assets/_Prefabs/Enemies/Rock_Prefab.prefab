@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6750358322208842322}
   - component: {fileID: 6750358322208842321}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StateManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 6750358322370503449}
   - component: {fileID: 6750358322370503450}
   - component: {fileID: 973267596}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6750358322800304876}
   - component: {fileID: 6750358322800304867}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InRangeState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 6750358322857488545}
   - component: {fileID: 6750358322857488550}
   - component: {fileID: 6750358322857488551}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyStats
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -310,6 +310,12 @@ MonoBehaviour:
   Player: {fileID: 0}
   Data: {fileID: 11400000, guid: 2a40bce429404754bab6851ef91613b2, type: 2}
   _rb: {fileID: 0}
+  _levelScaleCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   EnemyData: {fileID: 0}
   BaseHealth: 0
   BaseDamage: 0
@@ -378,7 +384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6750358323022351440}
   - component: {fileID: 6750358323022351441}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ChaseState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +429,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6750358323038729226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IdleState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6750358323350344084}
   - component: {fileID: 5921239460577244638}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackState
   m_TagString: Untagged
   m_Icon: {fileID: 0}

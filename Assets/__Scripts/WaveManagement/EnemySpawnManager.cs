@@ -5,7 +5,7 @@ public class EnemySpawnManager : MonoBehaviour
 {
     public static EnemySpawnManager Instance;
 
-    [SerializeField] private float _wavePoints = 2;
+    [SerializeField] private float _wavePoints = 100;
     private float _currentWavePoints;
 
     [SerializeField] public List<GameObject> AvailableEnemies;
