@@ -41,6 +41,7 @@ public abstract class EnemyStats : MonoBehaviour
     public void Hit(float damage)
     {
         CurrHealth -= damage;
+
         if (isDead) return;
         if (CurrHealth <= 0)
         {
