@@ -24,7 +24,7 @@ public class OrbSpell : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Debug.Log("orb hit enemy");
-            collision.GetComponent<Enemy>().Hit(_damage, "spell");
+            collision.GetComponent<EnemyStats>().Hit(_damage);
         }
     }
     public void InitOrb(Transform playerTransform, float rotationSpeed, float radius, float damage)

@@ -11,19 +11,20 @@ public class Projectile : MonoBehaviour
     {
         if (collision.CompareTag("Wall")) transform.parent.gameObject.SetActive(false);
 
-        if (collision.CompareTag("Enemy")){
+        if (collision.CompareTag("Enemy"))
+        {
             EnemyStats enemyStats = collision.GetComponent<EnemyStats>();
             enemyStats?.Hit(_damage);
 
             collision.GetComponent<KnockbackEnemy>()?.ApplyKnockback(_rb.velocity, 10f, 0.05f);
-            HandleEnemyDebuff(collision.GetComponent<Enemy>());
+            //HandleEnemyDebuff(collision.GetComponent<Enemy>());
             transform.parent.gameObject.SetActive(false);
         }
         if (_effectName != "")
         {
             _ammo.ActivateEffect(transform.position);
         }
-        
+
     }
 
     public void InitProjectile(AmmoData data)
@@ -34,11 +35,11 @@ public class Projectile : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = data.Sprite;
         _rb = GetComponent<Rigidbody2D>();
     }
-    public void HandleEnemyDebuff(Enemy enemy)
-    {
-        print("debuff handler runs");
-        if (_ammo.Debuff == null) return;
-        print("Sets enemy debuff");
-        enemy.SetActiveEffect(_ammo.Debuff);
-    }
+    //public void HandleEnemyDebuff(Enemy enemy)
+    //{
+    //    print("debuff handler runs");
+    //    if (_ammo.Debuff == null) return;
+    //    print("Sets enemy debuff");
+    //    enemy.SetActiveEffect(_ammo.Debuff);
+    //}
 }

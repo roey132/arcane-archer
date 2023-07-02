@@ -15,7 +15,7 @@ public class SpellAreaDamage : SpellData
         foreach (Collider2D collider in colliders){
             if (collider.CompareTag("Enemy"))
             {
-                collider.gameObject.GetComponent<Enemy>().Hit(_damage, "spell");
+                collider.gameObject.GetComponent<EnemyStats>().Hit(_damage);
             }
         }
 

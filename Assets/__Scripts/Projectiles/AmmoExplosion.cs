@@ -26,7 +26,7 @@ public class AmmoExplosion : MonoBehaviour
                 if (collider.CompareTag("Enemy"))
                 {
                     print($"the _effect damage is {_effectDamage}");
-                    collider.GetComponent<Enemy>().Hit(_effectDamage, "arrow");
+                    collider.GetComponent<EnemyStats>().Hit(_effectDamage);
                 }
             }
         }
