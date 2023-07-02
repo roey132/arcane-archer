@@ -1,7 +1,6 @@
+using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
@@ -25,18 +24,20 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int _enemyCountForTests;
     [SerializeField] private float _cooldownBetweenSpawns;
 
+    public static event Action<int> EnemySpawn;
+
     private void Start()
     {
         _spawnArea = GameObject.FindGameObjectWithTag("SpawnArea").GetComponent<Collider2D>();
     }
 
-    public float SpawnerEvent(int maxEnemies, int enemyLevel)
+    public void SpawnerEvent(int maxEnemies, int enemyLevel)
     {
         // currently uses a set radius of 25, might need to change later
         Vector2 spawnerCenter = PointGenerator.GetRandomPointInArea(center:Vector2.zero, radius:25, spawnArea:_spawnArea);
 
         // get a random multiplier to generate a radius and an amount to spawn
-        float randomMultiplier = Random.Range(0f, 1f);
+        float randomMultiplier = UnityEngine.Random.Range(0f, 1f);
 
         float randomRadius = randomMultiplier * _maxRadius;
         float radius = Mathf.Clamp(randomRadius, _minRadius, _maxRadius);
@@ -49,7 +50,6 @@ public class Spawner : MonoBehaviour
         {
             StartCoroutine(DelayedSpawnEvent(spawnerCenter, radius, 100, enemyLevel, 0.1f * i));
         }
-        return 0f;
     }
 
 
@@ -60,17 +60,20 @@ public class Spawner : MonoBehaviour
         SpawnEvent(center, radius, 100, enemyLevel);
     }
 
-    private float SpawnEvent(Vector2 center, float radius, int maxEnemyValue, int enemyLevel)
+    private void SpawnEvent(Vector2 center, float radius, int maxEnemyValue, int enemyLevel)
     {
         Collider2D spawnArea = GameObject.FindGameObjectWithTag("SpawnArea").GetComponent<Collider2D>();
 
         GameObject enemyPrefab = EnemySpawnManager.Instance.GetEnemyObject(maxEnemyValue);
+        if (enemyPrefab == null) return;
+
         Vector2 spawnPoint = PointGenerator.GetRandomPointInArea(center, radius, spawnArea);
 
         GameObject currEnemy = Instantiate(enemyPrefab, spawnPoint, Quaternion.identity, _enemyPool);
         InitEnemy(currEnemy, enemyLevel);
 
-        return EnemySpawnManager.Instance.GetEnemyValue(currEnemy);
+        int enemyValue = EnemySpawnManager.Instance.GetEnemyValue(currEnemy);
+        EnemySpawn?.Invoke(enemyValue);
     }
 
     private void InitEnemy(GameObject enemyObject, int enemyLevel)
@@ -78,7 +81,6 @@ public class Spawner : MonoBehaviour
         EnemyStats currStats = enemyObject.transform.Find("EnemyStats").GetComponent<EnemyStats>();
 
         currStats.InitData(enemyLevel);
-
     }
 
 

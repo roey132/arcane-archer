@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class EnemyStats : MonoBehaviour
@@ -35,17 +36,22 @@ public abstract class EnemyStats : MonoBehaviour
     public float AttackCooldownSeconds;
     public float NextAttackTime;
 
+    public static event Action EnemyDeath;
+    public bool isDead = false;
     public void Hit(float damage)
     {
         CurrHealth -= damage;
+        if (isDead) return;
         if (CurrHealth <= 0)
         {
+            isDead = true;
             Die();
         }
     }
 
     public void Die()
     {
+        EnemyDeath?.Invoke();
         Destroy(transform.parent.gameObject);
     }
     public void InitData(int enemyLevel)
@@ -55,7 +61,7 @@ public abstract class EnemyStats : MonoBehaviour
         _rb = Self.GetComponent<Rigidbody2D>();
 
         // add level and variation to enemy stats
-        float randomEnemyDifficulty = Random.Range(1f, 1.2f);
+        float randomEnemyDifficulty = UnityEngine.Random.Range(1f, 1.2f);
         float statsMultiplier = Mathf.Pow(enemyLevel, 1.3f) * randomEnemyDifficulty;
 
         // scaling stats
@@ -75,7 +81,7 @@ public abstract class EnemyStats : MonoBehaviour
         MovementSpeedModifier = 1f;
 
         // randomize value
-        CurrencyValue = Random.Range(Data.MinCurrencyValue, Data.MaxCurrencyValue);
+        CurrencyValue = UnityEngine.Random.Range(Data.MinCurrencyValue, Data.MaxCurrencyValue);
     }
     
     public void CalculateDistanceFromPlayer(Vector3 playerPosition)

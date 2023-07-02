@@ -54,7 +54,6 @@ public class BowAnimations : MonoBehaviour
     {
         ShootAction?.Invoke();
         counter++;
-        print($"animation Count {time} - {counter}");
     }
 
 }

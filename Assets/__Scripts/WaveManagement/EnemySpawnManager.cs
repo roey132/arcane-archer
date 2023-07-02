@@ -59,7 +59,7 @@ public class EnemySpawnManager : MonoBehaviour
         return null;
     }
 
-    public float GetEnemyValue(GameObject enemyObject)
+    public int GetEnemyValue(GameObject enemyObject)
     {
         EnemyStats currStats = enemyObject.transform.Find("EnemyStats").GetComponent<EnemyStats>();
 
