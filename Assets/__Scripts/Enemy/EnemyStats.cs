@@ -1,6 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 public abstract class EnemyStats : MonoBehaviour
 {
@@ -41,15 +39,16 @@ public abstract class EnemyStats : MonoBehaviour
 
     public void Hit(float damage)
     {
+        print($"damage done to enemy is ({damage})");
         CurrHealth -= damage;
-        if (CurrHealth < 0)
+        if (CurrHealth <= 0)
         {
             Die();
         }
     }
     public void Die()
     {
-        // death function
+        Destroy(transform.parent.gameObject);
     }
     public void InitData(int enemyLevel)
     {

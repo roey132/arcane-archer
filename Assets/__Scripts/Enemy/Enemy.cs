@@ -126,7 +126,6 @@ public class Enemy : MonoBehaviour
     }
     public void SetColor(Color color)
     {
-        print($"attempting to set color to {color}");
         _springsRenderer.color = color;
     }
 }
