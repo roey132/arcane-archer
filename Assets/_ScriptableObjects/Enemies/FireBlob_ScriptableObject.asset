@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyName: FireBlob
   Damage: 2
-  MaxHealth: 5
+  MaxHealth: 10
   ChaseMovementSpeed: 7
   InRangeMovementSpeed: 7
   MaintainRange: 1.5

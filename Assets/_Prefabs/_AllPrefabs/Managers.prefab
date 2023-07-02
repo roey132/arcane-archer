@@ -3706,8 +3706,7 @@ MonoBehaviour:
   _radius: 25
   _debugCircleColor: {r: 1, g: 0, b: 0, a: 1}
   _enemyCountForTests: 15
-  _cooldownBetweenSpawns: 3
-  TimePassed: 0
+  _cooldownBetweenSpawns: 5
 --- !u!114 &8460063726011277298
 MonoBehaviour:
   m_ObjectHideFlags: 0

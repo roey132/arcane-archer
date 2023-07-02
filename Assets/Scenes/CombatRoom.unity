@@ -12799,11 +12799,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -17.89565, y: 11.456273}
-      - {x: -17.818222, y: -10.901478}
-      - {x: -2.1305137, y: -10.956742}
-      - {x: 22.151703, y: -11.025309}
-      - {x: 22.172146, y: 11.416664}
+    - - {x: -16.060602, y: 10.15398}
+      - {x: -16.160763, y: -9.599186}
+      - {x: -2.0121236, y: -9.65445}
+      - {x: 20.139072, y: -9.663823}
+      - {x: 20.45549, y: 9.8183975}
 --- !u!1 &1964564227
 GameObject:
   m_ObjectHideFlags: 0
@@ -13025,10 +13025,6 @@ PrefabInstance:
     - target: {fileID: 6941494298080715012, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8460063726011277295, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
-      propertyPath: _cooldownBetweenSpawns
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}

@@ -27,9 +27,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        
         _spawnArea = GameObject.FindGameObjectWithTag("SpawnArea").GetComponent<Collider2D>();
-        SpawnerEvent(15, 1);
     }
 
     public float SpawnerEvent(int maxEnemies, int enemyLevel)

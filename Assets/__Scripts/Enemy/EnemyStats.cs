@@ -35,46 +35,52 @@ public abstract class EnemyStats : MonoBehaviour
     public float AttackCooldownSeconds;
     public float NextAttackTime;
 
-
-
     public void Hit(float damage)
     {
-        print($"damage done to enemy is ({damage})");
         CurrHealth -= damage;
         if (CurrHealth <= 0)
         {
             Die();
         }
     }
+
     public void Die()
     {
         Destroy(transform.parent.gameObject);
     }
     public void InitData(int enemyLevel)
     {
+        // get basic objects
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         _rb = Self.GetComponent<Rigidbody2D>();
 
-        // add level to calculation
-
+        // add level and variation to enemy stats
         float randomEnemyDifficulty = Random.Range(1f, 1.2f);
-        BaseHealth = Data.MaxHealth * randomEnemyDifficulty;
-        ChaseMovementSpeed = Data.ChaseMovementSpeed * randomEnemyDifficulty;
-        InRangeMovementSpeed = Data.InRangeMovementSpeed * randomEnemyDifficulty;
-        AttackCooldownSeconds = Data.AttackCooldownSeconds;
+        float statsMultiplier = Mathf.Pow(enemyLevel, 1.3f) * randomEnemyDifficulty;
 
-        BaseDamage = Data.Damage * randomEnemyDifficulty;
-        DamageModifier = 1f;
-        MovementSpeedModifier = 1f;
-        CurrencyValue = Random.Range(Data.MinCurrencyValue, Data.MaxCurrencyValue);
+        // scaling stats
+        BaseHealth = Data.MaxHealth * statsMultiplier;
+        CurrHealth = BaseHealth;
+        ChaseMovementSpeed = Data.ChaseMovementSpeed * statsMultiplier;
+        BaseDamage = Data.Damage * statsMultiplier;
+
+        // static behaviour stats
+        InRangeMovementSpeed = Data.InRangeMovementSpeed;
+        AttackCooldownSeconds = Data.AttackCooldownSeconds;
         AttackRange = Data.AttackRange;
         MaintainRange = Data.MaintainRange;
+
+        // alterable stats
+        DamageModifier = 1f;
+        MovementSpeedModifier = 1f;
+
+        // randomize value
+        CurrencyValue = Random.Range(Data.MinCurrencyValue, Data.MaxCurrencyValue);
     }
     
     public void CalculateDistanceFromPlayer(Vector3 playerPosition)
     {
         DistanceFromPlayer =  Vector3.Distance(transform.position ,playerPosition);
-
     }
 
     public void CalculateDirectionToPlayer(Vector3 playerPosition)
