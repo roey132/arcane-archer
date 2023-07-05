@@ -17,13 +17,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Transform _enemyPool;
     private Collider2D _spawnArea;
 
-    [Header("Debugging")]
-    [SerializeField] private Vector2 _centerPoint;
-    [SerializeField] private float _radius;
-    [SerializeField] private Color _debugCircleColor;
-    [SerializeField] private int _enemyCountForTests;
-    [SerializeField] private float _cooldownBetweenSpawns;
-
     public static event Action<int> EnemySpawn;
 
     private void Start()
@@ -44,27 +37,25 @@ public class Spawner : MonoBehaviour
 
         int amountToSpawn = Mathf.CeilToInt(_amountToSpawnCurve.Evaluate(randomMultiplier) * maxEnemies);
 
-        DebugUtils.DrawDebugCircle(_centerPoint, _radius, _debugCircleColor,100f);
-
         for (int i = 0; i < amountToSpawn; i++)
         {
-            StartCoroutine(DelayedSpawnEvent(spawnerCenter, radius, 100, enemyLevel, 0.1f * i));
+            StartCoroutine(DelayedSpawnEvent(spawnerCenter, radius, enemyLevel, 0.1f * i));
         }
     }
 
 
 
-    private IEnumerator DelayedSpawnEvent(Vector2 center, float radius, int maxEnemyValue, int enemyLevel, float timeToWaitSeconds)
+    private IEnumerator DelayedSpawnEvent(Vector2 center, float radius, int enemyLevel, float timeToWaitSeconds)
     {
         yield return new WaitForSeconds(timeToWaitSeconds);
-        SpawnEvent(center, radius, 100, enemyLevel);
+        SpawnEvent(center, radius, enemyLevel);
     }
 
-    private void SpawnEvent(Vector2 center, float radius, int maxEnemyValue, int enemyLevel)
+    private void SpawnEvent(Vector2 center, float radius, int enemyLevel)
     {
         Collider2D spawnArea = GameObject.FindGameObjectWithTag("SpawnArea").GetComponent<Collider2D>();
 
-        GameObject enemyPrefab = EnemySpawnManager.Instance.GetEnemyObject(maxEnemyValue);
+        GameObject enemyPrefab = EnemySpawnManager.Instance.GetEnemyObject();
         if (enemyPrefab == null) return;
 
         Vector2 spawnPoint = PointGenerator.GetRandomPointInArea(center, radius, spawnArea);

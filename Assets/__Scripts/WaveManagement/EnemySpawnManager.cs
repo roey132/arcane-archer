@@ -47,15 +47,14 @@ public class EnemySpawnManager : MonoBehaviour
         WaveIsActive = false;
         GameManager.Instance.UpdateGameState(GameState.BuffSelection);
     }
-    public GameObject GetEnemyObject(int maxValue)
+    public GameObject GetEnemyObject()
     {
         for (int i = 0; i < 1000; i++)
         {
             int randomEnemy = Random.Range(0, AvailableEnemies.Count);
             GameObject enemy = AvailableEnemies[randomEnemy];
-            if (GetEnemyValue(enemy) <= maxValue) return enemy;
+            return enemy;
         }
-        print($"Couln't find an enemy with value under {maxValue}");
         return null;
     }
 

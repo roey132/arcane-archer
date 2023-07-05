@@ -76,8 +76,8 @@ public class ValueCombatRoomManager : MonoBehaviour
     public void OnGameStateChange(GameState state)
     {
         if (state != GameState.InCombat) return;
-        enabled = true;
-        StartValueRoom(20);
+        //enabled = true;
+        //StartValueRoom(20);
     }
 
     public void OnEnemyDeath()

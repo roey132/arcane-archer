@@ -12685,35 +12685,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666547119}
   m_CullTransparentMesh: 1
---- !u!1 &1747856218 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3656636995822154767, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
-  m_PrefabInstance: {fileID: 8460063726011277292}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1747856221 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8460063726011277295, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
-  m_PrefabInstance: {fileID: 8460063726011277292}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747856218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7645aa88807d64046b6ce6a392483728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1747856223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747856218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9294552326f74d54695bdd4e9a01471f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawner: {fileID: 1747856221}
 --- !u!1001 &1847726955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13006,6 +12977,10 @@ PrefabInstance:
     - target: {fileID: 69931026477285064, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
       propertyPath: m_Name
       value: GameplayManagers
+      objectReference: {fileID: 0}
+    - target: {fileID: 2999241247178490433, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
+      propertyPath: _maxTimeBetweenSpawns
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3782942823776620400, guid: 5ecfc8412aff99e4a816e22a99804aa9, type: 3}
       propertyPath: _equippedAmmoSprite

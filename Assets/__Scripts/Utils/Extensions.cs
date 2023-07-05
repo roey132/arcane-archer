@@ -3,6 +3,15 @@ using UnityEngine;
 
 public static class Extensions
 {
+    public static void RemoveAllChildObjects(this GameObject parent)
+    {
+        int childCount = parent.transform.childCount;
+        for (int i = childCount - 1; i >= 0; i--)
+        {
+            GameObject.DestroyImmediate(parent.transform.GetChild(i).gameObject);
+        }
+    }
+
     public static List<T> RandomItems<T>(this List<T> ItemList, int numberOfItems) where T: WeightedItem
     {
         List<T> items = new List<T>(ItemList);  
