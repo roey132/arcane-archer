@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
         _spawnArea = GameObject.FindGameObjectWithTag("SpawnArea").GetComponent<Collider2D>();
     }
 
-    public void SpawnerEvent(int maxEnemies, int enemyLevel)
+    public void SpawnerEvent(int amountToSpawn, int enemyLevel)
     {
         // currently uses a set radius of 25, might need to change later
         Vector2 spawnerCenter = PointGenerator.GetRandomPointInArea(center:Vector2.zero, radius:25, spawnArea:_spawnArea);
@@ -34,8 +34,6 @@ public class Spawner : MonoBehaviour
 
         float randomRadius = randomMultiplier * _maxRadius;
         float radius = Mathf.Clamp(randomRadius, _minRadius, _maxRadius);
-
-        int amountToSpawn = Mathf.CeilToInt(_amountToSpawnCurve.Evaluate(randomMultiplier) * maxEnemies);
 
         for (int i = 0; i < amountToSpawn; i++)
         {

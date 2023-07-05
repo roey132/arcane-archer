@@ -1548,6 +1548,14 @@ PrefabInstance:
       propertyPath: buffsUi
       value: 
       objectReference: {fileID: 1315417802}
+    - target: {fileID: 1344931761908559361, guid: 58b5ec370ce9bcf43a098b1880b71d3c, type: 3}
+      propertyPath: CurrentFloor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1344931761908559361, guid: 58b5ec370ce9bcf43a098b1880b71d3c, type: 3}
+      propertyPath: CurrentRoomDifficulty
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1344931761908559366, guid: 58b5ec370ce9bcf43a098b1880b71d3c, type: 3}
       propertyPath: m_Name
       value: GameManager

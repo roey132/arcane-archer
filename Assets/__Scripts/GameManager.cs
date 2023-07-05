@@ -8,7 +8,12 @@ public enum GameState
     InCombat,
     ShopRoom,
     BuffSelection,
-    
+}
+public enum RoomType
+{
+    TimerRoom,
+    ValueRoom,
+    ShopRoom,
 }
 
 public class GameManager : MonoBehaviour
@@ -20,6 +25,9 @@ public class GameManager : MonoBehaviour
 
     public GameState State;
     public static event Action<GameState> OnGameStateChange;
+
+    [SerializeField] public int CurrentFloor;
+    [SerializeField] public int CurrentRoomDifficulty;
 
     public void UpdateGameState(GameState newState)
     {
@@ -54,6 +62,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        CurrentFloor = 1;
         UpdateGameState(_startState);
     }
 
@@ -71,5 +80,10 @@ public class GameManager : MonoBehaviour
     public void EndScene()
     {
         SceneManager.LoadScene(1);
+    }
+    public void PassFloor()
+    {
+        CurrentFloor++;
+        print($"Current floor is {CurrentFloor}");
     }
 }

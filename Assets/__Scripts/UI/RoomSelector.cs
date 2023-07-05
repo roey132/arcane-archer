@@ -44,6 +44,7 @@ public class RoomSelector : MonoBehaviour
         if (!_isPlayerColliding) return;
         _room.Activate();
         gameObject.SetActive(false);
+        GameManager.Instance.PassFloor();
     }
 
     public void InitPortal(RoomObject room)
