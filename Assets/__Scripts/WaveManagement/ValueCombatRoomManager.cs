@@ -13,19 +13,22 @@ public class ValueCombatRoomManager : MonoBehaviour
     private float _maxTimeBetweenSpawns;
     private float _minTimeBetweenSpawns;
 
+    private int _minEnemiesToSpawn;
     private int _maxEnemiesToSpawn;
 
     private float _nextSpawnTime;
 
+    private int _currDifficulty;
+
     [SerializeField] private Spawner _spawner;
 
-    void Start()
+    void Awake()
     {
-        GameManager.OnGameStateChange += OnGameStateChange;
+        GameManager.OnRoomTypeChange += OnRoomTypeChange;
     }
     void OnDestroy()
     {
-        GameManager.OnGameStateChange -= OnGameStateChange;
+        GameManager.OnRoomTypeChange -= OnRoomTypeChange;
     }
 
     private void OnEnable()
@@ -47,18 +50,24 @@ public class ValueCombatRoomManager : MonoBehaviour
         _spawner.SpawnerEvent(_maxEnemiesToSpawn, 1);
     }
 
-    public void StartValueRoom(int value)
+    public void StartValueRoom()
     {
         _spawnedEnemies = 0;
         _enemyDeaths = 0;
-        _currValue = value;
+        _currDifficulty = GameManager.Instance.CurrentRoomDifficulty;
+        _currValue = DifficultyCalculations.DifficultyValue(_currDifficulty);
         _canSpawn = true;
 
 
-        _maxTimeBetweenSpawns = 2f;
-        _minTimeBetweenSpawns = 1.5f;
+        _maxTimeBetweenSpawns = DifficultyCalculations.MinTimeBetweenSpawns(_currDifficulty);
+        _minTimeBetweenSpawns = DifficultyCalculations.MaxTimeBetweenSpawns(_currDifficulty);
 
-        _maxEnemiesToSpawn = 3;
+        _minEnemiesToSpawn = DifficultyCalculations.MinEnemiesSpawned(_currDifficulty);
+        _maxEnemiesToSpawn = DifficultyCalculations.MaxEnemiesSpawned(_currDifficulty);
+
+        print($"INFO room difficulty {_currDifficulty}");
+        print($"INFO enemies min:{_minEnemiesToSpawn} max:{_maxEnemiesToSpawn}");
+        print($"INFO time min:{_minTimeBetweenSpawns} max:{_maxTimeBetweenSpawns}");
 
         _nextSpawnTime = 0;
     }
@@ -73,11 +82,12 @@ public class ValueCombatRoomManager : MonoBehaviour
         }
     }
 
-    public void OnGameStateChange(GameState state)
+    public void OnRoomTypeChange(RoomType roomType)
     {
-        if (state != GameState.InCombat) return;
-        //enabled = true;
-        //StartValueRoom(20);
+        if (roomType != RoomType.ValueRoom) return;
+        print("INFO Starting Value Room");
+        StartValueRoom();
+        enabled = true;
     }
 
     public void OnEnemyDeath()
@@ -87,5 +97,6 @@ public class ValueCombatRoomManager : MonoBehaviour
 
         if (_enemyDeaths != _spawnedEnemies) return;
         GameManager.Instance.UpdateGameState(GameState.BuffSelection);
+        enabled = false;
     }
 }

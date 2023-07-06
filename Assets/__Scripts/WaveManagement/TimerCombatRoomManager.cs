@@ -20,11 +20,11 @@ public class TimerCombatRoomManager : MonoBehaviour
 
     void Awake()
     {
-        GameManager.OnGameStateChange += OnGameStateChange;
+        GameManager.OnRoomTypeChange += OnRoomTypeChange;
     }
     void OnDestroy()
     {
-        GameManager.OnGameStateChange -= OnGameStateChange;
+        GameManager.OnRoomTypeChange -= OnRoomTypeChange;
     }
 
     void Update()
@@ -32,7 +32,6 @@ public class TimerCombatRoomManager : MonoBehaviour
         _passedTime += Time.deltaTime;
         _currTimer -= Time.deltaTime;
 
-        print($"passed time {_passedTime}");
         HandleTimerRoom();
         HandleSpawning();
     }
@@ -63,17 +62,14 @@ public class TimerCombatRoomManager : MonoBehaviour
     private void HandleSpawning()
     {
         if (_nextSpawnTime > Time.time) return;
-        print($"Time between spawns : {CurrTimeBetweenSpawns()} passedTime:{_passedTime}");
         _nextSpawnTime = Time.time + CurrTimeBetweenSpawns();
 
-        print($"max enemies to spawn {_minEnemiesToSpawn + maxEnemiesLimit()} passedTime:{_passedTime}");
         int amountToSpawn = Random.Range(_minEnemiesToSpawn, _minEnemiesToSpawn + maxEnemiesLimit() + 1);
         _spawner.SpawnerEvent(amountToSpawn, _currDifficulty);
     }
     private float CurrTimeBetweenSpawns()
     {
         float timeLimiter = (_maxTimeBetweenSpawns - _minTimeBetweenSpawns) * (_passedTime / 30);
-        print($"time limit calculation {(_maxTimeBetweenSpawns - _minTimeBetweenSpawns) * (_passedTime / 30)}");
 
         float currTimeBetweenSpawns = Mathf.Clamp(_maxTimeBetweenSpawns - timeLimiter, _minTimeBetweenSpawns, _maxTimeBetweenSpawns);
         return currTimeBetweenSpawns;
@@ -86,10 +82,10 @@ public class TimerCombatRoomManager : MonoBehaviour
         return maxEnemiesLimit;
     }
 
-    public void OnGameStateChange(GameState state)
+    public void OnRoomTypeChange(RoomType roomType)
     {
-        if (state != GameState.InCombat) return;
-        print("timer is running");
+        if (roomType != RoomType.TimerRoom) return;
+        print("INFO Starting Timer Room");
         StartTimerRoom();
         enabled = true;
     }

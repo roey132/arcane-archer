@@ -42,7 +42,19 @@ public class RoomSelector : MonoBehaviour
     public void OnInteract(InputAction.CallbackContext input)
     {
         if (!_isPlayerColliding) return;
-        _room.Activate();
+        int currFloor = GameManager.Instance.CurrentFloor;
+
+        int minDifficulty = currFloor - 2;
+
+        // set min difficulty to not go below 1
+        minDifficulty = Mathf.Clamp(minDifficulty, 1, 100);
+
+        int maxDifficulty = currFloor + 3;
+
+        int difficulty = Random.Range(minDifficulty, maxDifficulty);
+        
+        _room.Activate(difficulty);
+
         gameObject.SetActive(false);
         GameManager.Instance.PassFloor();
     }

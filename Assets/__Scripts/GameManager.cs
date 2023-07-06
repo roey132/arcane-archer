@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     public GameState State;
     public static event Action<GameState> OnGameStateChange;
+    public static event Action<RoomType> OnRoomTypeChange;
 
     [SerializeField] public int CurrentFloor;
     [SerializeField] public int CurrentRoomDifficulty;
@@ -50,6 +51,23 @@ public class GameManager : MonoBehaviour
         }
 
         OnGameStateChange?.Invoke(newState);
+    }
+
+    public void UpdateRoomType(RoomType roomType)
+    {
+        switch (roomType)
+        {
+            case RoomType.TimerRoom:
+                print("switching to timer room");
+                break;
+            case RoomType.ValueRoom:
+                print("switching to value room");
+                break;
+            case RoomType.ShopRoom:
+                print("switching to shop room");
+                break;
+        }
+        OnRoomTypeChange?.Invoke(roomType);
     }
 
     void Awake()
@@ -85,5 +103,9 @@ public class GameManager : MonoBehaviour
     {
         CurrentFloor++;
         print($"Current floor is {CurrentFloor}");
+    }
+    public void SetCurrDifficulty(int difficulty)
+    {
+        CurrentRoomDifficulty = difficulty;
     }
 }
