@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1974580251315147538
+--- !u!1 &4599155187773953748
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7875208576577689630}
-  - component: {fileID: 8894918834408278348}
+  - component: {fileID: 7488125280074772174}
+  - component: {fileID: 8023405203857521918}
   m_Layer: 0
-  m_Name: ArrowManager
+  m_Name: ItemManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7875208576577689630
+--- !u!4 &7488125280074772174
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974580251315147538}
+  m_GameObject: {fileID: 4599155187773953748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.1646491}
+  m_LocalPosition: {x: -7.2939343, y: 0.07979618, z: -0.6809469}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8894918834408278348
+--- !u!114 &8023405203857521918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974580251315147538}
+  m_GameObject: {fileID: 4599155187773953748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac2285a28e43184bb3a9a2a61d7d811, type: 3}
+  m_Script: {fileID: 11500000, guid: da593097cac5cbb458698fc7ad10e66d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ProjectilePrefab: {fileID: 5439112176742407111, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
-  MaxSpreadAngle: 0
-  MinSpreadAngle: 1
-  _defaultArrowData: {fileID: 11400000, guid: bf0b8af26c763df4196ea8b58c88e887, type: 2}
-  _equippedAmmoSprite: {fileID: 0}
-  _canShoot: 1
+  _items: []
