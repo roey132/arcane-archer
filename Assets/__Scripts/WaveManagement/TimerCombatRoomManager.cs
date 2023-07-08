@@ -1,21 +1,25 @@
+using TMPro;
 using UnityEngine;
 
 public class TimerCombatRoomManager : MonoBehaviour
 {
-    private float _currTimer;
+    [Header("Objects")]
+    [SerializeField] private Spawner _spawner;
+    [SerializeField] private GameObject _enemyPool;
+    [SerializeField] private TextMeshPro _timerUi;
+    [SerializeField] private int _timerRoomDuation;
 
-    [SerializeField] private float _minTimeBetweenSpawns;
-    [SerializeField] private float _maxTimeBetweenSpawns;
+    private float _minTimeBetweenSpawns;
+    private float _maxTimeBetweenSpawns;
 
-    [SerializeField] private int _minEnemiesToSpawn;
-    [SerializeField] private int _maxEnemiesToSpawn;
+    private int _minEnemiesToSpawn;
+    private int _maxEnemiesToSpawn;
+
+    private int _currDifficulty;
 
     private float _nextSpawnTime;
 
-    [SerializeField] private Spawner _spawner;
-    [SerializeField] private GameObject _enemyPool;
-
-    private int _currDifficulty;
+    private float _currTimer;
     private float _passedTime;
 
     void Awake()
@@ -32,13 +36,14 @@ public class TimerCombatRoomManager : MonoBehaviour
         _passedTime += Time.deltaTime;
         _currTimer -= Time.deltaTime;
 
+        HandleTimerUI();
         HandleTimerRoom();
         HandleSpawning();
     }
 
     private void StartTimerRoom()
     {
-        _currTimer = 40f;
+        _currTimer = _timerRoomDuation;
         _passedTime = 0;
         _nextSpawnTime = 0;
         _currDifficulty = GameManager.Instance.CurrentRoomDifficulty;
@@ -51,12 +56,19 @@ public class TimerCombatRoomManager : MonoBehaviour
         print($"INFO enemies min:{_minEnemiesToSpawn} max:{_maxEnemiesToSpawn}");
         print($"INFO time min:{_minTimeBetweenSpawns} max:{_maxTimeBetweenSpawns}");
     }
+
+    private void HandleTimerUI()
+    {
+        _timerUi.text = Mathf.CeilToInt(_currTimer).ToString();
+    }
+
     private void HandleTimerRoom()
     {
         if (_currTimer > 0) return;
         Extensions.RemoveAllChildObjects(_enemyPool);
         GameManager.Instance.UpdateGameState(GameState.BuffSelection);
         enabled = false;
+        _timerUi.enabled = false;
     }
 
     private void HandleSpawning()
@@ -88,6 +100,7 @@ public class TimerCombatRoomManager : MonoBehaviour
         print("INFO Starting Timer Room");
         StartTimerRoom();
         enabled = true;
+        _timerUi.enabled = true;
     }
 
 }
