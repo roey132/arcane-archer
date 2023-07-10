@@ -9,10 +9,19 @@ public class StatsItem : ItemData
     public enum Stat
     {
         MovementSpeed,
-        MagicDamage,
+        Damage,
         DamagePercantage,
+        MagicDamage,
+        MagicDamagePercantage,
         NumOfArrows,
-        AttackSpeed
+        AttackSpeed,
+        MaxHp,
+        CriticalRate,
+        CriticalDamage,
+        CurrencyGain,
+        FireDamage,
+        IceDamage
+
     }
 
     public Stat[] Stats;
@@ -35,8 +44,27 @@ public class StatsItem : ItemData
                 IngameStats.Instance.ChangeAttackSpeed(value); break;
             case Stat.NumOfArrows:
                 IngameStats.Instance.ChangeNumOfArrows(value); break;
+            case Stat.Damage:
+                break;
             case Stat.DamagePercantage:
                 IngameStats.Instance.ChangePhysicalMultipler(value) ; break;
+            case Stat.MagicDamage:
+                break;
+            case Stat.MagicDamagePercantage:
+                break;
+            case Stat.MaxHp:
+                break;
+            case Stat.CriticalRate:
+                break;
+            case Stat.CriticalDamage:
+                break;
+            case Stat.CurrencyGain:
+                break;
+            case Stat.FireDamage:
+                break;
+            case Stat.IceDamage:
+                break;
+
         }
     }
 }

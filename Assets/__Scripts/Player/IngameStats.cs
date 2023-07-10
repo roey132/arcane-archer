@@ -8,10 +8,7 @@ public class IngameStats : MonoBehaviour
 
     public float MaxHp { get; private set; }
     public float CurrHp { get; private set; }
-    public float MaxMana { get; private set; }
-    public float CurrMana { get; private set; }
     public float AttackSpeed { get; private set; }
-    public float CastSpeed { get; private set; }
     public float MovementSpeed { get; private set; }
     public float CriticalRate { get; private set; }
     public float CriticalDamage { get; private set; }
@@ -21,6 +18,7 @@ public class IngameStats : MonoBehaviour
     public float BaseDamage { get; private set; }
     public float BaseMagicDamage { get; private set; }
     public float IngameCurrency { get; private set; }
+    public float CurrencyGainMultiplier { get; private set; }
 
     public AmmoData EquippedAmmo = null;
     // TODO temporary set currency UI through this code, make a UI manager later on
@@ -36,10 +34,7 @@ public class IngameStats : MonoBehaviour
     {
         MaxHp = PlayerBaseData.Instance.Health;
         CurrHp = PlayerBaseData.Instance.Health;
-        MaxMana = PlayerBaseData.Instance.Mana;
-        CurrMana = PlayerBaseData.Instance.Mana;
         AttackSpeed = PlayerBaseData.Instance.AttackSpeed;
-        CastSpeed = PlayerBaseData.Instance.CastSpeed;
         MovementSpeed = PlayerBaseData.Instance.MovementSpeed;
         CriticalRate = PlayerBaseData.Instance.CriticalRate;
         CriticalDamage = PlayerBaseData.Instance.CriticalDamage;
@@ -61,27 +56,9 @@ public class IngameStats : MonoBehaviour
         CurrHp -= Mathf.RoundToInt(damage);
         print($"player was hit for {damage} damage");
     }
-    public bool UseMana(float mana)
-    {
-        if (CurrMana - mana >= 0)
-        {
-            CurrMana -= mana;
-            return true;
-        }
-        else return false;
-    }
-    public void GainMana(float mana)
-    {
-        float newMana = CurrMana + mana;
-        CurrMana = Mathf.Clamp(newMana, 0, MaxMana);
-    }
     public void ChangeAttackSpeed(float attackSpeed)
     {
         AttackSpeed += attackSpeed;
-    }
-    public void ChangeCastSpeed(float castSpeed)
-    {
-        CastSpeed += castSpeed;
     }
     public void ChangeMovementSpeed(float movementSpeed)
     {
