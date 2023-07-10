@@ -1846,7 +1846,7 @@ RectTransform:
   - {fileID: 1984546529}
   - {fileID: 1220225210}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1870,7 +1870,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1927,11 +1929,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _items:
-  - {fileID: 11400000, guid: 4561769c944d5a74089efc5422fe6fdc, type: 2}
-  - {fileID: 11400000, guid: 2ad0f8e2d518d4c4b92c117da9c2a326, type: 2}
-  - {fileID: 11400000, guid: c22e5504e4289da4793f524e2bb6e69e, type: 2}
-  - {fileID: 11400000, guid: ccfaa419701fcd9428af047400b4556b, type: 2}
+  - {fileID: 11400000, guid: f6b5cc607ce4c3945bdeaaad84aec5c4, type: 2}
   - {fileID: 11400000, guid: 0f5541c9ebd76a74abd3e687a649798f, type: 2}
+  - {fileID: 11400000, guid: 39b5ac574b45e6641ac040c15a11f311, type: 2}
+  - {fileID: 11400000, guid: ccfaa419701fcd9428af047400b4556b, type: 2}
+  - {fileID: 11400000, guid: 3317ba32db31a33409eab1317f833d29, type: 2}
+  - {fileID: 11400000, guid: 5974a1c9f82d2794aa67a156459f11dc, type: 2}
+  - {fileID: 11400000, guid: af41ef675efcd1b4793c75549b931147, type: 2}
+  - {fileID: 11400000, guid: e91de5e491b916e41b44ddbf8ac4a402, type: 2}
+  - {fileID: 11400000, guid: 8e9d13edc0b20bb41b15382668a51645, type: 2}
+  - {fileID: 11400000, guid: 3c8a540e98dd3ac4aa1ac5504de9990b, type: 2}
+  - {fileID: 11400000, guid: f53d7ade6179a1940b617928d03288b0, type: 2}
+  - {fileID: 11400000, guid: 33766fbfd0e360544a93df3a269b72f8, type: 2}
 --- !u!1 &7239326464812446042
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+
 
 [CreateAssetMenu(fileName = "NewStatItem",menuName = "Items/StatItem")]
 public class StatsItem : ItemData

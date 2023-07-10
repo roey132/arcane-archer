@@ -39,7 +39,7 @@ public class BuffSelectionManager : MonoBehaviour
         Button button = buttonPrefab.GetComponent<Button>();
 
         itemName.text = item.ItemName;
-        itemType.text = item.ItemType;
+        itemType.text = item.Type.ToString();
         itemIcon.texture = item.ItemIcon.texture;
         itemDescription.text = item.ItemDescription;
 

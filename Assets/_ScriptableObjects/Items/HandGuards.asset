@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01c5d25f4af21ef4b866b41cb82dc070, type: 3}
-  m_Name: newStatItem
+  m_Name: HandGuards
   m_EditorClassIdentifier: 
-  ItemName: 
+  ItemName: Hand Guards
   ItemIcon: {fileID: 0}
-  ItemType: 
-  ItemDescription: 
-  ItemElement: 
-  ItemBasePrice: 0
-  BaseWeight: 0
-  IsBuff: 0
-  Stats: 000000000300000000000000
+  Type: 0
+  Rarity: 0
+  ItemDescription: Solid hand guards to give more control to your shots
+  Element: 0
+  ItemBasePrice: 5
+  BaseWeight: 100
+  IsBuff: 1
+  Stats: 03000000
   Values:
-  - 2
-  - 5
-  - 2
+  - 0.15

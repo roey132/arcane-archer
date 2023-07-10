@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01c5d25f4af21ef4b866b41cb82dc070, type: 3}
-  m_Name: ExtraArrow
+  m_Name: SolidString
   m_EditorClassIdentifier: 
-  ItemName: ExtraArrow
-  ItemIcon: {fileID: 21300000, guid: adecf988fb41c0c4a84ea78a5c463de0, type: 3}
-  ItemType: Bow
-  ItemDescription: Adds an extra arrow
-  ItemElement: 
+  ItemName: Solid String
+  ItemIcon: {fileID: 0}
+  Type: 0
+  Rarity: 0
+  ItemDescription: Reinforces your bow with a better string
+  Element: 0
   ItemBasePrice: 5
-  BaseWeight: 0
+  BaseWeight: 100
   IsBuff: 1
-  Stats: 03000000
+  Stats: 08000000
   Values:
-  - 1
+  - 0.05
