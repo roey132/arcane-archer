@@ -2,26 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "newStatItem",menuName = "Items/StatItem")]
+[CreateAssetMenu(fileName = "NewStatItem",menuName = "Items/StatItem")]
 public class StatsItem : ItemData
 {
     public bool IsBuff;
     public enum Stat
     {
+        MaxHp,
         MovementSpeed,
         Damage,
-        DamagePercantage,
+        DamageMultiplier,
         MagicDamage,
-        MagicDamagePercantage,
+        MagicDamageMultiplier,
         NumOfArrows,
         AttackSpeed,
-        MaxHp,
         CriticalRate,
-        CriticalDamage,
-        CurrencyGain,
-        FireDamage,
-        IceDamage
-
+        CriticalDamageMultiplier,
+        CurrencyGainMultiplier,
+        FireDamageMultiplier,
+        IceDamageMultiplier
     }
 
     public Stat[] Stats;
@@ -40,31 +39,42 @@ public class StatsItem : ItemData
         {
             case Stat.MovementSpeed:
                 IngameStats.Instance.ChangeMovementSpeed(value); break;
+
             case Stat.AttackSpeed:
                 IngameStats.Instance.ChangeAttackSpeed(value); break;
+
             case Stat.NumOfArrows:
                 IngameStats.Instance.ChangeNumOfArrows(value); break;
-            case Stat.Damage:
-                break;
-            case Stat.DamagePercantage:
-                IngameStats.Instance.ChangePhysicalMultipler(value) ; break;
-            case Stat.MagicDamage:
-                break;
-            case Stat.MagicDamagePercantage:
-                break;
-            case Stat.MaxHp:
-                break;
-            case Stat.CriticalRate:
-                break;
-            case Stat.CriticalDamage:
-                break;
-            case Stat.CurrencyGain:
-                break;
-            case Stat.FireDamage:
-                break;
-            case Stat.IceDamage:
-                break;
 
+            case Stat.Damage:
+                IngameStats.Instance.ChangeDamage(value); break;
+
+            case Stat.DamageMultiplier:
+                IngameStats.Instance.ChangeDamageMultipler(value) ; break;
+
+            case Stat.MagicDamage:
+                IngameStats.Instance.ChangeMagicalDamage(value); break;
+
+            case Stat.MagicDamageMultiplier:
+                IngameStats.Instance.ChangeMagicalDamageMultiplier(value); break;
+
+            case Stat.MaxHp:
+                IngameStats.Instance.ChangeMaxHp(value); break;
+
+            case Stat.CriticalRate:
+                IngameStats.Instance.ChangeCriticalRate(value); break;
+
+            case Stat.CriticalDamageMultiplier:
+                IngameStats.Instance.ChangeCriticalDamageMultiplier(value); break;
+
+            case Stat.CurrencyGainMultiplier:
+                IngameStats.Instance.ChangeCurrencyGainMultiplier(value); break;
+
+            case Stat.FireDamageMultiplier:
+                IngameStats.Instance.ChangeFireDamageMultiplier(value); break;
+
+            case Stat.IceDamageMultiplier:
+                IngameStats.Instance.ChangeIceDamageMultiplier(value); break;
         }
     }
 }
