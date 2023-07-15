@@ -96,7 +96,7 @@ MonoBehaviour:
   _spawner: {fileID: 1625756309138256022}
   _enemyPool: {fileID: 4753647612884536440}
   _timerUi: {fileID: 7105103174619226181}
-  _timerRoomDuation: 10
+  _timerRoomDuation: 1
 --- !u!114 &1625756309138256022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,8 +199,8 @@ MonoBehaviour:
   _wavePoints: 100
   AvailableEnemies:
   - {fileID: 6750358322370503653, guid: 61fb5522584669241b583c3f3ee31e41, type: 3}
-  - {fileID: 3267379211884181901, guid: f5bda801e581c2e4a9dae503b9f406ae, type: 3}
   - {fileID: 7774721818786160624, guid: af4c2164180809645baf5ac40053f3ea, type: 3}
+  - {fileID: 3267379211884181901, guid: f5bda801e581c2e4a9dae503b9f406ae, type: 3}
   WaveSpawnCooldown: 0.1
   WaveIsActive: 0
 --- !u!1 &5789505986794446202

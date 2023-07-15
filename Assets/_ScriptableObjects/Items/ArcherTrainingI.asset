@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArcherTrainingI
   m_EditorClassIdentifier: 
   ItemName: Archery Training I
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: 1675973943, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 0
   Rarity: 0
   ItemDescription: Training is good.

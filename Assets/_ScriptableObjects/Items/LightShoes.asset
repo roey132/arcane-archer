@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightShoes
   m_EditorClassIdentifier: 
   ItemName: Light Shoes
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: -1653991904, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 2
   Rarity: 0
   ItemDescription: Gotta go fast

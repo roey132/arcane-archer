@@ -81,6 +81,8 @@ MonoBehaviour:
   ObjectCollector: {fileID: 655636090}
   _startState: 0
   State: 0
+  CurrentFloor: 0
+  CurrentRoomDifficulty: 1
   buffsUi: {fileID: 0}
 --- !u!114 &1344931761908559363
 MonoBehaviour:

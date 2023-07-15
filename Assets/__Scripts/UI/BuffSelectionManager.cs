@@ -34,13 +34,13 @@ public class BuffSelectionManager : MonoBehaviour
     {
         TextMeshProUGUI itemName = buttonPrefab.GetChild(0).GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI itemType = buttonPrefab.GetChild(1).GetComponent<TextMeshProUGUI>();
-        RawImage itemIcon = buttonPrefab.GetChild(2).GetComponent<RawImage>();
+        Image itemIcon = buttonPrefab.GetChild(2).GetComponent<Image>();
         TextMeshProUGUI itemDescription = buttonPrefab.GetChild(3).GetComponent<TextMeshProUGUI>();
         Button button = buttonPrefab.GetComponent<Button>();
 
         itemName.text = item.ItemName;
         itemType.text = item.Type.ToString();
-        itemIcon.texture = item.ItemIcon.texture;
+        itemIcon.sprite = item.ItemIcon;
         itemDescription.text = item.ItemDescription;
 
         button.onClick.RemoveAllListeners();

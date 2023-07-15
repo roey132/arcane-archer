@@ -1543,10 +1543,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1277251008861649127, guid: ce9c92db6c3495c4f82b3864d9f72a37, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1613,14 +1609,6 @@ PrefabInstance:
       propertyPath: buffsUi
       value: 
       objectReference: {fileID: 1315417802}
-    - target: {fileID: 1344931761908559361, guid: 58b5ec370ce9bcf43a098b1880b71d3c, type: 3}
-      propertyPath: CurrentFloor
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1344931761908559361, guid: 58b5ec370ce9bcf43a098b1880b71d3c, type: 3}
-      propertyPath: CurrentRoomDifficulty
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1344931761908559366, guid: 58b5ec370ce9bcf43a098b1880b71d3c, type: 3}
       propertyPath: m_Name
       value: GameManager

@@ -18,8 +18,8 @@ MonoBehaviour:
   ChaseMovementSpeed: 3
   InRangeMovementSpeed: 2
   MaintainRange: 7
-  AttackRange: 10
-  AttackCooldownSeconds: 1
+  AttackRange: 25
+  AttackCooldownSeconds: 2.5
   MinCurrencyValue: 5
   MaxCurrencyValue: 10
   SpawnValue: 2

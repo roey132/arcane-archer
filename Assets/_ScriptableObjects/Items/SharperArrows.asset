@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SharperArrows
   m_EditorClassIdentifier: 
   ItemName: Sharper Arrows
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: 697083086, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 0
   Rarity: 0
   ItemDescription: Gives you a set of sharper arrows

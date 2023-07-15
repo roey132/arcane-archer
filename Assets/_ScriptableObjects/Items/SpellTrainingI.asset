@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpellTrainingI
   m_EditorClassIdentifier: 
   ItemName: Spell Training I
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: 691846189, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 1
   Rarity: 0
   ItemDescription: Training is good.

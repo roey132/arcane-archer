@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LifeFlower
   m_EditorClassIdentifier: 
   ItemName: Life Flower
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: -983847339, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 2
   Rarity: 0
   ItemDescription: Nature is healing you

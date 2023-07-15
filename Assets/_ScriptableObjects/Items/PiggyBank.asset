@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PiggyBank
   m_EditorClassIdentifier: 
   ItemName: Piggy Bank
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: 2092033686, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 2
   Rarity: 0
   ItemDescription: Money.

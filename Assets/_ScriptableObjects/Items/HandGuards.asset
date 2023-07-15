@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HandGuards
   m_EditorClassIdentifier: 
   ItemName: Hand Guards
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: -1423942708, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 0
   Rarity: 0
   ItemDescription: Solid hand guards to give more control to your shots

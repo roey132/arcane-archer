@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Physical Reinforcements
   m_EditorClassIdentifier: 
   ItemName: Physical Reinforcements
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: 1752804880, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 0
   Rarity: 0
   ItemDescription: You feel your power grows
