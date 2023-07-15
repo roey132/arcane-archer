@@ -6,6 +6,7 @@ public class ItemData : ScriptableObject, WeightedItem
     {
         Archery,
         Magical,
+        Hybrid,
         Utility
     }
     public enum ItemRarity
