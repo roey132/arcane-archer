@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DeadlyIce
   m_EditorClassIdentifier: 
   ItemName: DeadlyIce
-  ItemIcon: {fileID: 21300000, guid: b0c7959669172684391d1f180f7364f1, type: 3}
+  ItemIcon: {fileID: 302676909, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 1
   Rarity: 1
   ItemDescription: Ice can also hurt, a lot.

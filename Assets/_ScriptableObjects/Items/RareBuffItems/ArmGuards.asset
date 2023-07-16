@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArmGuards
   m_EditorClassIdentifier: 
   ItemName: ArmGuards
-  ItemIcon: {fileID: 21300000, guid: b0c7959669172684391d1f180f7364f1, type: 3}
+  ItemIcon: {fileID: -1170499885, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 0
   Rarity: 1
   ItemDescription: Protects your arms but somehow makes you shoot faster

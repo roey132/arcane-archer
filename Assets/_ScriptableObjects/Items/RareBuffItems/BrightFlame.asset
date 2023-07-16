@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BrightFlame
   m_EditorClassIdentifier: 
   ItemName: Bright Flame
-  ItemIcon: {fileID: 21300000, guid: b0c7959669172684391d1f180f7364f1, type: 3}
+  ItemIcon: {fileID: 811826295, guid: fd1bb027dd7a33242912b79e3a3d253d, type: 3}
   Type: 1
   Rarity: 1
   ItemDescription: Your fire magic becomes brighter
