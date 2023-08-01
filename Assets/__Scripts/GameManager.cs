@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public bool UiISActive;
     [SerializeField] public Transform ObjectCollector;
+    [SerializeField] public Transform SpellCollector;
     [SerializeField] public GameState _startState;
 
     public GameState State;
