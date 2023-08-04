@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d002a06dad81c48b0596e3936e8729, type: 3}
+  m_Name: SO_FireOrbsSpellItem
+  m_EditorClassIdentifier: 
+  ItemName: Fire Orbs
+  ItemIcon: {fileID: 1744877360, guid: 764b4032dc8016747a2ef723bee111c7, type: 3}
+  Type: 1
+  Rarity: 0
+  ItemDescription: Fire Orbs spins around the player
+  Element: 0
+  ItemBasePrice: 10
+  BaseWeight: 2147483647
+  SpellObject: {fileID: 6066101602484088943, guid: 3d9f43a5bb4d5ef45b09e0a02be9fdca, type: 3}

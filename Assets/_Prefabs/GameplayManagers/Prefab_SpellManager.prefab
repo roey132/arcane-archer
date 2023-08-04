@@ -76,5 +76,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec15197db7446942a8f40d7082da944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spellData: {fileID: 11400000, guid: 66fb5748f40e0d947b2a9d9fab5e745a, type: 2}
-  _spellsInventory: {fileID: 0}
+  _spellsInventory: {fileID: 2161662046864266155}

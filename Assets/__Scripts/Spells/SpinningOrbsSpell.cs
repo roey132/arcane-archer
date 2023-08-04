@@ -19,7 +19,7 @@ public class SpinningOrbsSpell : SpellData
             float angle = i * Mathf.PI * 2f / NumOfOrbs;
             Vector3 spawnPos = playerTransform.position + new Vector3(Mathf.Cos(angle) * SpinRadius, Mathf.Sin(angle) * SpinRadius, 0f);
             _orbs[i] = Instantiate(OrbPrefab, spawnPos, Quaternion.identity, orbHolder.transform);
-            _orbs[i].GetComponent<OrbSpell>().InitOrb(playerTransform, SpinSpeed, SpinRadius, this.SpellDamage);
+            _orbs[i].GetComponent<FireOrbSpellObject>().InitOrb(playerTransform, SpinSpeed, SpinRadius, this.SpellDamage);
         }
 
         return orbHolder;

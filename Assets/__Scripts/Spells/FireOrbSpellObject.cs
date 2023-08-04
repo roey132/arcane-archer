@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class OrbSpell : MonoBehaviour
+public class FireOrbSpellObject : MonoBehaviour
 {
     private Transform _rotateAround;
     private float _rotationSpeed;
@@ -27,10 +27,10 @@ public class OrbSpell : MonoBehaviour
             collision.GetComponent<EnemyStats>().Hit(_damage);
         }
     }
-    public void InitOrb(Transform playerTransform, float rotationSpeed, float radius, float damage)
+    public void InitOrb(Transform rotateAroundTransform, float rotationSpeed, float radius, float damage)
     {
         _isActive = true;
-        _rotateAround = playerTransform;
+        _rotateAround = rotateAroundTransform;
         _rotationSpeed = rotationSpeed;
         _radius = radius;
         _damage = damage;
