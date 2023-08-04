@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
             case GameState.BuffSelection:
                 ShowItemPickItemUI();
                 print("BuffSelection state");
+                DestroyAllChilds(ObjectCollector);
+                DestroyAllChilds(SpellCollector);
                 break;
         }
 
@@ -108,5 +110,14 @@ public class GameManager : MonoBehaviour
     public void SetCurrDifficulty(int difficulty)
     {
         CurrentRoomDifficulty = difficulty;
+    }
+    public void DestroyAllChilds(Transform currTransform)
+    {
+        int childCount = currTransform.childCount;
+
+        for (int i = 0; i < childCount; i++)
+        {
+            Destroy(currTransform.GetChild(i).gameObject);
+        }
     }
 }

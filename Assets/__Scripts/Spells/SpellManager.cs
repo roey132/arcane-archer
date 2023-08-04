@@ -4,92 +4,68 @@ using UnityEngine;
 
 public class SpellManager : MonoBehaviour
 {
-    public static SpellManager instance;
-    [SerializeField] private SpellData _spellData;
-    private List<ActiveSpell> _activeSpellsList = new List<ActiveSpell>();
-    private List<PassiveSpell> _passiveSpellsList = new List<PassiveSpell>();
+    public static SpellManager Instance;
+    [SerializeField] private Transform _spellsInventory;
 
     private Transform _playerTransform;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        GameManager.OnGameStateChange += OnGameStateChange;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChange -= OnGameStateChange;
+    }
     void Start()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
+
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_activeSpellsList.Count == 0 && _passiveSpellsList.Count == 0) return;
-
-        foreach (ActiveSpell activeSpell in _activeSpellsList)
-        {
-            activeSpell.Timer -= Time.deltaTime;
-            if (activeSpell.Timer <= 0)
-            {
-                GameObject spell = activeSpell.Spell.Activate(_playerTransform.position, _playerTransform);
-
-                StartCoroutine(DestroyEffect(spell, activeSpell.Spell._effectDurationMilliSeconds));
-                activeSpell.Timer = activeSpell.Spell.Cooldown;
-            }
-        }
-
-        foreach (PassiveSpell passiveSpell in _passiveSpellsList)
-        {
-            if (!passiveSpell.IsActive)
-            {
-                passiveSpell.IsActive = true;
-                passiveSpell.Spell.Activate(_playerTransform.position, _playerTransform);
-            }
-        }
-
+        
 
     }
-    public void addSpell(SpellData spell)
+
+    public void AddSpell(GameObject spellObject)
     {
-        if (spell.isActiveSpell)
+        Instantiate(spellObject, _spellsInventory);
+    }
+
+    private void EnableAllSpells()
+    {
+        int childCount = _spellsInventory.childCount;
+
+        for (int i= 0; i < childCount; i++)
         {
-            _activeSpellsList.Add(new ActiveSpell(spell));
+            _spellsInventory.GetChild(i).gameObject.SetActive(true);
         }
-        else
+    }
+    private void DisableAllSpells()
+    {
+        int childCount = _spellsInventory.childCount;
+
+        for (int i = 0; i < childCount; i++)
         {
-            _passiveSpellsList.Add(new PassiveSpell(spell));
+            _spellsInventory.GetChild(i).gameObject.SetActive(false);
         }
     }
-    private IEnumerator DestroyEffect(GameObject effect, float duration)
-    {
-        yield return new WaitForSeconds(duration / 1000);
-        Destroy(effect);
-    }
-}
 
-// class to manage active spells, spells that create and destroy particles and hitboxes
-public class ActiveSpell
-{
-    public float Timer;
-    public SpellData Spell;
-    public string SpellName;
-
-    public ActiveSpell(SpellData spell)
+    private void OnGameStateChange(GameState newState)
     {
-        Spell = spell;
-        Timer = spell.Cooldown;
-        SpellName = spell.name;
-    }
-}
-// class to manage passive spells, spells that are created and stay active until disactivated
-public class PassiveSpell
-{
-    public bool IsActive;
-    public string SpellName;
-    public SpellData Spell;
-
-    public PassiveSpell(SpellData spell)
-    {
-        Spell = spell;
-        IsActive = false;
-        SpellName = spell.name;
+        if (newState != GameState.InCombat)
+        {
+            DisableAllSpells();
+            return;
+        } 
+        EnableAllSpells();
     }
 }

@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UiISActive: 0
   ObjectCollector: {fileID: 655636090}
+  SpellCollector: {fileID: 1832476945822496748}
   _startState: 0
   State: 0
   CurrentFloor: 0
