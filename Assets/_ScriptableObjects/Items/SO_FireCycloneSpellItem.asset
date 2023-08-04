@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d002a06dad81c48b0596e3936e8729, type: 3}
+  m_Name: SO_FireCycloneSpellItem
+  m_EditorClassIdentifier: 
+  ItemName: Fire Cyclone
+  ItemIcon: {fileID: -1494788031, guid: d3395ba48da75a44fbd97198f7f5f9e1, type: 3}
+  Type: 1
+  Rarity: 3
+  ItemDescription: Spawn fire cyclones that follows enemies
+  Element: 1
+  ItemBasePrice: 25
+  BaseWeight: 100000
+  SpellObject: {fileID: 459736412028952114, guid: 87e5353b0aa090c4b8581e5d4ea6a7ff, type: 3}

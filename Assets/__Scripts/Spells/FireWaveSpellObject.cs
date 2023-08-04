@@ -47,6 +47,7 @@ public class FireWaveSpellObject : MonoBehaviour
         _tickTimer = _timeBetweenTicks;
         print("tick");
         ContactFilter2D contactFilter = new ContactFilter2D();
+        contactFilter.useTriggers = true;
         Collider2D[] colliders = new Collider2D[20];
         int numColliders = Physics2D.OverlapCollider(_waveCollider, contactFilter, colliders);
 

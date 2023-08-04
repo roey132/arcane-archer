@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d002a06dad81c48b0596e3936e8729, type: 3}
+  m_Name: SO_FireWaveItem
+  m_EditorClassIdentifier: 
+  ItemName: Fire Waves
+  ItemIcon: {fileID: -248589313, guid: 49c1b4223350c0e4d955e43fb3df6243, type: 3}
+  Type: 1
+  Rarity: 3
+  ItemDescription: Shoots Fire Waves
+  Element: 1
+  ItemBasePrice: 10
+  BaseWeight: 2147483647
+  SpellObject: {fileID: 3817690370342061331, guid: fe3353be28021c1419f34a480884d604, type: 3}
