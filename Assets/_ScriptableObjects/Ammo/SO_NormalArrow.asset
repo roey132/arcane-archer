@@ -20,3 +20,4 @@ MonoBehaviour:
   EffectName: 
   Effect: {fileID: 0}
   Debuff: {fileID: 0}
+  PenetrateCount: 2

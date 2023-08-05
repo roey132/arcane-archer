@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     private AmmoData _ammo;
     private string _effectName;
     private Rigidbody2D _rb;
+    private int _penetrateCount;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,23 +18,29 @@ public class Projectile : MonoBehaviour
             enemyStats?.Hit(_damage);
 
             collision.GetComponent<KnockbackEnemy>()?.ApplyKnockback(_rb.velocity, 10f, 0.05f);
+            if (_penetrateCount <= 0)
+            {
+                transform.parent.gameObject.SetActive(false);
+                return;
+            }
+            _penetrateCount --;
             //HandleEnemyDebuff(collision.GetComponent<Enemy>());
-            transform.parent.gameObject.SetActive(false);
-        }
-        if (_effectName != "")
-        {
-            _ammo.ActivateEffect(transform.position);
-        }
 
+        }
+        //if (_effectName != "")
+        //{
+        //    _ammo.ActivateEffect(transform.position);
+        //}
     }
 
     public void InitProjectile(AmmoData data)
     {
         _ammo = data;
         _damage = data.Damage;
-        _effectName = data.EffectName;
+        //_effectName = data.EffectName;
         gameObject.GetComponent<SpriteRenderer>().sprite = data.Sprite;
         _rb = GetComponent<Rigidbody2D>();
+        _penetrateCount = data.PenetrateCount;
     }
     //public void HandleEnemyDebuff(Enemy enemy)
     //{
