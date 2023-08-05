@@ -4,26 +4,26 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class AmmoButton : MonoBehaviour
+public class ArrowButton : MonoBehaviour
 {
-    public AmmoData Ammo;
+    public ArrowData Arrow;
     private TextMeshProUGUI _text;
     private Image _image;
     void Awake()
     {
 
     }
-    public void InitButton(AmmoData ammo, int ammoCount)
+    public void InitButton(ArrowData arrow, int ammoCount)
     {
         _text = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         _image = transform.GetChild(1).GetComponent<Image>();
         gameObject.SetActive(true);
-        Ammo = ammo;
-        _image.sprite = Ammo.Sprite;
+        Arrow = arrow;
+        _image.sprite = Arrow.Sprite;
         _text.text = ammoCount.ToString();
 
         Button button = GetComponent<Button>();
-        UnityAction setAmmo = () => IngameStats.Instance.SetEquippedAmmo(ammo) ;//ProjectileShooter.Instance.SetEquippedAmmo(ammo);
+        UnityAction setAmmo = () => IngameStats.Instance.SetEquippedArrow(arrow) ;//ProjectileShooter.Instance.SetEquippedAmmo(arrow);
         button.onClick.AddListener(setAmmo);
     }
     public void UpdateAmmoCount(int ammoCount)
@@ -32,7 +32,7 @@ public class AmmoButton : MonoBehaviour
     }
     public void ResetButton()
     {
-        Ammo = null;
+        Arrow = null;
         _text.text = null;
         _image.sprite = null;
         gameObject.SetActive(false);

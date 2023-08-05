@@ -27,7 +27,7 @@ public class IngameStats : MonoBehaviour
     public float FireDamageMultiplier { get; private set; }
     public float IceDamageMultiplier { get; private set; }
 
-    public AmmoData EquippedAmmo = null;
+    public ArrowData EquippedArrow = null;
 
     void Awake()
     {
@@ -171,8 +171,8 @@ public class IngameStats : MonoBehaviour
         CurrencyGainMultiplier += multiplier;
         print($"STATS INFO changed CurrencyGainMultiplier by {multiplier}");
     }
-    public void SetEquippedAmmo(AmmoData ammo)
+    public void SetEquippedArrow(ArrowData arrow)
     {
-        EquippedAmmo = ammo;
+        EquippedArrow = arrow;
     }
 }

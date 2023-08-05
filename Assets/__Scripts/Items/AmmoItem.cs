@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "newAmmoItem",menuName = "Items/AmmoItem")]
-public class AmmoItem : ItemData
+[CreateAssetMenu(fileName = "newArrowItem",menuName = "Items/ArrowItem")]
+public class ArrowItem : ItemData
 {
-    public AmmoData AmmoData;
-    public int AmmoCount;
+    public ArrowData ArrowData;
+    public int ArrowCount;
 
     public override void ApplyItem()
     {
-        AmmoInventory.Instance.addAmmo(AmmoData,AmmoCount);
+        ArrowInventory.Instance.AddArrow(ArrowData,ArrowCount);
     }
 }

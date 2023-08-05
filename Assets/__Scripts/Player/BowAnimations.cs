@@ -32,11 +32,11 @@ public class BowAnimations : MonoBehaviour
 
     private void OnEnable()
     {
-        ProjectileShooter.ShootArrow += ShootAnimation;
+        ArrowShooter.ShootArrow += ShootAnimation;
     }
     private void OnDisable()
     {
-        ProjectileShooter.ShootArrow -= ShootAnimation;
+        ArrowShooter.ShootArrow -= ShootAnimation;
     }
     public void ShootAnimation()
     {

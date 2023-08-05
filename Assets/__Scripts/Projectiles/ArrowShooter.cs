@@ -2,17 +2,17 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ProjectileShooter : MonoBehaviour
+public class ArrowShooter : MonoBehaviour
 {
-    public static ProjectileShooter Instance;
+    public static ArrowShooter Instance;
 
     public GameObject ProjectilePrefab;
     public float MaxSpreadAngle;
     public float MinSpreadAngle;
 
-    private AmmoData _currArrowData;
-    private AmmoData _equippedArrowData;
-    [SerializeField] private AmmoData _defaultArrowData;
+    private ArrowData _currArrowData;
+    private ArrowData _equippedArrowData;
+    [SerializeField] private ArrowData _defaultArrowData;
     private float _attackSpeed;
     private float _numOfArrows;
     private IngameStats _stats;
@@ -82,10 +82,10 @@ public class ProjectileShooter : MonoBehaviour
     {
         if (GameManager.Instance.UiISActive) return;
 
-        if (IngameStats.Instance.EquippedAmmo != null) 
+        if (IngameStats.Instance.EquippedArrow != null) 
         {
             _equippedAmmoSprite.gameObject.SetActive(true);
-            _equippedAmmoSprite.sprite = IngameStats.Instance.EquippedAmmo.Sprite;
+            _equippedAmmoSprite.sprite = IngameStats.Instance.EquippedArrow.Sprite;
         }
         else _equippedAmmoSprite.gameObject.SetActive(false);;
 
@@ -104,10 +104,10 @@ public class ProjectileShooter : MonoBehaviour
     public void Shoot()
     {
         _currArrowData = _defaultArrowData;
-        if (_isUsingAmmo && IngameStats.Instance.EquippedAmmo != null)
+        if (_isUsingAmmo && IngameStats.Instance.EquippedArrow != null)
         {
-            _currArrowData = IngameStats.Instance.EquippedAmmo;
-            AmmoInventory.Instance.useAmmo(_currArrowData);
+            _currArrowData = IngameStats.Instance.EquippedArrow;
+            ArrowInventory.Instance.UseArrow(_currArrowData);
         }
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -125,22 +125,22 @@ public class ProjectileShooter : MonoBehaviour
 
     public void ShootOneArrow(Vector2 shootDirection)
     {
-        //get Ammo prefab from pool
-        GameObject Ammo = AmmoPool.Instance.GetAmmoPrefab();
-        // set the current equipped ammo scriptable object
-        Ammo.GetComponent<AmmoSetup>().Init(_currArrowData);
+        //get Arrow prefab from pool
+        GameObject Arrow = ArrowPool.Instance.GetAmmoPrefab();
+        // set the current equipped arrow scriptable object
+        Arrow.GetComponent<ArrowSetup>().Init(_currArrowData);
 
-        // get the projectile object from Ammo prefab
-        Transform projectile = Ammo.transform.Find("Projectile");
+        // get the projectile object from Arrow prefab
+        Transform projectile = Arrow.transform.Find("Projectile");
 
         // set the position of the projectile to the player position and set rotation to mouse
         projectile.transform.position = _bow.position;
         projectile.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg);
 
-        Ammo.SetActive(true);
+        Arrow.SetActive(true);
 
         // set speed using the stats of the scriptable object
-        projectile.GetComponent<Rigidbody2D>().velocity = shootDirection * Ammo.GetComponent<AmmoSetup>()._ammo.Speed;
+        projectile.GetComponent<Rigidbody2D>().velocity = shootDirection * Arrow.GetComponent<ArrowSetup>().Arrow.Speed;
     }
     private void ShootMultipleArrows(Vector2 shootDirection)
     {
@@ -155,13 +155,13 @@ public class ProjectileShooter : MonoBehaviour
             float angle = startAngle + angleStep * i;
             Vector2 projectileDirection = (Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg) * shootDirection).normalized;
 
-            //get Ammo prefab from pool
-            GameObject Ammo = AmmoPool.Instance.GetAmmoPrefab();
-            // set the current equipped ammo scriptable object
-            Ammo.GetComponent<AmmoSetup>().Init(_currArrowData);
+            //get Arrow prefab from pool
+            GameObject Arrow = ArrowPool.Instance.GetAmmoPrefab();
+            // set the current equipped arrow scriptable object
+            Arrow.GetComponent<ArrowSetup>().Init(_currArrowData);
 
-            // get the projectile object from Ammo prefab
-            Transform projectile = Ammo.transform.Find("Projectile");
+            // get the projectile object from Arrow prefab
+            Transform projectile = Arrow.transform.Find("Projectile");
 
             // set the position of the projectile to the player position
             projectile.position = _bow.position;
@@ -169,10 +169,10 @@ public class ProjectileShooter : MonoBehaviour
             // set rotation
             projectile.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(projectileDirection.y, projectileDirection.x) * Mathf.Rad2Deg);
 
-            Ammo.SetActive(true);
+            Arrow.SetActive(true);
 
             // set velocity
-            projectile.GetComponent<Rigidbody2D>().velocity = projectileDirection * Ammo.GetComponent<AmmoSetup>()._ammo.Speed;
+            projectile.GetComponent<Rigidbody2D>().velocity = projectileDirection * Arrow.GetComponent<ArrowSetup>().Arrow.Speed;
         }
     }
     public void CanShoot(GameState state)

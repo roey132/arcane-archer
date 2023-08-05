@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Ammo", menuName = "Ammo")]
-public class AmmoData : ScriptableObject
+[CreateAssetMenu(fileName = "New Arrow", menuName = "Arrow")]
+public class ArrowData : ScriptableObject
 {
-    public string AmmoName;
+    public string ArrowName;
     public float Speed;
     public float Damage;
     public Sprite Sprite;
@@ -13,6 +13,8 @@ public class AmmoData : ScriptableObject
     public GameObject Effect;
     public DebuffData Debuff;
     public int PenetrateCount;
+    public ArrowBehaviour arrow;
+
     public virtual GameObject ActivateEffect(Vector2 position)
     {
         GameObject effectObject = Instantiate(Effect ,position, Quaternion.identity);

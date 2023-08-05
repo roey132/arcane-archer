@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class ArrowBehaviour : MonoBehaviour
 {
     private float _damage;
-    private AmmoData _ammo;
+    private ArrowData _ammo;
     private string _effectName;
     private Rigidbody2D _rb;
     private int _penetrateCount;
@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         //}
     }
 
-    public void InitProjectile(AmmoData data)
+    public void InitProjectile(ArrowData data)
     {
         _ammo = data;
         _damage = data.Damage;
