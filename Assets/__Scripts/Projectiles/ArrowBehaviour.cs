@@ -24,29 +24,15 @@ public class ArrowBehaviour : MonoBehaviour
                 return;
             }
             _penetrateCount --;
-            //HandleEnemyDebuff(collision.GetComponent<Enemy>());
-
         }
-        //if (_effectName != "")
-        //{
-        //    _ammo.ActivateEffect(transform.position);
-        //}
     }
 
     public void InitProjectile(ArrowData data)
     {
         _ammo = data;
         _damage = data.Damage;
-        //_effectName = data.EffectName;
         gameObject.GetComponent<SpriteRenderer>().sprite = data.Sprite;
         _rb = GetComponent<Rigidbody2D>();
         _penetrateCount = data.PenetrateCount;
     }
-    //public void HandleEnemyDebuff(Enemy enemy)
-    //{
-    //    print("debuff handler runs");
-    //    if (_ammo.Debuff == null) return;
-    //    print("Sets enemy debuff");
-    //    enemy.SetActiveEffect(_ammo.Debuff);
-    //}
 }

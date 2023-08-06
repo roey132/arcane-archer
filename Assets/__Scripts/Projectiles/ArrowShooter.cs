@@ -126,23 +126,16 @@ public class ArrowShooter : MonoBehaviour
     public void ShootOneArrow(Vector2 shootDirection)
     {
         //get Arrow prefab from pool
-        GameObject Arrow = ArrowPool.Instance.GetAmmoPrefab();
+        GameObject arrow = ArrowPools.Instance.GetArrow(_currArrowData);
+
         // set the current equipped arrow scriptable object
-        Arrow.GetComponent<ArrowSetup>().Init(_currArrowData);
 
-        // get the projectile object from Arrow prefab
-        Transform projectile = Arrow.transform.Find("Projectile");
+        Quaternion projectileRotation = Quaternion.Euler(0, 0, Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg);
 
-        // set the position of the projectile to the player position and set rotation to mouse
-        projectile.transform.position = _bow.position;
-        projectile.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg);
-
-        Arrow.SetActive(true);
-
-        // set speed using the stats of the scriptable object
-        projectile.GetComponent<Rigidbody2D>().velocity = shootDirection * Arrow.GetComponent<ArrowSetup>().Arrow.Speed;
+        arrow.GetComponent<ArrowObjectManager>().InitProjectile(shootDirection, _bow.position, projectileRotation);
     }
-    private void ShootMultipleArrows(Vector2 shootDirection)
+
+    private void ShootMultipleArrows(Vector2 baseShootDirection)
     {
         // calculate the starting angle
         float spreadAngle = Mathf.Lerp(MaxSpreadAngle, MinSpreadAngle, (_numOfArrows - 1) / 9f);
@@ -153,26 +146,16 @@ public class ArrowShooter : MonoBehaviour
         {
             // calculate angle and direction for curr arow
             float angle = startAngle + angleStep * i;
-            Vector2 projectileDirection = (Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg) * shootDirection).normalized;
-
-            //get Arrow prefab from pool
-            GameObject Arrow = ArrowPool.Instance.GetAmmoPrefab();
-            // set the current equipped arrow scriptable object
-            Arrow.GetComponent<ArrowSetup>().Init(_currArrowData);
-
-            // get the projectile object from Arrow prefab
-            Transform projectile = Arrow.transform.Find("Projectile");
-
-            // set the position of the projectile to the player position
-            projectile.position = _bow.position;
+            Vector2 shootDirection = (Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg) * baseShootDirection).normalized;
 
             // set rotation
-            projectile.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(projectileDirection.y, projectileDirection.x) * Mathf.Rad2Deg);
+            Quaternion projectileRotation = Quaternion.Euler(0, 0, Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg);
 
-            Arrow.SetActive(true);
+            //get Arrow prefab from pool
+            GameObject arrow = ArrowPools.Instance.GetArrow(_currArrowData);
 
-            // set velocity
-            projectile.GetComponent<Rigidbody2D>().velocity = projectileDirection * Arrow.GetComponent<ArrowSetup>().Arrow.Speed;
+            // Init Projectile
+            arrow.GetComponent<ArrowObjectManager>().InitProjectile(shootDirection, _bow.position, projectileRotation);
         }
     }
     public void CanShoot(GameState state)
