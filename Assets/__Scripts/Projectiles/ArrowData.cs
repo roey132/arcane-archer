@@ -13,7 +13,6 @@ public class ArrowData : ScriptableObject
     public GameObject Effect;
     public DebuffData Debuff;
     public int PenetrateCount;
-    public ArrowBehaviour arrow;
     public GameObject ArrowPrefab;
     public virtual GameObject ActivateEffect(Vector2 position)
     {

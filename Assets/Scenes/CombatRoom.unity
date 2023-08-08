@@ -721,51 +721,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &650719895
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 650719897}
-  - component: {fileID: 650719896}
-  m_Layer: 0
-  m_Name: TestPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &650719896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650719895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25e18300d5d884d45b73193c86957981, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _defaultArrow: {fileID: 11400000, guid: bf0b8af26c763df4196ea8b58c88e887, type: 2}
---- !u!4 &650719897
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650719895}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.299189, y: 5.517406, z: 0.8626836}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &665980167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,10 +1664,6 @@ PrefabInstance:
       propertyPath: buffsUi
       value: 
       objectReference: {fileID: 1315417802}
-    - target: {fileID: 1344931761908559363, guid: 58b5ec370ce9bcf43a098b1880b71d3c, type: 3}
-      propertyPath: _arrowPrefab
-      value: 
-      objectReference: {fileID: 5439112176742407111, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
     - target: {fileID: 1344931761908559366, guid: 58b5ec370ce9bcf43a098b1880b71d3c, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -13559,7 +13510,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1413680208132070097, guid: 53236ec5b827e5446974872cacf8b392, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1413680208132070097, guid: 53236ec5b827e5446974872cacf8b392, type: 3}
       propertyPath: m_LocalPosition.x
