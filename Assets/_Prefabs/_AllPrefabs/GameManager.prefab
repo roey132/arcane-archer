@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1344931761908559360}
   - component: {fileID: 1344931761908559361}
-  - component: {fileID: 1344931761908559363}
+  - component: {fileID: 262334294457333129}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -86,7 +86,7 @@ MonoBehaviour:
   CurrentFloor: 0
   CurrentRoomDifficulty: 1
   buffsUi: {fileID: 0}
---- !u!114 &1344931761908559363
+--- !u!114 &262334294457333129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,11 +95,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1344931761908559366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c9903818dc1cc1439fbbc0e7b8f5629, type: 3}
+  m_Script: {fileID: 11500000, guid: 25e18300d5d884d45b73193c86957981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _AmmoPrefab: {fileID: 5439112176742407111, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
-  AmountToPool: 500
+  _defaultArrow: {fileID: 11400000, guid: bf0b8af26c763df4196ea8b58c88e887, type: 2}
 --- !u!1 &6985471727976428182
 GameObject:
   m_ObjectHideFlags: 0
