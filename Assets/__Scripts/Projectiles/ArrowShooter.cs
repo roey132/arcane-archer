@@ -12,7 +12,7 @@ public class ArrowShooter : MonoBehaviour
 
     private ArrowData _currArrowData;
     private ArrowData _equippedArrowData;
-    [SerializeField] private ArrowData _defaultArrowData;
+    private ArrowData _defaultArrowData;
     private float _attackSpeed;
     private float _numOfArrows;
     private IngameStats _stats;
@@ -75,6 +75,7 @@ public class ArrowShooter : MonoBehaviour
     }
     private void Start()
     {
+        _defaultArrowData = GameManager.Instance.DefaultArrow;
         _stats = IngameStats.Instance;
         _equippedArrowData = _defaultArrowData;
     }

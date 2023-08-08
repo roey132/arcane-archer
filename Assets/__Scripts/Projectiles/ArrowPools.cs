@@ -7,7 +7,7 @@ public class ArrowPools : MonoBehaviour
     public static ArrowPools Instance;
 
     [SerializeField] private Dictionary<string, ObjectPool<GameObject>> _pools;
-    [SerializeField] private ArrowData _defaultArrow;
+    private ArrowData _defaultArrow;
 
     private void Awake()
     {
@@ -16,17 +16,17 @@ public class ArrowPools : MonoBehaviour
             Instance = this;
         }
         _pools = new Dictionary<string, ObjectPool<GameObject>>();
-        CreateArrowPool(_defaultArrow);
     }
     private void Start()
     {
-        GetArrow(_defaultArrow);
+        _defaultArrow = GameManager.Instance.DefaultArrow;
+        CreateArrowPool(_defaultArrow);
     }
 
     public void CreateArrowPool(ArrowData arrowData)
     {
         ObjectPool<GameObject> objectPool = new ObjectPool<GameObject>(
-            () => { return Instantiate(arrowData.ArrowPrefab, GameManager.Instance.SpellCollector); ; },
+            () => { return Instantiate(arrowData.ArrowPrefab, GameManager.Instance.ArrowPoolsObject); ; },
             arrowObject => { arrowObject.SetActive(true); },
             arrowObject => { arrowObject.SetActive(false); },
             arrowObject => { Destroy(arrowObject); },

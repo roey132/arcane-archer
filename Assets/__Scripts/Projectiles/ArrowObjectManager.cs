@@ -13,6 +13,10 @@ public class ArrowObjectManager : MonoBehaviour
     {
         OnArrowDisable?.Invoke();
     }
+    private void OnEnable()
+    {
+        _arrowProjectile.gameObject.SetActive(false);
+    }
 
     public void InitProjectile(Vector2 direction,Vector3 startPosition, Quaternion startRotation)
     {

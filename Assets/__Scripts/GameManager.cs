@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public bool UiISActive;
     [SerializeField] public Transform ObjectCollector;
     [SerializeField] public Transform SpellCollector;
+    [SerializeField] public Transform ArrowPoolsObject;
     [SerializeField] public GameState _startState;
 
     public GameState State;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public int CurrentFloor;
     [SerializeField] public int CurrentRoomDifficulty;
+
+    [SerializeField] public ArrowData DefaultArrow;
 
     public void UpdateGameState(GameState newState)
     {
