@@ -87,6 +87,7 @@ MonoBehaviour:
   State: 0
   CurrentFloor: 0
   CurrentRoomDifficulty: 1
+  DefaultArrow: {fileID: 11400000, guid: bf0b8af26c763df4196ea8b58c88e887, type: 2}
   buffsUi: {fileID: 0}
 --- !u!114 &262334294457333129
 MonoBehaviour:
@@ -100,7 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e18300d5d884d45b73193c86957981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultArrow: {fileID: 11400000, guid: 58e85cfb1c1bb72439351595465c9d0f, type: 2}
 --- !u!1 &6985471727976428182
 GameObject:
   m_ObjectHideFlags: 0

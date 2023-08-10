@@ -47,6 +47,5 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 5439112176742407111, guid: 5b2b4329268ebae488e47ddd59bc6844, type: 3}
   MaxSpreadAngle: 0
   MinSpreadAngle: 1
-  _defaultArrowData: {fileID: 11400000, guid: bf0b8af26c763df4196ea8b58c88e887, type: 2}
   _equippedAmmoSprite: {fileID: 0}
   _canShoot: 1

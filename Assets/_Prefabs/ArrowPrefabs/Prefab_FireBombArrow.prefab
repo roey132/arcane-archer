@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionDamage: 15
-  _explosionRadius: 1.5
+  _explosionRadius: 2
   _arrowData: {fileID: 11400000, guid: 58e85cfb1c1bb72439351595465c9d0f, type: 2}
   _animator: {fileID: 3123618358905466052}
   _arrowObject: {fileID: 4082294211648396304}

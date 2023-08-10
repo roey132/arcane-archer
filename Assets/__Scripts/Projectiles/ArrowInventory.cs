@@ -61,7 +61,13 @@ public class ArrowInventory : MonoBehaviour
             {
                 if(button.activeSelf == false)
                 {
+                    // create arrow pool
+                    ArrowPools.Instance.CreateArrowPool(arrowData);
+
+                    // add arrow to the inventory dictionary
                     _arrowInventory.Add(arrowData, new EquippedArrowInfo(button, ammoCount));
+
+                    // init the button
                     button.SetActive(true);
                     button.GetComponent<ArrowButton>().InitButton(arrowData, ammoCount);
                     break;
